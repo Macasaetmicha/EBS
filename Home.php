@@ -109,14 +109,212 @@
                                 <a href="Booking.php" class="btn btn-primary py-sm-3 px-sm-5 me-3 animated slideInLeft">Save the Date</a>
                             </div>
                             <div class="col-lg-6 text-center text-lg-end overflow-hidden">
-                                <img class="img-fluid" src="img/hero.png" alt="">
+                                <img class="img-fluid" src="img/circlee.png" alt="">
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
                 <!-- Navbar & Hero End -->
-
+                <br>
+                <br>
+                <br>
+                <!-- Services Start -->
+            <div class="container-xxl py-5">
+                <div class="container">
+                    <div class="row g-4">
+                        <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.1s">
+                            <div class="service-item rounded pt-3">
+                                <div class="p-4">
+                                    <i class="fa fa-3x fa-user-tie text-primary mb-4"></i>
+                                    <h5>Offers</h5>
+                                    <p>I got front row seats for the park side livin'
+                                        Feel like the one but I'm one in a billion</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.3s">
+                            <div class="service-item rounded pt-3">
+                                <div class="p-4">
+                                    <i class="fa fa-3x fa-envelope text-primary mb-4"></i>
+                                    <h5>Offers</h5>
+                                    <p>Teenage cynical and I don't really know
+                                        What's the point of living if my heart gets broken?</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.5s">
+                            <div class="service-item rounded pt-3">
+                                <div class="p-4">
+                                    <i class="fa fa-3x fa-cart-plus text-primary mb-4"></i>
+                                    <h5>Offers</h5>
+                                    <p>Driving on the road, waiting for head-on collision
+                                        Springtime funeral, I miss you but I'd rather be alone</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.7s">
+                            <div class="service-item rounded pt-3">
+                                <div class="p-4">
+                                    <i class="fa fa-3x fa-headset text-primary mb-4"></i>
+                                    <h5>Offers</h5>
+                                    <p>To keep me from Heartbreaks, headaches The doctor says I'm diagnosed with Shit days, mistakes But I'll be fine But I'll be fine</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+                <!-- Services End -->
+                <br>
+                <br>
+                <br>
+                <!-- Slideshow Start -->
+            <div class="container">
+                <div class="text-center">
+                    <h5 class="section-title ff-secondary text-center text-primary fw-normal">Venues</h5>
+                    <h1 class="mb-5">Look Around Our Venues</h1>
+                </div>
+            <div class="slider-wrapper">
+                <button id="prev-slide" class="slide-button material-symbols-rounded">chevron_left</button>
+                <ul class="image-list">
+                <img class="image-item" src="img/img-1.jpg" alt="img-1" />
+                <img class="image-item" src="img/img-2.jpg" alt="img-2" />
+                <img class="image-item" src="img/img-3.jpg" alt="img-3" />
+                <img class="image-item" src="img/img-4.jpg" alt="img-4" />
+                <img class="image-item" src="img/img-5.jpg" alt="img-5" />
+                <img class="image-item" src="img/img-6.jpg" alt="img-6" />
+                <img class="image-item" src="img/img-7.jpg" alt="img-7" />
+                <img class="image-item" src="img/img-8.jpg" alt="img-8" />
+                <img class="image-item" src="img/img-9.jpg" alt="img-9" />
+                <img class="image-item" src="img/img-10.jpg" alt="img-10" />
+                </ul>
+                <button id="next-slide" class="slide-button material-symbols-rounded">chevron_right</button>
+            </div>
+            <div class="slider-scrollbar">
+                <div class="scrollbar-track">
+                <div class="scrollbar-thumb"></div>
+                </div>
+            </div>
+            </div>
+                <!-- Slideshow End -->
+                <br>
+                <br>
+                <br>
+                <!-- About Us Start -->
+            <div class="container-xxl py-5">
+                <div class="container">
+                    <div class="row g-5 align-items-center">
+                        <div class="col-lg-6">
+                            <div class="row g-3">
+                                <div class="col-6 text-start">
+                                    <img class="img-fluid rounded w-100 wow zoomIn" data-wow-delay="0.1s" src="img/about-1.jpg">
+                                </div>
+                                <div class="col-6 text-start">
+                                    <img class="img-fluid rounded w-75 wow zoomIn" data-wow-delay="0.3s" src="img/about-2.jpg" style="margin-top: 25%;">
+                                </div>
+                                <div class="col-6 text-end">
+                                    <img class="img-fluid rounded w-75 wow zoomIn" data-wow-delay="0.5s" src="img/about-3.jpg">
+                                </div>
+                                <div class="col-6 text-end">
+                                    <img class="img-fluid rounded w-100 wow zoomIn" data-wow-delay="0.7s" src="img/about-4.jpg">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <h5 class="section-title ff-secondary text-start text-primary fw-normal">Learn About Us</h5>
+                            <h1 class="mb-4">Welcome to <i class="fa fa-envelope text-primary me-2"></i>Event Booking Management</h1>
+                            <p class="mb-4">'Cause you're my painkiller When my brain gets bitter You keep me close When I've been miserable And it takes forever To let my brain get better You keep me close You keep me close
+                                </p>
+                            <p class="mb-4">Window seats as the plane starts leavin' Miss those streets where my knees were bleedin' Homesick veteran I left my bed again</p>
+                            <div class="row g-4 mb-4">
+                                <div class="col-sm-6">
+                                    <div class="d-flex align-items-center border-start border-5 border-primary px-3">
+                                        <h1 class="flex-shrink-0 display-5 text-primary mb-0" data-toggle="counter-up">147</h1>
+                                        <div class="ps-4">
+                                            <p class="mb-0">Years Since</p>
+                                            <h6 class="text-uppercase mb-0">Establish</h6>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="d-flex align-items-center border-start border-5 border-primary px-3">
+                                        <h1 class="flex-shrink-0 display-5 text-primary mb-0" data-toggle="counter-up">17089</h1>
+                                        <div class="ps-4">
+                                            <p class="mb-0">Events</p>
+                                            <h6 class="text-uppercase mb-0">Done</h6>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <a class="btn btn-primary py-3 px-5 mt-2" href="booking.html">Book Now</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+                <!-- About Us End -->
+                <br>
+                <br>
+                <br>
+                <!-- Feedback Start -->
+            <div class="container-xxl py-5 wow fadeInUp" data-wow-delay="0.1s">
+                <div class="container">
+                    <div class="text-center">
+                        <h5 class="section-title ff-secondary text-center text-primary fw-normal">Feedbacks</h5>
+                        <h1 class="mb-5">Our Clients Say!!!</h1>
+                    </div>
+                    <div class="owl-carousel testimonial-carousel">
+                        <div class="testimonial-item bg-transparent border rounded p-4">
+                            <i class="fa fa-quote-left fa-2x text-primary mb-3"></i>
+                            <p>Ang Gandaaa </p>
+                            <div class="d-flex align-items-center">
+                                <img class="img-fluid flex-shrink-0 rounded-circle" src="img/testimonial-1.jpg" style="width: 50px; height: 50px;">
+                                <div class="ps-3">
+                                    <h5 class="mb-1">Sir Nortz</h5>
+                                    <small>Sir DCIT</small>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="testimonial-item bg-transparent border rounded p-4">
+                            <i class="fa fa-quote-left fa-2x text-primary mb-3"></i>
+                            <p>Sheeeeeeeeeeeeeeeeeeeeeeesh</p>
+                            <div class="d-flex align-items-center">
+                                <img class="img-fluid flex-shrink-0 rounded-circle" src="img/testimonial-2.jpg" style="width: 50px; height: 50px;">
+                                <div class="ps-3">
+                                    <h5 class="mb-1">Sir Hugo</h5>
+                                    <small>Sir COSC</small>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="testimonial-item bg-transparent border rounded p-4">
+                            <i class="fa fa-quote-left fa-2x text-primary mb-3"></i>
+                            <p>Calcu'laaaaaa'ted</p>
+                            <div class="d-flex align-items-center">
+                                <img class="img-fluid flex-shrink-0 rounded-circle" src="img/testimonial-3.jpg" style="width: 50px; height: 50px;">
+                                <div class="ps-3">
+                                    <h5 class="mb-1">Sir Bayan</h5>
+                                    <small>Sir Math</small>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="testimonial-item bg-transparent border rounded p-4">
+                            <i class="fa fa-quote-left fa-2x text-primary mb-3"></i>
+                            <p>Grabe ang bilis</p>
+                            <div class="d-flex align-items-center">
+                                <img class="img-fluid flex-shrink-0 rounded-circle" src="img/testimonial-4.jpg" style="width: 50px; height: 50px;">
+                                <div class="ps-3">
+                                    <h5 class="mb-1">Sir Opella</h5>
+                                    <small>Sir of the Sir</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+                <!-- Feedback End -->
+                <br>
+                <br>
+                <br>
                 <!-- Footer Start -->
                 <div class="container-fluid bg-dark text-light footer pt-5 mt-5 wow fadeIn" data-wow-delay="0.1s">
                     <div class="container py-5">
