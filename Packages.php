@@ -24,13 +24,15 @@
     <!-- Libraries Stylesheet -->
     <link href="lib/animate/animate.min.css" rel="stylesheet">
     <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
-    <link href="lib/tempusdominus/css/tempusdominus-bootstrap-4.min.css" rel="stylesheet" />
+    <link href="lib/tempusdominus/css/tempusdominus-bootstrap-4.min.css" rel="stylesheet">
 
     <!-- Customized Bootstrap Stylesheet -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Template Stylesheet -->
     <link href="css/style.css" rel="stylesheet">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 </head>
 
 <body>
@@ -80,7 +82,7 @@
                 </div>
                 <!-- Navbar & Hero End -->
 
-                <!-- Packages Start -->
+                <!-- Event Booking Prompt Start -->
                 <div class="container-xxl py-5">
                     <div class="container">
                         <div class="row g-5 align-items-center">
@@ -130,57 +132,111 @@
                         </div>
                     </div>
                 </div>
-                <!-- Packages End -->
+                <!-- Event Booking Prompt End -->
 
 
-                <!-- Team Start -->
+                <!-- Packages Start -->
                 <div class="container-xxl pt-5 pb-3">
                     <div class="container">
                         <div class="text-center wow fadeInDown" data-wow-delay="0.1s">
                             <h5 class="section-title ff-secondary text-center text-primary fw-normal">This Is Our</h5>
                             <h1 class="mb-5">Packages</h1>
                         </div>
-                        <div class="row g-4">
-                            <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
-                                <div class="team-item text-center rounded overflow-hidden">
-                                    <div class="rounded-circle overflow-hidden m-4">
-                                        <img class="criteria" src="img/wedding.jpg" alt="">
-                                    </div>
-                                    <h5 class="mb-0">For Wedding</h5>   
-                                    <small>Designation</small>
+                        <!--  -->
+                        <section id="section-feature" class="container wow fadeInUp" data-wow-delay="0.1s">
+                            <div class="row">
+                                    <li class="col-md-3 col-sm-6 col-xs-12">
+                                        <div class="sf-wrap">
+                                            <div class="sf-mdl-left">
+                                                <div class="wed-bg">
+                                                    <img src="img/wedding.jpg" alt="">
+                                                </div>
+                                                <h3>For Weddings</h3>
+                                            </div>
+                                            <div class="sf-mdl-right">
+                                                <div class="sf-icon">
+                                                    <i class="fa fa-fw fa-regular fa-rings-weddings fa-4x"></i>
+                                                </div>
+                                                <h3>For Weddings</h3>
+                                            </div>
+                                            <div class="sf-mdl-left-full">
+                                                <h3>put deets here</h3>
+                                                <p>Curabitur blandit tempus ardua ridiculus sed magna. Integer legentibus erat a ante historiarum dapibus.</p>
+                                            </div>
+                                            <div class="sf-mdl-right-full">
+                                                <h3><a>put deets here</a></h3>
+                                                <p>Curabitur blandit tempus ardua ridiculus sed magna. Integer legentibus erat a ante historiarum dapibus.</p>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li class="col-md-3 col-sm-6 col-xs-12">
+                                        <div class="sf-wrap">
+                                            <div class="sf-mdl-left">
+                                                <div class="bday-bg">
+                                                    <img src="img/BIRTHDAYS.jpg" alt="">
+                                                </div>
+                                                <h3>For Birthdays</h3>
+                                            </div>
+                                            <div class="sf-mdl-right">
+                                                <h3>For Birthdays</h3>
+                                            </div>
+                                            <div class="sf-mdl-left-full">
+                                                <h3>put deets</h3>
+                                                <p>Hi omnes lingua, institutis, legibus inter se differunt. Donec sed odio operae, eu vulputate felis rhoncus.</p>
+                                            </div>
+                                            <div class="sf-mdl-right-full">
+                                                <h3>put deets</h3>
+                                                <p>Hi omnes lingua, institutis, legibus inter se differunt. Donec sed odio operae, eu vulputate felis rhoncus.</p>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li class="col-md-3 col-sm-6 col-xs-12">
+                                        <div class="sf-wrap">
+                                            <div class="sf-mdl-left">
+                                                <div class="g-bg">
+                                                    <img src="img/gatherings.jpg" alt="">
+                                                </div>
+                                                <h3>Gatherings</h3>
+                                            </div>
+                                            <div class="sf-mdl-right">
+                                                <h3>Gatherings</h3>
+                                            </div>
+                                            <div class="sf-mdl-left-full">
+                                                <h3>deets</h3>
+                                                <p>Nec dubitamus multa iter quae et nos invenerat. Ullamco laboris nisi ut aliquid ex ea commodi consequat.</p>
+                                            </div>
+                                            <div class="sf-mdl-right-full">
+                                                <h3>deets</h3>
+                                                <p>Nec dubitamus multa iter quae et nos invenerat. Nigga laboris nisi ut aliquid ex ea commodi consequat.</p>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li class="col-md-3 col-sm-6 col-xs-12">
+                                        <div class="sf-wrap">
+                                            <div class="sf-mdl-left">
+                                                <div class="rooms-bg">
+                                                    <img src="img/rooms.jpg" alt="">
+                                                </div>
+                                                <h3>Rooms</h3>
+                                            </div>
+                                            <div class="sf-mdl-right">
+                                                <h3>Rooms</h3>
+                                            </div>
+                                            <div class="sf-mdl-left-full">
+                                                <h3>deets</h3>
+                                                <p>Morbi fringilla convallis sapien, id pulvinar odio volutpat. Contra legem facit qui id facit quod lex prohibet.</p>
+                                            </div>
+                                            <div class="sf-mdl-right-full">
+                                                <h3>deets</h3>
+                                                <p>Morbin time fringilla convallis sapien, id pulvinar odio volutpat. Contra legem facit qui id facit quod lex prohibet.</p>
+                                            </div>
+                                        </div>
+                                    </li>
                                 </div>
-                            </div>
-                            <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
-                                <div class="team-item text-center rounded overflow-hidden">
-                                    <div class="rounded-circle overflow-hidden m-4">
-                                        <img class="criteria" src="img/BIRTHDAYS.jpg" alt="image" class="flip">
-                                    </div>
-                                    <h5 class="mb-0">For Birthdays</h5>
-                                    <small>Designation</small>
-                                </div>
-                            </div>
-                            <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
-                                <div class="team-item text-center rounded overflow-hidden">
-                                    <div class="rounded-circle overflow-hidden m-4">
-                                        <img class="criteria" src="img/BIRTHDAYS.jpg" alt="">
-                                    </div>
-                                    <h5 class="mb-0">Gatherings</h5>
-                                    <small>Designation</small>
-                                </div>
-                            </div>
-                            <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.7s">
-                                <div class="team-item text-center rounded overflow-hidden">
-                                    <div class="rounded-circle overflow-hidden m-4">
-                                        <img class="criteria" src="img/BIRTHDAYS.jpg">
-                                    </div>
-                                    <h5 class="mb-3">Rooms</h5>
-                                    <small>Designation</small>  
-                                </div>
-                            </div>
-                        </div>
+                        </section>
                     </div>
                 </div>
-                <!-- Team End -->
+                <!-- Packages End -->
         
 
                                 <!-- Footer Start -->
@@ -245,9 +301,10 @@
     <script src="lib/tempusdominus/js/moment.min.js"></script>
     <script src="lib/tempusdominus/js/moment-timezone.min.js"></script>
     <script src="lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
     <!-- Template Javascript -->
     <script src="js/main.js"></script>
-
+    
 </body>
 </html>
