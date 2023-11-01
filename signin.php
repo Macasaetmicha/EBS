@@ -67,7 +67,7 @@
                     else
                     {
                         //display if password dosent match
-                        echo "Invalid email or password!";
+                        echo "<br><br>Invalid email or password!";
                     }
                     here:
                     //close db connection

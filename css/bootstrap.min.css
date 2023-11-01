@@ -9,7 +9,7 @@
  .btn:hover{color:#c0b283}
  .btn-check:focus+.btn,.btn:focus{outline:0;box-shadow:0 0 0 .25rem rgba(254,161,22,0.25)}
  .btn:disabled,.btn.disabled,fieldset:disabled.btn{pointer-events:none;opacity:.65}
- .btn-primary{color:#000;background-color:#404a42;border-color:#404a42}
+ .btn-primary{color:#FFFFFF;background-color:#404a42;border-color:#404a42}
  .btn-primary:hover{color:#000;background-color:#f4f4f4;border-color:#f4f4f4}
  .btn-check:focus+.btn-primary,.btn-primary:focus{color:#000;background-color:#f4f4f4;border-color:#f4f4f4;box-shadow:0 0 0 .25rem rgba(216,137,19,0.5)}
  .btn-check:checked+.btn-primary,.btn-check:active+.btn-primary,.btn-primary:active,.btn-primary.active,.show>.btn-primary.dropdown-toggle{color:#000;background-color:#feb445;border-color:#feaa2d}

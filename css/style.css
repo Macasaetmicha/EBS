@@ -32,11 +32,39 @@
 
 /***CHANGE MADE HERE***/
 /***Hidden Text Field***/
-.hidden{
+
+.booking-step{
     display: none;
+    animation: moving .5s ease;
 }
-.show{
+
+@keyframes moving{
+    from{transform: translateX(50px);opacity: 0;}
+    to{transform: translateX(0px);opacity: 1;}
+}
+
+.booking-step.active{
     display: block;
+    width: 100%;
+}
+
+.booking-step h2{
+    margin-bottom: 10px;
+}
+
+.booking_btn{
+    margin-top: 15px;
+    border: #404a42;
+}
+
+.payment-info {
+    width: 100%; 
+    padding: 20px; 
+    border-radius: 10px;
+    color: #404a42;
+    background-color: #fff;
+    vertical-align: middle;
+    font-family: 'Nunito' sans-serif;
 }
 
 /*** Spinner ***/
