@@ -102,9 +102,9 @@
                             </div>
                             <div class="col-lg-6">
                                 <h5 class="section-title ff-secondary text-start text-primary fw-normal">About Us</h5>
-                                <h1 class="mb-4">Welcome to <i class="fa fa-duotone fa-calendar me-3"></i>Events</h1>
-                                <p class="mb-4">Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit. Aliqu diam amet diam et eos erat ipsum et lorem et sit, sed stet lorem sit.</p>
-                                <p class="mb-4">Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit. Aliqu diam amet diam et eos. Clita erat ipsum et lorem et sit, sed stet lorem sit clita duo justo magna dolore erat amet</p>
+                                <h1 class="mb-4">Welcome to <i class="fa fa-duotone fa-calendar me-3"></i>MiCasa Events</h1>
+                                <p class="mb-4">MiCasa Events is where memories are born, and dreams come to life. We're not just an events place; we're the canvas for your most cherished moments. Our passion is crafting unforgettable experiences that bring people together in the heart of our inviting and versatile space.</p>
+                                <p class="mb-4">MiCasa Events is more than a venue; it's where your story unfolds.</p>
                                 <div class="row g-4 mb-4">
                                     <div class="col-sm-6">
                                         <div class="d-flex align-items-center border-start border-5 border-primary px-3">
@@ -143,15 +143,15 @@
                                 <div class="row gy-4">
                                     <div class="col-md-4">
                                         <h5 class="section-title ff-secondary fw-normal text-start text-primary">Email</h5>
-                                        <p><i class="fa fa-envelope-open text-primary me-2"></i>events@gmail.com</p>
+                                        <p><i class="fa fa-envelope-open text-primary me-2"></i>micasa.cosc75g2@gmail.com</p>
                                     </div>
                                     <div class="col-md-4">
                                         <h5 class="section-title ff-secondary fw-normal text-start text-primary">Contact Number</h5>
-                                        <p><i class="fa fa-envelope-open text-primary me-2"></i>0912 345 6789</p>
+                                        <p><i class="fa fa-mobile text-primary me-2"></i>0912 345 6789</p>
                                     </div>
                                     <div class="col-md-4">
                                         <h5 class="section-title ff-secondary fw-normal text-start text-primary">Location</h5>
-                                        <p><i class="fa fa-envelope-open text-primary me-2"></i>123 Carmona, Cavite, Philippines</p>
+                                        <p><i class="fa fa-map-marker text-primary me-2"></i>123 Carmona, Cavite, Philippines</p>
                                     </div>
                                 </div>
                             </div>
@@ -259,14 +259,126 @@
                                 <h4 class="section-title ff-secondary text-start text-primary fw-normal mb-4">Company</h4>
                                 <a class="btn btn-link" href="About.php">About us</a>
                                 <a class="btn btn-link" href="Booking.php">Booking</a>
-                                <a class="btn btn-link" href="">Privacy Policy</a>
-                                <a class="btn btn-link" href="">Terms & Condition</a>
+                                <a class="btn btn-link" id="privacyLink" onclick="showPrivacyDialog()">Privacy Policy</a>
+                                <a class="btn btn-link" id="termsLink" onclick="showTermsDialog()">Terms & Condition</a>
                             </div>
+
+                            <dialog id="privacyDialog">
+                                <button id="closePrivacyDialog" onclick="closePrivacyDialog()">&times;</button> <!-- Close "x" button -->
+                                <h1>Privacy Policy for MiCasa Events</h1>
+                                <h5>Effective Date: November 1, 2023</h5>
+                                <br>
+                                <hr>
+                                <br>
+                                <p><b>1. Introduction</b></p>
+                                <p class="non-bold"> Welcome to MiCasa Events. At MiCasa Events, we are committed to protecting your privacy and ensuring 
+                                    the security of your personal information. This Privacy Policy explains how we collect, use, 
+                                    and safeguard your information when you use our services and visit our website.</p>
+
+                                <p><b>2. Information We Collect</b></p>
+
+                                <p class="non-bold">We may collect various types of information, including but not limited to:
+                                    <ul><i>Personal Information:</i> This includes your name, email address, phone number, and any other information you provide to us.</ul>
+                                    <ul><i>Information:</i> We collect data about your interactions with our website and services, including your IP address, browser type, and pages visited.</ul>
+                                    <ul><i>Cookies and Tracking Technologies:</i> We may use cookies and similar technologies to collect information about your browsing habits.</ul></p>
+                                    
+                                <p><b>3. How We Use Your Information</b></p>
+                                <p class="non-bold"> We use the information we collect for various purposes, including but not limited to:
+                                    <br>•Providing and improving our services.
+                                    <br>•Communicating with you.
+                                    <br>•Personalizing your experience.
+                                    <br>•Analyzing website usage and trends.</p>
+
+                                <p><b>4. Disclosure of Your Information</b></p>
+                                <p class="non-bold">We may share your information with third parties in certain circumstances, such as:
+                                    <ul><i>Providers:</i> We may use third-party service providers to assist in delivering our services.</ul>
+                                    <ul><i>Legal Obligations:</i> We may share your information if required by law or to protect our rights and interests.</ul></p>
+                                
+                                <p><b>5. Data Security</b></p>
+                                <p class="non-bold"> We take measures to protect your information from unauthorized access, disclosure, or alteration. 
+                                    However, no method of transmission over the internet or electronic storage is completely secure, 
+                                    and we cannot guarantee absolute security.</p>
+                                                       
+                                <p><b> 6. Your Choices</b></p>
+                                <p class="non-bold">You have the right to access, correct, or delete your personal information. 
+                                    You can also opt-out of marketing communications at any time.</p>
+                               
+                                <p><b>7. Children's Privacy</b></p>
+                                <p class="non-bold">Our services are not intended for individuals under the age of 18. 
+                                    We do not knowingly collect or store information from children.</p>
+
+                                <p><b>8. Changes to This Privacy Policy</b></p>
+                                <p class="non-bold">We may update this Privacy Policy from time to time. 
+                                    Please check back periodically to review any changes.</p>
+
+                                <p><b>9. Contact Us</b></p>
+                                <p class="non-bold">If you have questions or concerns about this Privacy Policy, please contact us at 09123456789.</p>
+                            </dialog>
+
+                            <dialog id="termsDialog">
+                                <button id="closePrivacyDialog" onclick="closeTermsDialog()">&times;</button> <!-- Close "x" button -->
+                                <h1>Terms and Conditions for MiCasa Events</h1>
+                                <h6>Please read the following terms and conditions carefully before making a booking with MiCasa Events. 
+                                    By booking an event with us, you agree to abide by these terms and conditions.</h6>
+                                <br>
+                                <hr>
+                                <br>
+                                <p><b>1. Booking and Payment</b></p>
+                                <p class="non-bold"> 1.1 <b>Downpayment:</b> A downpayment of 30% of the total event cost is required to secure your booking. The downpayment can be made through GCash, PayMaya, or credit and debit card.
+                                    <br><br>1.2. <b>Final Payment:</b> The remaining balance of the total event cost must be settled on the day of the event before the event begins.
+                                    <br><br>1.3. <b>Booking Lead Time:</b> Bookings must be made at least 2 weeks before the scheduled event date.</p>
+
+                                <br><p><b>2. Overtime Charges</b></p>
+                                <p class="non-bold">2.1. <b>Event Duration:</b> The booking time includes the set-up, event duration, and teardown. Any event exceeding the agreed-upon end time during booking will be subject to overtime charges.
+                                    <br><br>2.2. <b>Overtime Fees:</b> An additional 10% of the function room base price will be added for every hour or fraction thereof that the event goes overtime based on the selected end time during booking.</p>
+                                    
+                                <br><p><b>3. Function Room Upgrades</b></p>
+                                <p class="non-bold"> 3.1. <b>Package:</b> The prices quoted are for the base package. Any function room upgrades will result in an additional charge.
+                                    <br><br>3.2. <b>Upgrade Fee:</b> An additional 15% of the function room base price is added to the base package price for every function room upgrade.</p>
+
+                                <br><p><b>4. Cancellation and Refunds</b></p>
+                                <p class="non-bold">4.1. <b>Cancellation:</b> If you need to cancel your booking, please do so at least 2 weeks in advance to receive a full refund of the downpayment, minus a 10% processing fee.
+                                    <br><br>4.2. <b>Refund Policy:</b> Refunds for cancellations made within 2 weeks of the event date may be subject to a 10% processing fee, resulting in a 90% refund of the downpayment.</p>
+                                
+                                <br><p><b>5. House Rules</b></p>
+                                <p class="non-bold">5.1. <b>Adherence to Rules:</b> Clients and guests are expected to adhere to the house rules and guidelines provided by MiCasa Events for a safe and enjoyable experience.
+                                    <br><br>5.2. <b>Liability:</b> MiCasa Events is not responsible for any loss or damage to personal property or injuries sustained during the event.</p>
+                                                       
+                                <br><p><b>6. Contact Information</b></p>
+                                <p class="non-bold">For any questions, concerns, or to make changes to your booking, please contact us at 09123456789 or email us at micasa.cosc75g2@gmail.com.
+                                    <br><br>By booking with MiCasa Events, you acknowledge that you have read and agreed to these terms and conditions.</p>
+                            </dialog>
+
+                            <script>
+                                const privacyDialog = document.getElementById("privacyDialog");
+                                const termsDialog = document.getElementById("termsDialog");
+
+                                // Show the Privacy Policy dialog when the "Privacy Policy" link is clicked
+                                function showPrivacyDialog() {
+                                    privacyDialog.showModal();
+                                }
+
+                                // Show the Terms and Conditions dialog when the "Terms & Conditions" link is clicked
+                                function showTermsDialog() {
+                                    termsDialog.showModal();
+                                }
+
+                                // Close the Privacy Policy dialog when the "x" button is clicked
+                                function closePrivacyDialog() {
+                                    privacyDialog.close();
+                                }
+
+                                // Close the Terms and Conditions dialog when the "x" button is clicked
+                                function closeTermsDialog() {
+                                    termsDialog.close();
+                                }
+                            </script>
+
                             <div class="col-lg-4 col-md-6">
                                 <h4 class="section-title ff-secondary text-start text-primary fw-normal mb-4">Contact</h4>
                                 <p class="mb-2"><i class="fa fa-map-marker-alt me-3"></i>123 Carmona, Cavite, Philippines</p>
                                 <p class="mb-2"><i class="fa fa-phone-alt me-3"></i>0912 345 6789</p>
-                                <p class="mb-2"><i class="fa fa-envelope me-3"></i>events@gmail.com</p>
+                                <p class="mb-2"><i class="fa fa-envelope me-3"></i>micasa.cosc75g2@gmail.com</p>
                                 <div class="d-flex pt-2">
                                     <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-twitter"></i></a>
                                     <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-facebook-f"></i></a>
