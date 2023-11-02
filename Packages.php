@@ -31,207 +31,267 @@
 
     <!-- Template Stylesheet -->
     <link href="css/style.css" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
 </head>
 
 <body>
     <div class="container-xxl bg-white p-0">
-                <!-- Navbar & Hero Start -->
-                <div class="container-xxl position-relative p-0">
-                    <nav class="navbar navbar-expand-lg navbar-dark bg-dark px-4 px-lg-5 py-3 py-lg-0">
-                        <a href="" class="navbar-brand p-0">
-                            <h1 class="text-primary m-0">
-                            <i class=" fa fa-duotone fa-calendar me-3"></i>Mi Casa</h1>
-                            <!-- <img src="img/logo.png" alt="Logo"> -->
-                        </a>
-                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
-                            <span class="fa fa-bars"></span>
-                        </button>
-                        <div class="collapse navbar-collapse" id="navbarCollapse">
-                            <div class="navbar-nav ms-auto py-0 pe-4">
-                                <a href="Home.php" class="nav-item nav-link">Home</a>
-                                <a href="Packages.php" class="nav-item nav-link">Packages</a>
-                                <a href="Booking.php" class="nav-item nav-link">Booking</a>
-                                <a href="About.php" class="nav-item nav-link">About us</a>
-                            </div>
-                            <?php
-                                if (isset($_SESSION['email'])) {
-                                    // User is logged in, show Logout link
-                                    echo '<a href="logout.php" class="btn btn-primary py-2 px-4">Logout</a>';
-                                } else {
-                                    // User is not logged in, show Login link
-                                    echo '<a href="signin.php" class="btn btn-primary py-2 px-4">Login</a>';
-                                }
-                            ?>
-                            
-                        </div>
+    
+        <!-- Navbar & Hero Start -->
+        <div class="container-xxl position-relative p-0">
+            <nav class="navbar navbar-expand-lg navbar-dark bg-dark px-4 px-lg-5 py-3 py-lg-0">
+                <a href="" class="navbar-brand p-0">
+                    <h1 class="text-primary m-0">
+                    <i class=" fa fa-duotone fa-calendar me-3"></i>Mi Casa</h1>
+                <!-- <img src="img/logo.png" alt="Logo"> -->
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+                    <span class="fa fa-bars"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarCollapse">
+                    <div class="navbar-nav ms-auto py-0 pe-4">
+                        <a href="Home.php" class="nav-item nav-link">Home</a>
+                        <a href="Packages.php" class="nav-item nav-link">Packages</a>
+                        <a href="Booking.php" class="nav-item nav-link">Booking</a>
+                        <a href="About.php" class="nav-item nav-link">About us</a>
+                    </div>
+                    <?php
+                        if (isset($_SESSION['email'])) {
+                            // User is logged in, show Logout link
+                            echo '<a href="logout.php" class="btn btn-primary py-2 px-4">Logout</a>';
+                        } else {
+                            // User is not logged in, show Login link
+                            echo '<a href="signin.php" class="btn btn-primary py-2 px-4">Login</a>';
+                        }
+                    ?>        
+                </div>
+            </nav>
+
+            <div class="container-xxl py-5 bg-dark hero-header mb-5">
+                <div class="container text-center my-5 pt-5 pb-4">
+                    <h1 class="display-3 text-white mb-3 animated slideInDown">Packages</h1>
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb justify-content-center text-uppercase">
+                            <li class="breadcrumb-item"><a href="#">Home</a></li>
+                            <li class="breadcrumb-item text-white active" aria-current="page">Packages</li>
+                        </ol>
                     </nav>
-
-                    <div class="container-xxl py-5 bg-dark hero-header mb-5">
-                        <div class="container text-center my-5 pt-5 pb-4">
-                            <h1 class="display-3 text-white mb-3 animated slideInDown">Packages</h1>
-                            <nav aria-label="breadcrumb">
-                                <ol class="breadcrumb justify-content-center text-uppercase">
-                                    <li class="breadcrumb-item"><a href="#">Home</a></li>
-                                    <li class="breadcrumb-item text-white active" aria-current="page">Packages</li>
-                                </ol>
-                            </nav>
-                        </div>
-                    </div>
                 </div>
-                <!-- Navbar & Hero End -->
+            </div>
+        </div>
+        <!-- Navbar & Hero End -->
 
-                <!-- Packages Start -->
-                <div class="container-xxl py-5">
-                    <div class="container">
-                        <div class="row g-5 align-items-center">
-                            <div class="col-lg-6">
-                                <div class="row g-3">
-                                    <div class="col-6 text-start">
-                                        <img class="img-fluid rounded w-100 wow zoomIn" data-wow-delay="0.1s" src="img/about-1.jpg">
-                                    </div>
-                                    <div class="col-6 text-start">
-                                        <img class="img-fluid rounded w-75 wow zoomIn" data-wow-delay="0.3s" src="img/about-2.jpg" style="margin-top: 25%;">
-                                    </div>
-                                    <div class="col-6 text-end">
-                                        <img class="img-fluid rounded w-75 wow zoomIn" data-wow-delay="0.5s" src="img/about-3.jpg">
-                                    </div>
-                                    <div class="col-6 text-end">
-                                        <img class="img-fluid rounded w-100 wow zoomIn" data-wow-delay="0.7s" src="img/about-4.jpg">
-                                    </div>
-                                </div>
+        <!-- Event Start -->
+        <div class="container-xxl py-5">
+            <div class="container">
+                <div class="row g-5 align-items-center">
+                    <div class="col-lg-6">
+                        <div class="row g-3">
+                            <div class="col-6 text-start">
+                                <img class="img-fluid rounded w-100 wow zoomIn" data-wow-delay="0.1s" src="img/about-1.jpg">
                             </div>
-                            <div class="col-lg-6">
-                                <h5 class="section-title ff-secondary text-start text-primary fw-normal">Packages</h5>
-                                <h1 class="mb-4"><i class="fa fa-envelope text-primary me-2"></i>Welcome to Event Booking Management</h1>
-                                <p class="mb-4">No matter what stage of the event process you’re in, we offer a complete set of tools that’s flexible enough to work with your event program. From small meetings, large conferences or internal meetings, we’ve got you covered</p>
-
-                                <div class="row g-4 mb-4">
-                                    <div class="col-sm-6">
-                                        <div class="d-flex align-items-center border-start border-5 border-primary px-3">
-                                            <h1 class="flex-shrink-0 display-5 text-primary mb-0" data-toggle="counter-up">15</h1>
-                                            <div class="ps-4">
-                                                <p class="mb-0">Years of</p>
-                                                <h6 class="text-uppercase mb-0">Experience</h6>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-6">
-                                        <div class="d-flex align-items-center border-start border-5 border-primary px-3">
-                                            <h1 class="flex-shrink-0 display-5 text-primary mb-0" data-toggle="counter-up">50</h1>
-                                            <div class="ps-4">
-                                                <p class="mb-0">Popular</p>
-                                                <h6 class="text-uppercase mb-0">Master Chefs</h6>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <a class="btn btn-primary py-3 px-5 mt-2" href="">Read More</a>
+                            <div class="col-6 text-start">
+                                <img class="img-fluid rounded w-75 wow zoomIn" data-wow-delay="0.3s" src="img/about-2.jpg" style="margin-top: 25%;">
+                            </div>
+                            <div class="col-6 text-end">
+                                <img class="img-fluid rounded w-75 wow zoomIn" data-wow-delay="0.5s" src="img/about-3.jpg">
+                            </div>
+                            <div class="col-6 text-end">
+                                <img class="img-fluid rounded w-100 wow zoomIn" data-wow-delay="0.7s" src="img/about-4.jpg">
                             </div>
                         </div>
                     </div>
-                </div>
-                <!-- Packages End -->
+                    <div class="col-lg-6">
+                        <h5 class="section-title ff-secondary text-start text-primary fw-normal">Packages</h5>
+                        <h1 class="mb-4"><i class="fa fa-envelope text-primary me-2"></i>Welcome to Event Booking Management</h1>
+                        <p class="mb-4">No matter what stage of the event process you’re in, we offer a complete set of tools that’s flexible enough to work with your event program. From small meetings, large conferences or internal meetings, we’ve got you covered</p>
 
-
-                <!-- Team Start -->
-                <div class="container-xxl pt-5 pb-3">
-                    <div class="container">
-                        <div class="text-center wow fadeInDown" data-wow-delay="0.1s">
-                            <h5 class="section-title ff-secondary text-center text-primary fw-normal">This Is Our</h5>
-                            <h1 class="mb-5">Packages</h1>
+                        <div class="row g-4 mb-4">
+                            <div class="col-sm-6">
+                                <div class="d-flex align-items-center border-start border-5 border-primary px-3">
+                                    <h1 class="flex-shrink-0 display-5 text-primary mb-0" data-toggle="counter-up">15</h1>
+                                    <div class="ps-4">
+                                        <p class="mb-0">Years of</p>
+                                        <h6 class="text-uppercase mb-0">Experience</h6>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="d-flex align-items-center border-start border-5 border-primary px-3">
+                                    <h1 class="flex-shrink-0 display-5 text-primary mb-0" data-toggle="counter-up">50</h1>
+                                    <div class="ps-4">
+                                        <p class="mb-0">Popular</p>
+                                        <h6 class="text-uppercase mb-0">Master Chefs</h6>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                        <div class="row g-4">
-                            <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
-                                <div class="team-item text-center rounded overflow-hidden">
-                                    <div class="rounded-circle overflow-hidden m-4">
-                                        <img class="criteria" src="img/wedding.jpg" alt="">
+                        <a class="btn btn-primary py-3 px-5 mt-2" href="">Read More</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Event End -->
+
+        <!-- Packages Start -->
+        <div class="container-xxl pt-5 pb-3">
+            <div class="container">
+                <div class="text-center wow fadeInDown" data-wow-delay="0.1s">
+                    <h5 class="section-title ff-secondary text-center text-primary fw-normal">This Is Our</h5>
+                    <h1 class="mb-5">Packages</h1>
+                </div>
+                <section id="section-feature" class="container wow fadeInUp" data-wow-delay="0.1s">
+                    
+                    <!-- new row-->
+                    <div class="row g-4" >
+                
+                        <!-- Wedding -->
+                        <li class="col-md-3 col-sm-6 col-xs-12">
+                            <div class="sf-wrap">
+                                <div class="sf-mdl-left">
+                                    <div class="wed-bg">
+                                        <img src="img/wedding.jpg" alt="">
                                     </div>
-                                    <h5 class="mb-0">For Wedding</h5>   
-                                    <small>Designation</small>
+                                    <h3>For Weddings</h3>
+                                </div>
+                                <div class="sf-mdl-right">
+                                    <div class="sf-icon">
+                                        <i class="fa fa-fw fa-regular fa-rings-weddings fa-4x"></i>
+                                    </div>
+                                    <h3>For Weddings</h3>
+                                </div>
+                                <div class="sf-mdl-left-full">
+                                    <h3>put deets here</h3>
+                                    <p>Curabitur blandit tempus ardua ridiculus sed magna. Integer legentibus erat a ante historiarum dapibus.</p>
+                                </div>
+                                <div class="sf-mdl-right-full">
+                                    <h3><a>put deets here</a></h3>
+                                    <p>Curabitur blandit tempus ardua ridiculus sed magna. Integer legentibus erat a ante historiarum dapibus.</p>
                                 </div>
                             </div>
-                            <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
-                                <div class="team-item text-center rounded overflow-hidden">
-                                    <div class="rounded-circle overflow-hidden m-4">
-                                        <img class="criteria" src="img/BIRTHDAYS.jpg" alt="image" class="flip">
+                        </li>
+
+                        <!-- Birthday -->
+                        <li class="col-md-3 col-sm-6 col-xs-12">
+                            <div class="sf-wrap">
+                                <div class="sf-mdl-left">
+                                    <div class="bday-bg">
+                                        <img src="img/BIRTHDAYS.jpg" alt="">
                                     </div>
-                                    <h5 class="mb-0">For Birthdays</h5>
-                                    <small>Designation</small>
+                                    <h3>For Birthdays</h3>
+                                </div>
+                                <div class="sf-mdl-right">
+                                    <h3>For Birthdays</h3>
+                                </div>
+                                <div class="sf-mdl-left-full">
+                                    <h3>put deets</h3>
+                                    <p>Hi omnes lingua, institutis, legibus inter se differunt. Donec sed odio operae, eu vulputate felis rhoncus.</p>
+                                </div>
+                                <div class="sf-mdl-right-full">
+                                    <h3>put deets</h3>
+                                    <p>Hi omnes lingua, institutis, legibus inter se differunt. Donec sed odio operae, eu vulputate felis rhoncus.</p>
                                 </div>
                             </div>
-                            <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
-                                <div class="team-item text-center rounded overflow-hidden">
-                                    <div class="rounded-circle overflow-hidden m-4">
-                                        <img class="criteria" src="img/BIRTHDAYS.jpg" alt="">
+                        </li>
+                        <!-- Gatherings -->
+                        <li class="col-md-3 col-sm-6 col-xs-12">
+                            <div class="sf-wrap">
+                                <div class="sf-mdl-left">
+                                    <div class="g-bg">
+                                        <img src="img/gatherings.jpg" alt="">
                                     </div>
-                                    <h5 class="mb-0">Gatherings</h5>
-                                    <small>Designation</small>
+                                    <h3>Gatherings</h3>
+                                </div>
+                                <div class="sf-mdl-right">
+                                    <h3>Gatherings</h3>
+                                </div>
+                                <div class="sf-mdl-left-full">
+                                    <h3>deets</h3>
+                                    <p>Nec dubitamus multa iter quae et nos invenerat. Ullamco laboris nisi ut aliquid ex ea commodi consequat.</p>
+                                </div>
+                                <div class="sf-mdl-right-full">
+                                    <h3>deets</h3>
+                                    <p>Nec dubitamus multa iter quae et nos invenerat. Nigga laboris nisi ut aliquid ex ea commodi consequat.</p>
                                 </div>
                             </div>
-                            <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.7s">
-                                <div class="team-item text-center rounded overflow-hidden">
-                                    <div class="rounded-circle overflow-hidden m-4">
-                                        <img class="criteria" src="img/BIRTHDAYS.jpg">
+                        </li>
+
+                        <!-- Function Rooms -->
+                        <li class="col-md-3 col-sm-6 col-xs-12">
+                            <div class="sf-wrap">
+                                <div class="sf-mdl-left">
+                                    <div class="rooms-bg">
+                                        <img src="img/rooms.jpg" alt="">
                                     </div>
-                                    <h5 class="mb-3">Rooms</h5>
-                                    <small>Designation</small>  
+                                    <h3>Rooms</h3>
                                 </div>
+                                <div class="sf-mdl-right">
+                                    <h3>Rooms</h3>
+                                </div>
+                                <div class="sf-mdl-left-full">
+                                    <h3>deets</h3>
+                                    <p>Morbi fringilla convallis sapien, id pulvinar odio volutpat. Contra legem facit qui id facit quod lex prohibet.</p>
+                                </div>
+                                <div class="sf-mdl-right-full">
+                                    <h3>deets</h3>
+                                    <p>Morbin time fringilla convallis sapien, id pulvinar odio volutpat. Contra legem facit qui id facit quod lex prohibet.</p>
+                                </div>
+                            </div>
+                        </li>
+                    </div> 
+                </section>
+            </div>
+        </div>
+        <!-- Team End -->
+
+        <!-- Footer Start -->
+            <div class="container-fluid bg-dark text-light footer pt-5 mt-5 wow fadeIn" data-wow-delay="0.1s">
+                <div class="container py-5">
+                    <div class="row g-5">
+                        <div class="col-lg-4 col-md-6">
+                            <h4 class="section-title ff-secondary text-start text-primary fw-normal mb-4">Company</h4>
+                            <a class="btn btn-link" href="About.php">About us</a>
+                            <a class="btn btn-link" href="Booking.php">Booking</a>
+                            <a class="btn btn-link" href="">Privacy Policy</a>
+                            <a class="btn btn-link" href="">Terms & Condition</a>
+                        </div>
+                        <div class="col-lg-4 col-md-6">
+                            <h4 class="section-title ff-secondary text-start text-primary fw-normal mb-4">Contact</h4>
+                            <p class="mb-2"><i class="fa fa-map-marker-alt me-3"></i>123 Carmona, Cavite, Philippines</p>
+                            <p class="mb-2"><i class="fa fa-phone-alt me-3"></i>0912 345 6789</p>
+                            <p class="mb-2"><i class="fa fa-envelope me-3"></i>events@gmail.com</p>
+                            <div class="d-flex pt-2">
+                                <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-twitter"></i></a>
+                                <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-facebook-f"></i></a>
+                                <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-youtube"></i></a>
+                                <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-linkedin-in"></i></a>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-6">
+                            <h4 class="section-title ff-secondary text-start text-primary fw-normal mb-4">Opening</h4>
+                            <h5 class="text-light fw-normal">Monday - Saturday</h5>                                        <p>08AM - 05PM</p>
+                            <h5 class="text-light fw-normal">Sunday</h5>
+                            <p>10AM - 06PM</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="container">
+                    <div class="copyright">
+                        <div class="row">
+                            <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
+                                &copy; <a class="border-bottom" href="#">ChuChu Events Place</a>, All Right Reserved. 
+                                        
+                                <!--/*** This template is free as long as you keep the footer author’s credit link/attribution link/backlink. If you'd like to use the template without the footer author’s credit link/attribution link/backlink, you can purchase the Credit Removal License from "https://htmlcodex.com/credit-removal". Thank you for your support. ***/-->
+                                <br>Designed By <a class="border-bottom" href="https://htmlcodex.com">HTML Codex</a>
+                                &nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;Distributed By <a class="border-bottom" href="https://themewagon.com" target="_blank">ThemeWagon</a>
+
                             </div>
                         </div>
                     </div>
                 </div>
-                <!-- Team End -->
-        
-
-                                <!-- Footer Start -->
-                                <div class="container-fluid bg-dark text-light footer pt-5 mt-5 wow fadeIn" data-wow-delay="0.1s">
-                            <div class="container py-5">
-                                <div class="row g-5">
-                                    <div class="col-lg-4 col-md-6">
-                                        <h4 class="section-title ff-secondary text-start text-primary fw-normal mb-4">Company</h4>
-                                        <a class="btn btn-link" href="About.php">About us</a>
-                                        <a class="btn btn-link" href="Booking.php">Booking</a>
-                                        <a class="btn btn-link" href="">Privacy Policy</a>
-                                        <a class="btn btn-link" href="">Terms & Condition</a>
-                                    </div>
-                                    <div class="col-lg-4 col-md-6">
-                                        <h4 class="section-title ff-secondary text-start text-primary fw-normal mb-4">Contact</h4>
-                                        <p class="mb-2"><i class="fa fa-map-marker-alt me-3"></i>123 Carmona, Cavite, Philippines</p>
-                                        <p class="mb-2"><i class="fa fa-phone-alt me-3"></i>0912 345 6789</p>
-                                        <p class="mb-2"><i class="fa fa-envelope me-3"></i>events@gmail.com</p>
-                                        <div class="d-flex pt-2">
-                                            <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-twitter"></i></a>
-                                            <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-facebook-f"></i></a>
-                                            <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-youtube"></i></a>
-                                            <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-linkedin-in"></i></a>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-4 col-md-6">
-                                        <h4 class="section-title ff-secondary text-start text-primary fw-normal mb-4">Opening</h4>
-                                        <h5 class="text-light fw-normal">Monday - Saturday</h5>
-                                        <p>08AM - 05PM</p>
-                                        <h5 class="text-light fw-normal">Sunday</h5>
-                                        <p>10AM - 06PM</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="container">
-                                <div class="copyright">
-                                    <div class="row">
-                                        <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
-                                            &copy; <a class="border-bottom" href="#">ChuChu Events Place</a>, All Right Reserved. 
-                                            
-                                            <!--/*** This template is free as long as you keep the footer author’s credit link/attribution link/backlink. If you'd like to use the template without the footer author’s credit link/attribution link/backlink, you can purchase the Credit Removal License from "https://htmlcodex.com/credit-removal". Thank you for your support. ***/-->
-                                            <br>Designed By <a class="border-bottom" href="https://htmlcodex.com">HTML Codex</a>
-                                            &nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;Distributed By <a class="border-bottom" href="https://themewagon.com" target="_blank">ThemeWagon</a>
-
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- Footer End -->
-
+            </div>
+        <!-- Footer End -->
     </div>
 
     <!-- JavaScript Libraries -->
@@ -250,4 +310,3 @@
     <script src="js/main.js"></script>
 
 </body>
-</html>
