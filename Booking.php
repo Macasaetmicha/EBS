@@ -37,6 +37,8 @@
     <link rel="stylesheet" href="/resources/demos/style.css">
     <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
     <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+
 </head>
 
 <body>
@@ -115,7 +117,7 @@
                 </div>
                 <div class="col-md-6 bg-dark d-flex align-items-center">
                     <div class="p-5 wow fadeInUp" id="forms_container" data-wow-delay="0.2s">
-                    <form action="Booking.php" method="post" class="booking_form">
+                    <form action="sendDB.php" method="post" class="booking_form" id="bookingForm">
 
                     <?php
                         if (!isset($_SESSION['email'])) {
@@ -285,7 +287,7 @@
                                                 });
                                             });
                                         </script>
-                                            <input type="text" id="dateEvent" class="form-control" placeholder="Select a date" name="dateEvent" required>
+                                            <input type="text" id="dateEvent" class="form-control" name="dateEvent" required>
                                             <label for="date">Date</label>
                                         </div>
                                     </div>
@@ -336,12 +338,14 @@
 
                         <div class="booking-step" id="step-2">
                             <h5 class="section-title ff-secondary text-start text-primary fw-normal">Step 2</h5>
-                            <h2 class="text-white mb-4">Verification:</h2>
+                            <h2 class="text-white mb-4">Update:</h2>
                                 <div class="row g-3">
-                                    <div class="col-md-7">
-                                        <p style="color: #404a42;">Do you have an updated contact number?</p>
+                                    <div class="col-md-12">
+                                        <p style="color: #404a42;">We want to keep our communication smooth in preparation for the big day! 
+                                        <br><br>With that we would like to ask if you have an updated contact number?</p>
                                     </div>
-                                    <div class="col-md-5" style="text-align: left;">
+
+                                    <div class="col-md-12" style="text-align: left;">
                                         <label style="color: #404a42; margin-right: 20px;">
                                             <input type="radio" name="contactChoice" value="yes" onclick="toggleContactNumberField(true)" required> Yes
                                         </label>
@@ -354,6 +358,10 @@
                                         <div class="form-floating" id="contNumField" style="display: none;">
                                             <input type="text" class="form-control" id="contNum"  name="contNum" maxlength="11" oninput="formatPhoneNumber(this)">
                                             <label for="Contact-Number">Contact Number</label>
+                                        </div>
+
+                                        <div class="form-floating" id="contNumFieldPlaceholder" style="display: none;">
+                                            <input type="text" class="form-control" style="visibility: hidden;">
                                         </div>
                                     </div>
                                     
@@ -388,19 +396,7 @@
                                             }
                                         }
                                     </script>
-                                    
-                                    <div class="col-md-8">
-                                        <div class="form-floating">
-                                            <input type="text" class="form-control" id="verify" placeholder="OTP">
-                                            <label for="verify">Verification Code</label>
-                                        </div>
-                                    </div>
 
-                                    <form action="send.php" class="" method="post">
-                                        <div class="col-4">
-                                            <input class="btn btn-primary w-100 py-3" type="submit" name="sendOTP" value="send OTP" id="verify1">
-                                        </div>
-                                    </form>
                                 </div>
                                 <div class="row">
                                     <div class="col-md-6">
@@ -554,11 +550,6 @@
                             </div>
                         </div>
 
-                        <div class="booking-step" id="step-4" style="display: none;">
-                            <h2 class="text-white mb-4">You're booking is Complete!</h2>
-                            <p class="text-white mb-4">Thank you for choosing MiCasa to celebrate your special day with!</p>
-                            <a href="Home.php" class="btn btn-primary py-2 px-4">Home</a>
-                        </div>
                         <?php
                         }
                         ?>
@@ -568,116 +559,7 @@
             </div>
         </div>
         <!-- Reservation End -->
-        <?php
-        if(isset($_POST['submit'])) {
-            $package = $_POST['package'];
-            $funcRoom = $_POST['FRoom'];
-            $eventName = $_POST['event'];
-            $guestNum = $_POST['number'];
-            $eventDate = $_POST['dateEvent'];
-            $eventSTime = $_POST['sTime'];
-            $eventETime = $_POST['eTime'];
-            $request = $_POST['reqs'];
-
-            $refNumber = $_POST['refNum'];
-            $cardNum = $_POST['cardNum'];
-            $cvv = $_POST['cvv'];
-            $expDate = $_POST['expDate'];
-
-            $contNum = $_POST['contNum'];
-
-            $userEmail = $_SESSION['email'];
-
-            //retrieves data from specified table where email is the same as email entered.
-            $querry1 = "SELECT u.userID FROM user u
-            INNER JOIN logCredentials lc ON u.logID = lc.logID
-            WHERE lc.email = '$userEmail'";
-
-            //sets the retrieved data as $result
-            $result1 = mysqli_query($con,$querry1);
-
-            if ($result1->num_rows > 0) {
-                // Fetch the userID
-                $row = $result1->fetch_assoc();
-                $userID = $row["userID"];
-                // You now have the userID associated with the user's email
-            } 
-
-            echo "Package: " . $package . "<br>";
-            echo "Function Room: " . $funcRoom . "<br>";
-            echo "Event Name: " . $eventName . "<br>";
-            echo "Guest Num: " . $guestNum . "<br>";
-            echo "Event Date: " . $eventDate . "<br>";
-            echo "Start Time: " . $eventSTime . "<br>";
-            echo "End Time: " . $eventETime . "<br>";
-            echo "request: " . $request . "<br>";
-            echo "Contact Number: " . $contNum . "<br>";
-            
-
-            $sql2 = "INSERT INTO eventinfo (userID, package, funcRoom, eventType, numAttendee, eventDate, eventTimeStart, eventTimeEnd, request) 
-                    VALUES ('$userID', '$package', '$funcRoom', '$eventName','$guestNum', '$eventDate', '$eventSTime', '$eventETime', '$request')";
-            mysqli_query($con, $sql2);
-
-            $eventID = mysqli_insert_id($con);
-
-            if (isset($_POST["contactChoice"]) && $_POST["contactChoice"] === "yes") {
-                $sql6 = "UPDATE user
-                SET contNum = '$contNum'
-                WHERE userID = $userID";
-                mysqli_query($con, $sql6);
-            } else{
-
-            }
-
-            $price=0;
-            $down=0;
-            $full=0;
-
-            //retrieves data from specified table where email is the same as email entered.
-            $querry2 = "SELECT BasePrice FROM pricinginfo WHERE Package ='$package' AND Ballroom = '$funcRoom'";
-
-            //sets the retrieved data as $result
-            $result2 = mysqli_query($con,$querry2);
-
-            if ($result2->num_rows > 0) {
-                // Fetch the userID
-                $row = $result2->fetch_assoc();
-                $price = $row["BasePrice"];
-                // You now have the userID associated with the user's email
-
-                $percentage = 0.3; // 30% expressed as a decimal
-                $down = $percentage * $price;
-
-                // Subtract 30% from the original value
-                $full = $price - $down;
-            } 
-
-            $type = $_POST['payType'];
-
-            $sql4 = "INSERT INTO paymentinfo (eventID, total_bill, downpayment, paymentType, fullPayment) 
-                    VALUES ('$eventID', '$price', '$down', '$type','$full')";
-            mysqli_query($con, $sql4);
-
-            $paymentID = mysqli_insert_id($con);
-
-            echo "type: " . $type . "<br>";
-            echo "refNum: " . $refNumber . "<br>";
-            echo "cardNum: " . $cardNum . "<br>";
-            echo "cvv: " . $cvv . "<br>";
-            echo "expdate: " . $expDate . "<br>";
-
-            // Insert payment information into the database
-            if ($type === "gcash" || $type === "maya") {
-                $sql5 = "INSERT INTO onlineinfo (paymentID, referenceNum) VALUES ('$paymentID','$refNumber')";
-                mysqli_query($con, $sql5);
-            } else if ($type  === "pA" || $type  === "pB") {
-                $sql6 = "INSERT INTO cardinfo (paymentID, cardNum, cvv, expDate) VALUES ('$paymentID','$cardNum','$cvv','$expDate')";
-                mysqli_query($con, $sql6);
-            }
-
-            mysqli_close($con);
-        }
-        ?>
+        
 
         <!-- JavaScript for buttn navigation -->
         <script>
@@ -704,52 +586,164 @@
 
         <!-- Footer Start -->
         <div class="container-fluid bg-dark text-light footer pt-5 mt-5 wow fadeIn" data-wow-delay="0.1s">
-                    <div class="container py-5">
-                        <div class="row g-5">
-                            <div class="col-lg-4 col-md-6">
-                                <h4 class="section-title ff-secondary text-start text-primary fw-normal mb-4">Company</h4>
-                                <a class="btn btn-link" href="About.php">About us</a>
-                                <a class="btn btn-link" href="Booking.php">Booking</a>
-                                <a class="btn btn-link" href="">Privacy Policy</a>
-                                <a class="btn btn-link" href="">Terms & Condition</a>
-                            </div>
-                            <div class="col-lg-4 col-md-6">
-                                <h4 class="section-title ff-secondary text-start text-primary fw-normal mb-4">Contact</h4>
-                                <p class="mb-2"><i class="fa fa-map-marker-alt me-3"></i>123 Carmona, Cavite, Philippines</p>
-                                <p class="mb-2"><i class="fa fa-phone-alt me-3"></i>0912 345 6789</p>
-                                <p class="mb-2"><i class="fa fa-envelope me-3"></i>events@gmail.com</p>
-                                <div class="d-flex pt-2">
-                                    <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-twitter"></i></a>
-                                    <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-facebook-f"></i></a>
-                                    <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-youtube"></i></a>
-                                    <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-linkedin-in"></i></a>
-                                </div>
-                            </div>
-                            <div class="col-lg-4 col-md-6">
-                                <h4 class="section-title ff-secondary text-start text-primary fw-normal mb-4">Opening</h4>
-                                <h5 class="text-light fw-normal">Monday - Saturday</h5>
-                                <p>08AM - 05PM</p>
-                                <h5 class="text-light fw-normal">Sunday</h5>
-                                <p>10AM - 06PM</p>
-                            </div>
+            <div class="container py-5">
+                <div class="row g-5">
+                    <div class="col-lg-4 col-md-6">
+                        <h4 class="section-title ff-secondary text-start text-primary fw-normal mb-4">Company</h4>
+                        <a class="btn btn-link" href="About.php">About us</a>
+                        <a class="btn btn-link" href="Booking.php">Booking</a>
+                        <a class="btn btn-link" id="privacyLink" onclick="showPrivacyDialog()">Privacy Policy</a>
+                        <a class="btn btn-link" id="termsLink" onclick="showTermsDialog()">Terms & Condition</a>
+                    </div>
+
+                    <dialog id="privacyDialog">
+                        <button id="closePrivacyDialog" onclick="closePrivacyDialog()">&times;</button> <!-- Close "x" button -->
+                        <h1>Privacy Policy for MiCasa Events</h1>
+                        <h5>Effective Date: November 1, 2023</h5>
+                        <br>
+                        <hr>
+                        <br>
+                        <p><b>1. Introduction</b></p>
+                        <p class="non-bold"> Welcome to MiCasa Events. At MiCasa Events, we are committed to protecting your privacy and ensuring 
+                            the security of your personal information. This Privacy Policy explains how we collect, use, 
+                            and safeguard your information when you use our services and visit our website.</p>
+
+                        <p><b>2. Information We Collect</b></p>
+
+                        <p class="non-bold">We may collect various types of information, including but not limited to:
+                            <ul><i>Personal Information:</i> This includes your name, email address, phone number, and any other information you provide to us.</ul>
+                            <ul><i>Information:</i> We collect data about your interactions with our website and services, including your IP address, browser type, and pages visited.</ul>
+                            <ul><i>Cookies and Tracking Technologies:</i> We may use cookies and similar technologies to collect information about your browsing habits.</ul></p>
+                            
+                        <p><b>3. How We Use Your Information</b></p>
+                        <p class="non-bold"> We use the information we collect for various purposes, including but not limited to:
+                            <br>•Providing and improving our services.
+                            <br>•Communicating with you.
+                            <br>•Personalizing your experience.
+                            <br>•Analyzing website usage and trends.</p>
+
+                        <p><b>4. Disclosure of Your Information</b></p>
+                        <p class="non-bold">We may share your information with third parties in certain circumstances, such as:
+                            <ul><i>Providers:</i> We may use third-party service providers to assist in delivering our services.</ul>
+                            <ul><i>Legal Obligations:</i> We may share your information if required by law or to protect our rights and interests.</ul></p>
+                        
+                        <p><b>5. Data Security</b></p>
+                        <p class="non-bold"> We take measures to protect your information from unauthorized access, disclosure, or alteration. 
+                            However, no method of transmission over the internet or electronic storage is completely secure, 
+                            and we cannot guarantee absolute security.</p>
+                                                
+                        <p><b> 6. Your Choices</b></p>
+                        <p class="non-bold">You have the right to access, correct, or delete your personal information. 
+                            You can also opt-out of marketing communications at any time.</p>
+                        
+                        <p><b>7. Children's Privacy</b></p>
+                        <p class="non-bold">Our services are not intended for individuals under the age of 18. 
+                            We do not knowingly collect or store information from children.</p>
+
+                        <p><b>8. Changes to This Privacy Policy</b></p>
+                        <p class="non-bold">We may update this Privacy Policy from time to time. 
+                            Please check back periodically to review any changes.</p>
+
+                        <p><b>9. Contact Us</b></p>
+                        <p class="non-bold">If you have questions or concerns about this Privacy Policy, please contact us at 09123456789.</p>
+                    </dialog>
+
+                    <dialog id="termsDialog">
+                        <button id="closePrivacyDialog" onclick="closeTermsDialog()">&times;</button> <!-- Close "x" button -->
+                        <h1>Terms and Conditions for MiCasa Events</h1>
+                        <h6>Please read the following terms and conditions carefully before making a booking with MiCasa Events. 
+                            By booking an event with us, you agree to abide by these terms and conditions.</h6>
+                        <br>
+                        <hr>
+                        <br>
+                        <p><b>1. Booking and Payment</b></p>
+                        <p class="non-bold"> 1.1 <b>Downpayment:</b> A downpayment of 30% of the total event cost is required to secure your booking. The downpayment can be made through GCash, PayMaya, or credit and debit card.
+                            <br><br>1.2. <b>Final Payment:</b> The remaining balance of the total event cost must be settled on the day of the event before the event begins.
+                            <br><br>1.3. <b>Booking Lead Time:</b> Bookings must be made at least 2 weeks before the scheduled event date.</p>
+
+                        <br><p><b>2. Overtime Charges</b></p>
+                        <p class="non-bold">2.1. <b>Event Duration:</b> The booking time includes the set-up, event duration, and teardown. Any event exceeding the agreed-upon end time during booking will be subject to overtime charges.
+                            <br><br>2.2. <b>Overtime Fees:</b> An additional 10% of the function room base price will be added for every hour or fraction thereof that the event goes overtime based on the selected end time during booking.</p>
+                            
+                        <br><p><b>3. Function Room Upgrades</b></p>
+                        <p class="non-bold"> 3.1. <b>Package:</b> The prices quoted are for the base package. Any function room upgrades will result in an additional charge.
+                            <br><br>3.2. <b>Upgrade Fee:</b> An additional 15% of the function room base price is added to the base package price for every function room upgrade.</p>
+
+                        <br><p><b>4. Cancellation and Refunds</b></p>
+                        <p class="non-bold">4.1. <b>Cancellation:</b> If you need to cancel your booking, please do so at least 2 weeks in advance to receive a full refund of the downpayment, minus a 10% processing fee.
+                            <br><br>4.2. <b>Refund Policy:</b> Refunds for cancellations made within 2 weeks of the event date may be subject to a 10% processing fee, resulting in a 90% refund of the downpayment.</p>
+                        
+                        <br><p><b>5. House Rules</b></p>
+                        <p class="non-bold">5.1. <b>Adherence to Rules:</b> Clients and guests are expected to adhere to the house rules and guidelines provided by MiCasa Events for a safe and enjoyable experience.
+                            <br><br>5.2. <b>Liability:</b> MiCasa Events is not responsible for any loss or damage to personal property or injuries sustained during the event.</p>
+                                                
+                        <br><p><b>6. Contact Information</b></p>
+                        <p class="non-bold">For any questions, concerns, or to make changes to your booking, please contact us at 09123456789 or email us at micasa.cosc75g2@gmail.com.
+                            <br><br>By booking with MiCasa Events, you acknowledge that you have read and agreed to these terms and conditions.</p>
+                    </dialog>
+
+                    <script>
+                        const privacyDialog = document.getElementById("privacyDialog");
+                        const termsDialog = document.getElementById("termsDialog");
+
+                        // Show the Privacy Policy dialog when the "Privacy Policy" link is clicked
+                        function showPrivacyDialog() {
+                            privacyDialog.showModal();
+                        }
+
+                        // Show the Terms and Conditions dialog when the "Terms & Conditions" link is clicked
+                        function showTermsDialog() {
+                            termsDialog.showModal();
+                        }
+
+                        // Close the Privacy Policy dialog when the "x" button is clicked
+                        function closePrivacyDialog() {
+                            privacyDialog.close();
+                        }
+
+                        // Close the Terms and Conditions dialog when the "x" button is clicked
+                        function closeTermsDialog() {
+                            termsDialog.close();
+                        }
+                    </script>
+
+                    <div class="col-lg-4 col-md-6">
+                        <h4 class="section-title ff-secondary text-start text-primary fw-normal mb-4">Contact</h4>
+                        <p class="mb-2"><i class="fa fa-map-marker-alt me-3"></i>123 Carmona, Cavite, Philippines</p>
+                        <p class="mb-2"><i class="fa fa-phone-alt me-3"></i>0912 345 6789</p>
+                        <p class="mb-2"><i class="fa fa-envelope me-3"></i>micasa.cosc75g2@gmail.com</p>
+                        <div class="d-flex pt-2">
+                            <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-twitter"></i></a>
+                            <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-facebook-f"></i></a>
+                            <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-youtube"></i></a>
+                            <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-linkedin-in"></i></a>
                         </div>
                     </div>
-                    <div class="container">
-                        <div class="copyright">
-                            <div class="row">
-                                <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
-                                    &copy; <a class="border-bottom" href="#">ChuChu Events Place</a>, All Right Reserved. 
-                                    
-                                    <!--/*** This template is free as long as you keep the footer author’s credit link/attribution link/backlink. If you'd like to use the template without the footer author’s credit link/attribution link/backlink, you can purchase the Credit Removal License from "https://htmlcodex.com/credit-removal". Thank you for your support. ***/-->
-                                    <br>Designed By <a class="border-bottom" href="https://htmlcodex.com">HTML Codex</a>
-                                    &nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;Distributed By <a class="border-bottom" href="https://themewagon.com" target="_blank">ThemeWagon</a>
+                    <div class="col-lg-4 col-md-6">
+                        <h4 class="section-title ff-secondary text-start text-primary fw-normal mb-4">Opening</h4>
+                        <h5 class="text-light fw-normal">Monday - Saturday</h5>
+                        <p>08AM - 05PM</p>
+                        <h5 class="text-light fw-normal">Sunday</h5>
+                        <p>10AM - 06PM</p>
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="copyright">
+                    <div class="row">
+                        <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
+                            &copy; <a class="border-bottom" href="#">ChuChu Events Place</a>, All Right Reserved. 
+                            
+                            <!--/*** This template is free as long as you keep the footer author’s credit link/attribution link/backlink. If you'd like to use the template without the footer author’s credit link/attribution link/backlink, you can purchase the Credit Removal License from "https://htmlcodex.com/credit-removal". Thank you for your support. ***/-->
+                            <br>Designed By <a class="border-bottom" href="https://htmlcodex.com">HTML Codex</a>
+                            &nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;Distributed By <a class="border-bottom" href="https://themewagon.com" target="_blank">ThemeWagon</a>
 
-                                </div>
-                            </div>
                         </div>
                     </div>
                 </div>
-                <!-- Footer End -->
+            </div>
+        </div>
+        <!-- Footer End -->
 
     </div>
 
