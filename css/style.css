@@ -573,14 +573,14 @@
     position: absolute;
     text-align: center;
     left: 0;
-    top: 190px;
+    top: 50%;
 }
 
 .sf-wrap div p {
     padding: 0 10%;
     line-height: 18px;
     font-size: 14px;
-    top: 180px;
+    top: 7%;
 }
 
 .sf-wrap div.sf-mdl-right h3,
@@ -596,7 +596,7 @@
 
 .sf-wrap div.sf-mdl-left-full h3,
 .sf-wrap div.sf-mdl-right-full h3 {
-    top: 175px;
+    top: 10%;
 }
     
     p{
