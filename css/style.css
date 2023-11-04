@@ -599,13 +599,9 @@
     top: 10%;
 }
     
-    p{
-        margin-top: 55px;
-    } 
-    
-    a{
-        margin-top: 50px;
-    }
+.sf-mdl-left-full p, .sf-mdl-right-full p{
+    margin-top: 55px;
+} 
 
 /*** Testimonial ***/
 .testimonial-carousel .owl-item .testimonial-item,
