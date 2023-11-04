@@ -146,73 +146,73 @@
                     <!-- new row-->
                     <div class="row g-4 justify-content-center package-m-fix" >
                 
-                        <!-- Wedding -->
+                        <!-- Weddings -->
                         <li class="col-md-3 col-sm-6 col-xs-12">
                             <div class="sf-wrap">
                                 <div class="sf-mdl-left">
                                     <div class="wed-bg">
                                         <img src="img/wedding.jpg" alt="">
                                     </div>
-                                    <h3>For Weddings</h3>
+                                    <h3>Weddings</h3>
                                 </div>
                                 <div class="sf-mdl-right">
                                     <div class="sf-icon">
                                         <i class="fa fa-fw fa-regular fa-rings-weddings fa-4x"></i>
                                     </div>
-                                    <h3>For Weddings</h3>
+                                    <h3>Weddings</h3>
                                 </div>
                                 <div class="sf-mdl-left-full">
-                                    <h3>put deets here</h3>
-                                    <p>Curabitur blandit tempus ardua ridiculus sed magna. Integer legentibus erat a ante historiarum dapibus.</p>
+                                    <h3>Weddings</h3>
+                                    <p>Elevate your wedding day with our all-inclusive package, featuring a stunning venue, custom menu, and personalized decor for a truly unforgettable experience.</p>
                                 </div>
                                 <div class="sf-mdl-right-full">
-                                    <h3><a>put deets here</a></h3>
-                                    <p>Curabitur blandit tempus ardua ridiculus sed magna. Integer legentibus erat a ante historiarum dapibus.</p>
+                                    <h3><a>Weddings</a></h3>
+                                    <p>Elevate your wedding day with our all-inclusive package, featuring a stunning venue, custom menu, and personalized decor for a truly unforgettable experience.</p>
                                 </div>
                             </div>
                         </li>
 
-                        <!-- Birthday -->
+                        <!-- Birthdays -->
                         <li class="col-md-3 col-sm-6 col-xs-12">
                             <div class="sf-wrap">
                                 <div class="sf-mdl-left">
                                     <div class="bday-bg">
                                         <img src="img/BIRTHDAYS.jpg" alt="">
                                     </div>
-                                    <h3>For Birthdays</h3>
+                                    <h3>Birthdays</h3>
                                 </div>
                                 <div class="sf-mdl-right">
-                                    <h3>For Birthdays</h3>
+                                    <h3>Birthdays</h3>
                                 </div>
                                 <div class="sf-mdl-left-full">
-                                    <h3>put deets</h3>
-                                    <p>Hi omnes lingua, institutis, legibus inter se differunt. Donec sed odio operae, eu vulputate felis rhoncus.</p>
+                                    <h3>Birthdays</h3>
+                                    <p>Transform your birthday celebration with our customizable packages, offering themed decor, delectable catering, and entertainment to create an unforgettable party experience for all ages.</p>
                                 </div>
                                 <div class="sf-mdl-right-full">
-                                    <h3>put deets</h3>
-                                    <p>Hi omnes lingua, institutis, legibus inter se differunt. Donec sed odio operae, eu vulputate felis rhoncus.</p>
+                                    <h3>Birthdays</h3>
+                                    <p>Transform your birthday celebration with our customizable packages, offering themed decor, delectable catering, and entertainment to create an unforgettable party experience for all ages.</p>
                                 </div>
                             </div>
                         </li>
-                        <!-- Gatherings -->
+                        <!-- All Occasions -->
                         <li class="col-md-3 col-sm-6 col-xs-12">
                             <div class="sf-wrap">
                                 <div class="sf-mdl-left">
                                     <div class="g-bg">
                                         <img src="img/gatherings.jpg" alt="">
                                     </div>
-                                    <h3>Gatherings</h3>
+                                    <h3>All Occasions</h3>
                                 </div>
                                 <div class="sf-mdl-right">
-                                    <h3>Gatherings</h3>
+                                    <h3>All Occasions</h3>
                                 </div>
                                 <div class="sf-mdl-left-full">
-                                    <h3>deets</h3>
-                                    <p>Nec dubitamus multa iter quae et nos invenerat. Ullamco laboris nisi ut aliquid ex ea commodi consequat.</p>
+                                    <h3>All Occasions</h3>
+                                    <p>Make any occasion extraordinary with our all-inclusive event packages, offering versatile venues, expert planning, and personalized details to ensure unforgettable moments.</p>
                                 </div>
                                 <div class="sf-mdl-right-full">
-                                    <h3>deets</h3>
-                                    <p>Nec dubitamus multa iter quae et nos invenerat. Nigga laboris nisi ut aliquid ex ea commodi consequat.</p>
+                                    <h3>All Occasions</h3>
+                                    <p>Make any occasion extraordinary with our all-inclusive event packages, offering versatile venues, expert planning, and personalized details to ensure unforgettable moments.</p>
                                 </div>
                             </div>
                         </li>
@@ -224,18 +224,18 @@
                                     <div class="rooms-bg">
                                         <img src="img/rooms.jpg" alt="">
                                     </div>
-                                    <h3>Rooms</h3>
+                                    <h3>Function Rooms</h3>
                                 </div>
                                 <div class="sf-mdl-right">
-                                    <h3>Rooms</h3>
+                                    <h3>Function Rooms</h3>
                                 </div>
                                 <div class="sf-mdl-left-full">
-                                    <h3>deets</h3>
-                                    <p>Morbi fringilla convallis sapien, id pulvinar odio volutpat. Contra legem facit qui id facit quod lex prohibet.</p>
+                                    <h3>Function Rooms</h3>
+                                    <p>Our function rooms provide a versatile and elegant space to host events, from corporate meetings to social gatherings, offering the ideal setting for a wide range of occasions.</p>
                                 </div>
                                 <div class="sf-mdl-right-full">
-                                    <h3>deets</h3>
-                                    <p>Morbin time fringilla convallis sapien, id pulvinar odio volutpat. Contra legem facit qui id facit quod lex prohibet.</p>
+                                    <h3>Function Rooms</h3>
+                                    <p>Our function rooms provide a versatile and elegant space to host events, from corporate meetings to social gatherings, offering the ideal setting for a wide range of occasions.</p>
                                 </div>
                             </div>
                         </li>
