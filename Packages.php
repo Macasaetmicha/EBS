@@ -144,7 +144,7 @@
                 <section id="section-feature" class="container wow fadeInUp" data-wow-delay="0.1s">
                     
                     <!-- new row-->
-                    <div class="row g-4" >
+                    <div class="row g-4 justify-content-center package-m-fix" >
                 
                         <!-- Wedding -->
                         <li class="col-md-3 col-sm-6 col-xs-12">

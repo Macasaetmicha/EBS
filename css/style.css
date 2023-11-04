@@ -891,6 +891,27 @@
     bottom: -10px;
   }
 
+/* Styles to fix responsiveness of package elements*/
+@media only screen 
+and (min-width: 975px)
+and (max-width: 1262px)
+{
+    .package-m-fix {
+        margin-left: 12vh;
+        margin-right: 12vh;
+    }
+}
+
+@media only screen 
+and (min-width: 918px)
+and (max-width: 974px)
+{
+    .package-m-fix {
+        margin-left: 2vh;
+        margin-right: 2vh;
+    }
+}
+
 /* Styles for mobile and tablets */
 @media only screen and (max-width: 1023px) {
 .slider-wrapper .slide-button {
