@@ -479,10 +479,6 @@
     box-shadow: 0 0 45px rgba(0, 0, 0, .08);
 }
     
-.sf-mdl-left-full p, .sf-mdl-right-full p{
-    margin-top: 55px;
-} 
-
 .wed-bg img{
     height: 380px;
     width: auto;
@@ -651,7 +647,7 @@
     padding: 0 10%;
     line-height: 18px;
     font-size: 14px;
-    top: 180px;
+    top: 100px;
 }
 
 .sf-wrap div.sf-mdl-right h3,
@@ -667,7 +663,7 @@
 
 .sf-wrap div.sf-mdl-left-full h3,
 .sf-wrap div.sf-mdl-right-full h3 {
-    top: 175px;
+    top: 60px;
 }
     
 /*** Testimonial ***/

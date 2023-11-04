@@ -137,11 +137,11 @@
         <!-- Packages Start -->
         <div class="container-xxl pt-5 pb-3">
             <div class="container">
-                <div class="text-center wow fadeInDown" data-wow-delay="0.1s">
+                <div class="text-center wow fadeInDown" data-wow-delay="0.8s">
                     <h5 class="section-title ff-secondary text-center text-primary fw-normal">This Is Our</h5>
                     <h1 class="mb-5">Packages</h1>
                 </div>
-                <section id="section-feature" class="container wow fadeInUp" data-wow-delay="0.1s">
+                <section id="section-feature" class="container wow fadeInUp" data-wow-delay="0.9s">
                     
                     <!-- new row-->
                     <div class="row g-4 justify-content-center package-m-fix" >
