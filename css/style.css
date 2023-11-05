@@ -24,6 +24,7 @@
     bottom: 45px;
     z-index: 99;
 }
+
 /***CHANGE MADE HERE***/
 .criteria{
     width:250px;
@@ -65,6 +66,22 @@
     background-color: #fff;
     vertical-align: middle;
     font-family: 'Nunito' sans-serif;
+}
+
+@keyframes moving{
+    from{transform: translateX(50px);opacity: 0;}
+    to{transform: translateX(0px);opacity: 1;}
+}
+.booking-step.active{
+    display: block;
+    width: 100%;
+}
+.booking-step h2{
+    margin-bottom: 10px;
+}
+.booking_btn{
+    margin-top: 15px;
+    border: #404a42;
 }
 
 /*** Spinner ***/
@@ -419,7 +436,71 @@
     border-radius: 38px 38px 0 0;
 }
 
-/*** Packages(Teams before) ***/
+
+
+/*** Packages ***/
+
+.wed-bg img{
+    height: 300px;
+    width: auto;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.bday-bg img{
+    height: 300px;
+    width: auto;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.g-bg img{
+    height: 300px;
+    width: auto;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.rooms-bg img{
+    height: 300px;
+    width: auto;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+#section-feature ul {
+    margin: auto;
+    padding: 0;
+    list-style: none;
+    position: relative;
+}
+#section-feature li {
+    box-sizing: border-box;
+    position: relative;
+    height: 300px;
+    width: 230px;
+    float: center;
+    margin: 2%;
+    user-select: none;
+    list-style-type: none;
+}
+#section-feature .sf-wrap {
+    background-repeat: no-repeat;
+    position: absolute;
+    max-width: 230px;
+    width: 100%;
+    height: 100%;
+}
+
+.sf-mdl-left,
+.sf-mdl-right,
+.sf-mdl-left-full,
+.sf-mdl-right-full {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 50%;
+    height: 100%;     
+    transition: all .5s;
+    overflow: hidden;
+    box-shadow: 0 0 45px rgba(0, 0, 0, .08);
+}
 
 .wed-bg img{
     height: 380px;
@@ -589,7 +670,7 @@
     padding: 0 10%;
     line-height: 18px;
     font-size: 14px;
-    top: 180px;
+    top: 100px;
 }
 
 .sf-wrap div.sf-mdl-right h3,
@@ -605,7 +686,7 @@
 
 .sf-wrap div.sf-mdl-left-full h3,
 .sf-wrap div.sf-mdl-right-full h3 {
-    top: 175px;
+    top: 60px;
 }
     
 /*** Testimonial ***/
@@ -856,146 +937,167 @@
 
 /*** offer ***/
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
-  
-  body {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    min-height: 100vh;
-    background: #f1f4fd;
-  }
-  
-  .container {
-    max-width: 1200px;
-    width: 95%;
-  }
-  
-  .slider-wrapper {
-    position: relative;
-  }
-  
-  .slider-wrapper .slide-button {
-    position: absolute;
-    top: 50%;
-    outline: none;
-    border: none;
-    height: 50px;
-    width: 50px;
-    z-index: 5;
-    color: #fff;
-    display: flex;
-    cursor: pointer;
-    font-size: 2.2rem;
-    background: #000;
-    align-items: center;
-    justify-content: center;
-    border-radius: 50%;
-    transform: translateY(-50%);
-  }
-  
-  .slider-wrapper .slide-button:hover {
-    background: #404040;
-  }
-  
-  .slider-wrapper .slide-button#prev-slide {
-    left: -25px;
-    display: none;
-  }
-  
-  .slider-wrapper .slide-button#next-slide {
-    right: -25px;
-  }
-  
-  .slider-wrapper .image-list {
-    display: grid;
-    grid-template-columns: repeat(10, 1fr);
-    gap: 18px;
-    font-size: 0;
-    list-style: none;
-    margin-bottom: 30px;
-    overflow-x: auto;
-    scrollbar-width: none;
-  }
-  
-  .slider-wrapper .image-list::-webkit-scrollbar {
-    display: none;
-  }
-  
-  .slider-wrapper .image-list .image-item {
-    width: 325px;
-    height: 400px;
-    object-fit: cover;
-  }
-  
-  .container .slider-scrollbar {
-    height: 24px;
-    width: 100%;
-    display: flex;
-    align-items: center;
-  }
-  
-  .slider-scrollbar .scrollbar-track {
-    background: #ccc;
-    width: 100%;
-    height: 2px;
-    display: flex;
-    align-items: center;
-    border-radius: 4px;
-    position: relative;
-  }
-  
-  .slider-scrollbar:hover .scrollbar-track {
-    height: 4px;
-  }
-  
-  .slider-scrollbar .scrollbar-thumb {
-    position: absolute;
-    background: #000;
-    top: 0;
-    bottom: 0;
-    width: 50%;
-    height: 100%;
-    cursor: grab;
-    border-radius: inherit;
-  }
-  
-  .slider-scrollbar .scrollbar-thumb:active {
-    cursor: grabbing;
-    height: 8px;
-    top: -2px;
-  }
-  
-  .slider-scrollbar .scrollbar-thumb::after {
-    content: "";
-    position: absolute;
-    left: 0;
-    right: 0;
-    top: -10px;
-    bottom: -10px;
-  }
-  
-  /* Styles for mobile and tablets */
-  @media only screen and (max-width: 1023px) {
-    .slider-wrapper .slide-button {
-      display: none !important;
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+}
+
+body {
+display: flex;
+align-items: center;
+justify-content: center;
+min-height: 100vh;
+background: #f1f4fd;
+}
+
+.container {
+max-width: 1200px;
+width: 95%;
+}
+
+.slider-wrapper {
+position: relative;
+}
+
+.slider-wrapper .slide-button {
+position: absolute;
+top: 50%;
+outline: none;
+border: none;
+height: 50px;
+width: 50px;
+z-index: 5;
+color: #fff;
+display: flex;
+cursor: pointer;
+font-size: 2.2rem;
+background: #000;
+align-items: center;
+justify-content: center;
+border-radius: 50%;
+transform: translateY(-50%);
+}
+
+.slider-wrapper .slide-button:hover {
+background: #404040;
+}
+
+.slider-wrapper .slide-button#prev-slide {
+left: -25px;
+display: none;
+}
+
+.slider-wrapper .slide-button#next-slide {
+right: -25px;
+}
+
+.slider-wrapper .image-list {
+display: grid;
+grid-template-columns: repeat(10, 1fr);
+gap: 18px;
+font-size: 0;
+list-style: none;
+margin-bottom: 30px;
+overflow-x: auto;
+scrollbar-width: none;
+}
+
+.slider-wrapper .image-list::-webkit-scrollbar {
+display: none;
+}
+
+.slider-wrapper .image-list .image-item {
+width: 325px;
+height: 400px;
+object-fit: cover;
+}
+
+.container .slider-scrollbar {
+height: 24px;
+width: 100%;
+display: flex;
+align-items: center;
+}
+
+.slider-scrollbar .scrollbar-track {
+background: #ccc;
+width: 100%;
+height: 2px;
+display: flex;
+align-items: center;
+border-radius: 4px;
+position: relative;
+}
+
+.slider-scrollbar:hover .scrollbar-track {
+height: 4px;
+}
+
+.slider-scrollbar .scrollbar-thumb {
+position: absolute;
+background: #000;
+top: 0;
+bottom: 0;
+width: 50%;
+height: 100%;
+cursor: grab;
+border-radius: inherit;
+}
+
+.slider-scrollbar .scrollbar-thumb:active {
+cursor: grabbing;
+height: 8px;
+top: -2px;
+}
+
+.slider-scrollbar .scrollbar-thumb::after {
+content: "";
+position: absolute;
+left: 0;
+right: 0;
+top: -10px;
+bottom: -10px;
+}
+
+/* Styles to fix responsiveness of package elements*/
+@media only screen 
+and (min-width: 975px)
+and (max-width: 1262px)
+{
+    .package-m-fix {
+        margin-left: 12vh;
+        margin-right: 12vh;
     }
-  
-    .slider-wrapper .image-list {
-      gap: 10px;
-      margin-bottom: 15px;
-      scroll-snap-type: x mandatory;
+}
+
+@media only screen 
+and (min-width: 918px)
+and (max-width: 974px)
+{
+    .package-m-fix {
+        margin-left: 2vh;
+        margin-right: 2vh;
     }
-  
-    .slider-wrapper .image-list .image-item {
-      width: 280px;
-      height: 380px;
-    }
-  
-    .slider-scrollbar .scrollbar-thumb {
-      width: 20%;
-    }
-  }
+}
+
+/* Styles for mobile and tablets */
+@media only screen and (max-width: 1023px) {
+.slider-wrapper .slide-button {
+    display: none !important;
+}
+
+.slider-wrapper .image-list {
+    gap: 10px;
+    margin-bottom: 15px;
+    scroll-snap-type: x mandatory;
+}
+
+.slider-wrapper .image-list .image-item {
+    width: 280px;
+    height: 380px;
+}
+
+.slider-scrollbar .scrollbar-thumb {
+    width: 20%;
+}
+}

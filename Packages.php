@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <title>Restoran - Bootstrap Restaurant Template</title>
+    <title>Package | MiCasa Events</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta content="" name="keywords">
     <meta content="" name="description">
@@ -24,7 +24,7 @@
     <!-- Libraries Stylesheet -->
     <link href="lib/animate/animate.min.css" rel="stylesheet">
     <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
-    <link href="lib/tempusdominus/css/tempusdominus-bootstrap-4.min.css" rel="stylesheet">
+    <link href="lib/tempusdominus/css/tempusdominus-bootstrap-4.min.css" rel="stylesheet" />
 
     <!-- Customized Bootstrap Stylesheet -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -85,7 +85,7 @@
         <!-- Packages Start -->
         <div class="container-xxl pt-5 pb-3">
             <div class="container">
-                <div class="text-center wow fadeInDown" data-wow-delay="0.1s">
+                <div class="text-center wow fadeInDown" data-wow-delay="0.8s">
                     <h5 class="section-title ff-secondary text-center text-primary fw-normal">These are our</h5>
                     <h1 class="mb-5">Packages</h1>
                 </div>
@@ -185,7 +185,6 @@
         </div>
         <!-- Packages End -->
         
-
         <!-- Footer Start -->
         <div class="container-fluid bg-dark text-light footer pt-5 mt-5 wow fadeIn" data-wow-delay="0.1s">
             <div class="container py-5">

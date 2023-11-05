@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <title>Restoran - Bootstrap Restaurant Template</title>
+    <title>About | MiCasa Events</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta content="" name="keywords">
     <meta content="" name="description">
@@ -155,98 +155,67 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-md-6 wow fadeIn" data-wow-delay="0.1s">
-                                <iframe class="position-relative rounded w-100 h-100"
-                                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d61858.66856026581!2d120.99866447258962!3d14.301740189359906!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3397d62d43154f47%3A0x99eec5769bb55684!2sCarmona%2C%20Cavite!5e0!3m2!1sen!2sph!4v1698229935521!5m2!1sen!2sph" width="600" height="450" style="border:0;"
-                                    frameborder="0" style="min-height: 350px; border:0;" allowfullscreen="" aria-hidden="false"
-                                    tabindex="0"></iframe>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="wow fadeInUp" data-wow-delay="0.2s">
                                 <?php
                                     if (!isset($_SESSION['email'])) {
-                                        echo '<form>';
-                                        echo '<div class="row g-3">';
-                                        echo '<div class="col-md-6">';
-                                        echo '<div class="form-floating">';
-                                        echo '<input type="text" class="form-control" id="name" placeholder="Your Name">';
-                                        echo '<label for="name">Your Name</label>';
-                                        echo '</div>';
-                                        echo '</div>';
-                                        echo '<div class="col-md-6">';
-                                        echo '<div class="form-floating">';
-                                        echo '<input type="email" class="form-control" id="email" placeholder="Your Email">';
-                                        echo '<label for="email">Your Email</label>';
-                                        echo '</div>';
-                                        echo '</div>';
-                                        echo '<div class="col-12">';
-                                        echo '<div class="form-floating">';
-                                        echo '<input type="text" class="form-control" id="subject" placeholder="Subject">';
-                                        echo '<label for="subject">Subject</label>';
-                                        echo '</div>';
-                                        echo '</div>';
-                                        echo '<div class="col-12">';
-                                        echo '<div class="form-floating">';
-                                        echo '<textarea class="form-control" placeholder="Leave a message here" id="message" style="height: 150px"></textarea>';
-                                        echo '<label for="message">Message</label>';
-                                        echo '</div>';
-                                        echo '</div>';
-                                        echo '<div class="col-12">';
-                                        echo '<button class="btn btn-primary w-100 py-3" type="submit">Send Message</button>';
-                                        echo '</div>';
-                                        echo '</div>';
-                                        echo '</form>';
-                                    } else {
-                                        // User is logged in, display the reservation form
-                                    ?>
-
-                                    <form>
-                                        <div class="row g-3">
-                                            <div class="col-md-6">
-                                                <div class="form-floating">
-                                                    <input type="text" class="form-control" id="name" placeholder="Your Name">
-                                                    <label for="name">Your Name</label>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-6">
-                                                <div class="form-floating">
-                                                    <input type="email" class="form-control" id="email" placeholder="Your Email">
-                                                    <label for="email">Your Email</label>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-6">
-                                                <div class="form-floating date" id="date3" data-target-input="nearest">
-                                                    <input type="text" class="form-control datetimepicker-input" id="datetime" placeholder="Date & Time" data-target="#date3" data-toggle="datetimepicker" />
-                                                    <label for="datetime">Date & Time</label>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-6">
-                                                <div class="form-floating">
-                                                    <select class="form-select" id="select1">
-                                                    <option value="1">People 1</option>
-                                                    <option value="2">People 2</option>
-                                                    <option value="3">People 3</option>
-                                                    </select>
-                                                    <label for="select1">No Of People</label>
-                                                </div>
-                                            </div>
-                                            <div class="col-12">
-                                                <div class="form-floating">
-                                                    <textarea class="form-control" placeholder="Special Request" id="message" style="height: 100px"></textarea>
-                                                    <label for="message">Special Request</label>
-                                                </div>
-                                            </div>
-                                            <div class="col-12">
-                                                <button class="btn btn-primary w-100 py-3" type="submit">Book Now</button>
+                                ?>
+                                <div class="col-md-6 wow fadeIn" data-wow-delay="0.1s">
+                                    <iframe class="position-relative rounded w-100 h-100"
+                                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d61858.66856026581!2d120.99866447258962!3d14.301740189359906!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3397d62d43154f47%3A0x99eec5769bb55684!2sCarmona%2C%20Cavite!5e0!3m2!1sen!2sph!4v1698229935521!5m2!1sen!2sph" width="600" height="450" style="border:0;"
+                                    frameborder="0" style="min-height: 350px; border:0;" allowfullscreen="" aria-hidden="false"
+                                    tabindex="0">
+                                    </iframe>
+                                </div>
+                            <div class="col-md-6">
+                                <div class="wow fadeInUp" data-wow-delay="0.2s">
+                                <form action="inquiry.php" method="post">
+                                    <div class="row g-3">
+                                        <div class="col-md-6">
+                                            <div class="form-floating">
+                                                <input type="text" class="form-control" name="name" id="name" placeholder="Your Name">
+                                                <label for="name">Your Name</label>
                                             </div>
                                         </div>
-                                    </form>
+                                        <div class="col-md-6">
+                                            <div class="form-floating">
+                                                <input type="email" class="form-control" name="email" id="email" placeholder="Your Email">
+                                                <label for="email">Your Email</label>
+                                            </div>
+                                        </div>
+                                        <div class="col-12">
+                                            <div class="form-floating">
+                                                <input type="text" class="form-control" name="subject" id="subject" placeholder="Subject">
+                                                <label for="subject">Subject</label>
+                                            </div>
+                                        </div>
+                                        <div class="col-12">
+                                            <div class="form-floating">
+                                                <textarea class="form-control" placeholder="Leave a message here" name="message" id="message" style="height: 150px"></textarea>
+                                                <label for="message">Message</label>
+                                            </div>
+                                        </div>
+                                        <div class="col-12">
+                                            <button class="btn btn-primary w-100 py-3" name="inquire" type="submit">Send Message</button>
+                                        </div>
+                                    </div>
+                                </form>
+                                </div>
+
+                                <?php
+                                    } else {
+                                        // User is logged in, display the reservation form
+                                ?>
+                                <div class="col-md-12 wow fadeIn" data-wow-delay="0.1s">
+                                    <iframe class="position-relative rounded w-100 h-100"
+                                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d61858.66856026581!2d120.99866447258962!3d14.301740189359906!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3397d62d43154f47%3A0x99eec5769bb55684!2sCarmona%2C%20Cavite!5e0!3m2!1sen!2sph!4v1698229935521!5m2!1sen!2sph" width="600" height="450" style="border:0;"
+                                    frameborder="0" style="min-height: 350px; border:0;" allowfullscreen="" aria-hidden="false"
+                                    tabindex="0">
+                                    </iframe>
+                                </div>
+
                                 <?php
                                 }
                                 ?>
-                                </div>
                             </div>
-                        </div>
                     </div>
                 </div>
                 <!-- Contact End -->
