@@ -211,7 +211,7 @@
 
                                         <!--Java Script for guest counter limit-->
                                         <script>
-                                        document.getElementById('ballroom').addEventListener('change', function() {
+                                            document.getElementById('ballroom').addEventListener('change', function() {
                                                 const selectedBallroom = this.value;
                                                 const guestNoInput = document.getElementById('guestNo');
 
@@ -301,55 +301,44 @@
 
                                         <div class="col-md-6">
                                             <div class="form-floating time" data-target-input="nearest">
-                                                <input type="time" class="form-control" id="timestart" placeholder="Start Time" name="sTime" required>
+                                                <input type="time" class="form-control" id="timestart" name="sTime" placeholder="Start Time" name="sTime" required>
                                                 <label for="timestart">Start Time</label>
                                             </div>
                                         </div>
 
                                         <div class="col-md-6">
                                             <div class="form-floating time" data-target-input="nearest">
-                                                <input type="time" class="form-control" id="endtime" placeholder="End Time" name="eTime" required>
+                                                <input type="time" class="form-control" id="endtime" anme="eTime" placeholder="End Time" name="eTime" required>
                                                 <label for="endtime">End Time</label>
                                             </div>
                                         </div>
                                         
                                         <!--Java Script for time with minimum of 4hrs-->
                                         <script>
-                                            // Get references to the input elements
                                             const startTimeInput = document.getElementById("timestart");
                                             const endTimeInput = document.getElementById("endtime");
 
-                                            // Function to calculate and update the end time
                                             function updateEndTime() {
-                                                // Parse the time inputs into Date objects
                                                 const startTime = new Date(`1970-01-01T${startTimeInput.value}`);
                                                 
-                                                // Calculate the end time as 4 hours after the start time
                                                 const endTime = new Date(startTime.getTime() + 4 * 60 * 60 * 1000);
                                                 
-                                                // Format the end time to a time string
                                                 const endTimeString = endTime.toTimeString().substring(0, 5);
                                                 
-                                                // Set the end time input value
                                                 endTimeInput.value = endTimeString;
                                             }
 
-                                            // Add an event listener to the start time input
                                             startTimeInput.addEventListener("input", updateEndTime);
 
-                                            // Add an event listener to the end time input
                                             endTimeInput.addEventListener("change", function () {
-                                                // Parse the time inputs into Date objects
                                                 const startTime = new Date(`1970-01-01T${startTimeInput.value}`);
                                                 const endTime = new Date(`1970-01-01T${endTimeInput.value}`);
 
-                                                // Calculate the time difference in milliseconds
                                                 const timeDifference = endTime - startTime;
 
-                                                // Check if the time difference is less than 4 hours (in milliseconds)
                                                 if (timeDifference < 4 * 60 * 60 * 1000) {
                                                     alert("The minimum time duration must be 4 hours. Please adjust your input.");
-                                                    // Reset the end time to be 4 hours after the start time
+                                                
                                                     updateEndTime();
                                                 }
                                             });
@@ -363,7 +352,64 @@
                                             </div>
                                         </div>
                                     </div>
-                                <button type="button" class="booking_btn btn-primary w-100 py-3" id="s1Next" onclick="nextStep(2)">Next</button>
+
+                                    <!--Java Script to get data from db to put into display reciept-->
+                                    <script>
+                                        function updateTotal() {
+                                            const package = document.getElementById("package").value;
+                                            const FRoom = document.getElementById("ballroom").value;
+                                            const sTime = document.getElementById("timestart").value;
+                                            const eTime = document.getElementById("endtime").value;
+
+                                            console.log("Package: " + package);
+                                            console.log("Function Room: " + FRoom);
+                                            console.log("Start Time: " + sTime);
+                                            console.log("End Time: " + eTime);
+
+                                            fetch('price.php', {
+                                                method: 'POST',
+                                                headers: {
+                                                    'Content-Type': 'application/x-www-form-urlencoded',
+                                                },
+                                                body: `package=${package}&FRoom=${FRoom}&sTime=${sTime}&eTime=${eTime}`,
+                                            })
+                                            .then(response => response.json())
+                                            .then(data => {
+                                                console.log("Received data from server:", data);
+                                                const baseElement = document.getElementById("base");
+                                                baseElement.textContent = data.base;
+
+                                                const timeElement = document.getElementById("time");
+                                                timeElement.textContent = data.time;
+
+                                                const otElement = document.getElementById("ot");
+                                                otElement.textContent = data.ot;
+
+                                                const totalElement = document.getElementById("total");
+                                                totalElement.textContent = data.total;
+
+                                                const downElement = document.getElementById("down");
+                                                downElement.textContent = data.down;
+
+                                                const fullElement = document.getElementById("full");
+                                                fullElement.textContent = data.full;                                                
+                                            })
+                                            .catch(error => {
+                                                console.error('Error:', error);
+                                            });
+                                        }
+
+                                        function executeMultipleFunctions() {
+                                            nextStep(2); 
+
+                                            updateTotal();
+                                        }
+
+                                        document.getElementById("s1Next").addEventListener("click", executeMultipleFunctions);
+                                        
+                                    </script>
+
+                                <button type="button" class="booking_btn btn-primary w-100 py-3" id="s1Next" onclick="executeMultipleFunctions()">Next</button>
                             </div>
 
                             <div class="booking-step" id="step-2">
@@ -444,14 +490,18 @@
                                 <div class="row g-3">
                                     <div class="col-md-12" style="margin-bottom: none;">
                                         <div class="payment-info">
-                                            <p>Total Amount: Php  </p>
-                                            <p>Downpayment (30%): Php </p>
-                                            <p>Amount to be payed on the day of the Event: Php </p>
+                                            <p>Base Price: Php <span id="base"></span></p>
+                                            <p>Overtime: <span id="time"></span></p>
+                                            <p>Overtime Price: Php <span id="ot"></span></p>
+                                            <p>---------------------------------------------</p>
+                                            <p><b>Total Amount: Php <span id="total"></span></b></p>
+                                            <p>Downpayment (30%): Php <span id="down"></span></p>
+                                            <p>Full Payment: Php <span id="full"></span></p>
                                         </div>
                                     </div>
                                     <div class="col-md-12">
                                         <div class="form-floating">
-                                            <select class="form-select" id="payType" name="payType" onchange="selectOption()">
+                                            <select class="form-select" id="payType" name="payType" onchange="selectOption()" required>
                                             <option selected disabled value="">Select Payment Method</option>
                                             <optgroup label="Online Payment">
                                                 <option value="gcash">GCash</option>
@@ -484,13 +534,10 @@
                                         <!--Javascript for CardNumber input-->
                                         <script>
                                             function formatCardNumber(input) {
-                                                // Save the current cursor position
                                                 const cursorPosition = input.selectionStart;
 
-                                                // Remove non-numeric characters from the input
                                                 const cardNumber = input.value.replace(/\D/g, '');
 
-                                                // Format the card number with hyphens
                                                 let formattedCardNumber = '';
                                                 for (let i = 0; i < cardNumber.length; i++) {
                                                     if (i > 0 && i % 4 === 0) {
@@ -501,7 +548,6 @@
 
                                                 input.value = formattedCardNumber;
 
-                                                // Restore the cursor position
                                                 const newPosition = cursorPosition + (formattedCardNumber.length - cardNumber.length);
                                                 input.setSelectionRange(newPosition, newPosition);
                                             }
@@ -519,10 +565,8 @@
                                             <!--Javascript for CVV-->
                                             <script>
                                                 function formatCVV(input) {
-                                                    // Remove non-numeric characters from the input
                                                     const cvv = input.value.replace(/\D/g, '');
 
-                                                    // Limit the CVV to 3 characters
                                                     input.value = cvv.slice(0, 3);
                                                 }
                                             </script>
@@ -536,12 +580,10 @@
                                             
                                             <!--Javascript for expDate-->
                                             <script>
-                                                // Get the current date (year and month)
                                                 const currentDate = new Date();
                                                 const currentYear = currentDate.getFullYear();
                                                 const currentMonth = (currentDate.getMonth() + 1).toString().padStart(2, '0'); 
 
-                                                // Set the min attribute for the month input
                                                 const monthInput = document.getElementById("expDate");
                                                 monthInput.min = `${currentYear}-${currentMonth}`;
                                             </script>
@@ -556,15 +598,23 @@
                                             const referenceNumberField = document.getElementById("referenceNumberField");
                                             const cardDetailsField = document.getElementById("cardDetailsField");
 
-                                            // Reset the fields to hidden
                                             referenceNumberField.style.display = "none";
-                                            cardDetailsField.style.display = "none";
+                                            document.getElementById("referenceNumber").removeAttribute("required");
 
-                                            // Show the appropriate field based on the selected payment method
+                                            cardDetailsField.style.display = "none";
+                                            document.getElementById("cardNum").removeAttribute("required");
+                                            document.getElementById("cvv").removeAttribute("required");
+                                            document.getElementById("expDate").removeAttribute("required");
+
+
                                             if (payType === "gcash" || payType === "maya") {
                                                 referenceNumberField.style.display = "block";
+                                                document.getElementById("referenceNumber").setAttribute("required", "required");
                                             } else if (payType === "pA" || payType === "pB") {
                                                 cardDetailsField.style.display = "block";
+                                                document.getElementById("cardNum").setAttribute("required", "required");
+                                                document.getElementById("cvv").setAttribute("required", "required");
+                                                document.getElementById("expDate").setAttribute("required", "required");
                                             }
                                         }
                                     </script>
