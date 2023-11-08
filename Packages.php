@@ -30,6 +30,7 @@
     <link href="css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Template Stylesheet -->
+    <link href="css/style.css" rel="stylesheet">
     <link href="css/packages.css" rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
@@ -82,65 +83,9 @@
         </div>
         <!-- Navbar & Hero End -->
 
-        <!-- Event Start -->
-        <div class="container-xxl py-5">
-            <div class="container">
-                <div class="row g-5 align-items-center">
-                    <div class="col-lg-6">
-                        <div class="row g-3">
-                            <div class="col-6 text-start">
-                                <img class="img-fluid rounded w-100 wow zoomIn" data-wow-delay="0.1s" src="img/about-1.jpg">
-                            </div>
-                            <div class="col-6 text-start">
-                                <img class="img-fluid rounded w-75 wow zoomIn" data-wow-delay="0.3s" src="img/about-2.jpg" style="margin-top: 25%;">
-                            </div>
-                            <div class="col-6 text-end">
-                                <img class="img-fluid rounded w-75 wow zoomIn" data-wow-delay="0.5s" src="img/about-3.jpg">
-                            </div>
-                            <div class="col-6 text-end">
-                                <img class="img-fluid rounded w-100 wow zoomIn" data-wow-delay="0.7s" src="img/about-4.jpg">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-6">
-                        <h5 class="section-title ff-secondary text-start text-primary fw-normal">Packages</h5>
-                        <h1 class="mb-4"><i class="fa fa-envelope text-primary me-2"></i>Welcome to Event Booking Management</h1>
-                        <p class="mb-4">No matter what stage of the event process you’re in, we offer a complete set of tools that’s flexible enough to work with your event program. From small meetings, large conferences or internal meetings, we’ve got you covered</p>
-
-                        <div class="row g-4 mb-4">
-                            <div class="col-sm-6">
-                                <div class="d-flex align-items-center border-start border-5 border-primary px-3">
-                                    <h1 class="flex-shrink-0 display-5 text-primary mb-0" data-toggle="counter-up">15</h1>
-                                    <div class="ps-4">
-                                        <p class="mb-0">Years of</p>
-                                        <h6 class="text-uppercase mb-0">Experience</h6>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-sm-6">
-                                <div class="d-flex align-items-center border-start border-5 border-primary px-3">
-                                    <h1 class="flex-shrink-0 display-5 text-primary mb-0" data-toggle="counter-up">50</h1>
-                                    <div class="ps-4">
-                                        <p class="mb-0">Popular</p>
-                                        <h6 class="text-uppercase mb-0">Master Chefs</h6>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <a class="btn btn-primary py-3 px-5 mt-2" href="">Read More</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- Event End -->
-
         <!-- Packages Start -->
         <div class="container-xxl pt-5 pb-3">
             <div class="container">
-                <div class="text-center wow fadeInDown" data-wow-delay="0.8s">
-                    <h5 class="section-title ff-secondary text-center text-primary fw-normal">This Is Our</h5>
-                    <h1 class="mb-5">Packages</h1>
-                </div>
                 <section id="section-feature" class="container wow fadeInUp" data-wow-delay="0.9s">
                     
                     <!-- new row-->
@@ -241,8 +186,151 @@
                         </li>
                     </div> 
                 </section>
-            </div>
+
+                    <!-- Subpackages Start -->
+                    <!-- Subpackages Header -->
+                    <div class="text-center wow fadeInDown" data-wow-delay="0.1s">
+                        <br/><br/><br/>
+                        <h5 class="section-title ff-secondary text-center text-primary fw-normal">These Are Our</h5>
+                        <h1 class="mb-5">Subpackages</h1>
+                        <br/>
+                    </div>
+                    
+                    <!-- new row-->
+                    <div class="row g-4 justify-content-center package-m-fix" >
+
+                        <!-- Intimate Wedding Subpackages -->
+                        <div class="subpackage-card">
+                            <div id="subpackage-card__cover" class="subpackage-card__cover">
+                                <div class="subpackage-card__img">
+                                <img
+                                    src="img/Intimate_Wedding.jpg"
+                                    alt="Birthday">
+                                </div>
+                                <div class="subpackage-card__cover-details">
+                                    <div id="subpackage-card__pax" class="subpackage-card__pax">
+                                    <br/>
+                                    <p><span>50</span>pax</p>
+                                </div>
+                                <div id="subpackage-card__info" class="subpackage-card__info">
+                                    <div class="subpackage-card__title">
+                                    <h1>Intimate Package</h1>
+                                    </div>
+                                    <div class="subpackage-card__description">
+                                    <p>Wonderful blueberry french toast subpackage to serve for your whole family!</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="subpackage-card__content-container" class="subpackage-card__content-container">
+                            <div class="subpackage-card__actions">
+                                <ul>
+                                    <li><a id="inclusionsTab" href="#" class="active">Php 50,000</a></li>
+                                </ul>
+                            </div>
+                            <div id="subpackage-card__content--inclusions" class="subpackage-card__content subpackage-card__content--active">
+                                <ul>
+                                    <span>Inclusions:</span>
+                                    <li>Use of Function Room for 4 hours (Silver or Golden Ballroom)</li>
+                                    <li>Use of Tiffany Chairs</li>
+                                    <li>Table Setting and Physical Arrangement of the Area</li>
+                                    <li>Use of Cake Table,Registration Table and Gift Table</li>
+                                    <li>Use of Red Carpet</li>
+                                    <li>Basic Sound System for Public Address and Background Music</li>
+                                    <li>Full Bottle of Sparkling Wine for Ceremonial Toast</li>
+                                    <li>Guest Book and Pen</li>
+                                    <li>Use of Bubble Machine and Fog Machine</li>
+                                    <li>Food Tasting for 2 persons</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <!-- Intimate Wedding Package End-->
+                    </div>                    
+                    
+                    <!-- Subpackages End -->
+
+                    <div class="pricing">
+  <div class="container">
+    <div class="pricing__grid">
+      <div class="pricing__card pricing-card">
+        <div class="pricing-card__top">
+        <div class="pricing-card__img"><img
+                                    src="img/Intimate_Wedding.jpg"
+                                    alt="Birthday"></div>
+          <div class="pricing-card__title">Intimate</div>
+          <div class="pricing-card__price">Php 50, 000<span>/ 50 pax</span></div>
         </div>
+        <div class="pricing-card__body">
+          
+              <ul>
+              <li>Use of Function Room for 4 hours (Silver or Golden Ballroom)</li>
+                                    <li>Use of Tiffany Chairs</li>
+                                    <li>Table Setting and Physical Arrangement of the Area</li>
+                                    <li>Use of Cake Table, Registration Table and Gift Table</li>
+                                    <li>Use of Red Carpet</li>
+                                    <li>Basic Sound System for Public Address and Background Music</li>
+                                    <li>Full Bottle of Sparkling Wine for Ceremonial Toast</li>
+                                    <li>Guest Book and Pen</li>
+                                    <li>Use of Bubble Machine and Fog Machine</li>
+                                    <li>Food Tasting for 2 persons</li>
+              </ul>
+          <div class="pricing-card__button"><a href="">Select</a></div>
+        </div>
+      </div>
+      <div class="pricing__card pricing-card">
+        <div class="pricing-card__top">
+          <div class="pricing-card__title">Classic</div>
+          <div class="pricing-card__price">Php 150, 000<span>/ 150 pax</span></div>
+        </div>
+        <div class="pricing-card__body">
+          <ul>
+                                    <li>Use of Function Room for 4 hours (Silver, Golden or Platinum Ballroom)</li>
+                                    <li>Use of Tiffany Chairs</li>
+                                    <li>Table Setting and Physical Arrangement of the Area</li>
+                                    <li>Use of Cake Table, Registration Table and Gift Table</li>
+                                    <li>Use of Red Carpet</li>
+                                    <li>Basic Sound System for Public Address and Background Music</li>
+                                    <li>Full Bottle of Sparkling Wine for Ceremonial Toast</li>
+                                    <li>Guest Book and Pen</li>
+                                    <li>Use of Bubble Machine and Fog Machine</li>
+                                    <li>Food Tasting for 2 persons</li>
+                                    <li>Photo booth</li>
+                                    <li>Dedicated Professional Events Personnel to attend to your necessities</li>
+                                </ul>
+          <div class="pricing-card__button"><a href="">Select</a></div>
+        </div>
+      </div>
+      <div class="pricing__card pricing-card">
+        <div class="pricing-card__top">
+          <div class="pricing-card__title">Deluxe</div>
+          <div class="pricing-card__price">Php 200, 000<span>/ 200 pax</span></div>
+        </div>
+        <div class="pricing-card__body">
+        <ul>
+                                    <li>Use of Function Room for 4 hours (Diamond Ballroom)</li>
+                                    <li>Use of Tiffany Chairs</li>
+                                    <li>Table Setting and Physical Arrangement of the Area</li>
+                                    <li>Use of Cake Table, Registration Table and Gift Table</li>
+                                    <li>Use of Red Carpet</li>
+                                    <li>Basic Sound System for Public Address and Background Music</li>
+                                    <li>Full Bottle of Sparkling Wine for Ceremonial Toast</li>
+                                    <li>Guest Book and Pen</li>
+                                    <li>Use of Bubble Machine and Fog Machine</li>
+                                    <li>Food Tasting for 2 persons</li>
+                                    <li>Photo booth</li>
+                                    <li>Dedicated Professional Events Personnel to attend to your necessities</li>
+                                </ul>
+          </div>
+          <div class="pricing-card__button"><a href="">Select</a></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+                </div>
+            </div>
         <!-- Team End -->
 
         <!-- Footer Start -->
