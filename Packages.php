@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <title>Restoran - Bootstrap Restaurant Template</title>
+    <title>Mi Casa Events Place</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta content="" name="keywords">
     <meta content="" name="description">
@@ -85,6 +85,8 @@
 
         <!-- Packages Start -->
         <div class="container-xxl pt-5 pb-3">
+            <button id="Top"><a href="#section-feature" style="color: white">^</a></button>
+
             <div class="container">
                 <section id="section-feature" class="container wow fadeInUp" data-wow-delay="0.9s">
                     
@@ -191,147 +193,350 @@
                     <!-- Subpackages Header -->
                     <div class="text-center wow fadeInDown" data-wow-delay="0.1s">
                         <br/><br/><br/>
-                        <h5 class="section-title ff-secondary text-center text-primary fw-normal">These Are Our</h5>
-                        <h1 class="mb-5">Subpackages</h1>
-                        <br/>
+                        <h1 class="section-title ff-secondary text-center text-primary fw-normal">Wedding</h1>
+                        <h5 class="mb-5">Packages</h5>
+                    </div>                  
+                    <!-- Wedding Subpackages Start -->
+                    <div class="subpackage">
+                        <div class="container">
+                            <div class="subpackage__grid">
+                                <!-- Intimate Wedding Subpackages -->
+                                <div class="subpackage__card subpackage-card">
+                                    <div class="subpackage-card__top">
+                                        <!--<img src="img/Intimate_Wedding.jpg" />-->
+                                        <div class="subpackage-card__title">Intimate</div>
+                                        <div class="subpackage-card__price">Php 50, 000
+                                            <span>/ 50 pax</span>
+                                        </div>
+                                    </div>
+                                    <div class="subpackage-card__body">
+                                        <ul>
+                                            <li>Use of Function Room for 4 hours (Silver or Golden Ballroom)</li>
+                                            <li>Use of Tiffany Chairs</li>
+                                            <li>Table Setting and Physical Arrangement of the Area</li>
+                                            <li>Use of Cake Table, Registration Table and Gift Table</li>
+                                            <li>Use of Red Carpet</li>
+                                            <li>Basic Sound System for Public Address and Background Music</li>
+                                            <li>Full Bottle of Sparkling Wine for Ceremonial Toast</li>
+                                            <li>Guest Book and Pen</li>
+                                            <li>Use of Bubble Machine and Fog Machine</li>
+                                            <li>Food Tasting for 2 persons</li>
+                                        </ul>
+                                        <!--<div class="subpackage-card__button"><a href="">Select</a></div>-->
+                                    </div>
+                                </div>
+                                <!-- Intimate Wedding Package End-->
+
+                                <!-- Classic Wedding Package Start-->
+                                <div class="subpackage__card subpackage-card">
+                                    <div class="subpackage-card__top">
+                                        <div class="subpackage-card__title">Classic</div>
+                                        <div class="subpackage-card__price">Php 150, 000
+                                            <span>/ 150 pax</span>
+                                        </div>
+                                    </div>
+                                    <div class="subpackage-card__body">
+                                        <ul>
+                                            <li>Use of Function Room for 4 hours (Silver, Golden or Platinum Ballroom)</li>
+                                            <li>Use of Tiffany Chairs</li>
+                                            <li>Table Setting and Physical Arrangement of the Area</li>
+                                            <li>Use of Cake Table, Registration Table and Gift Table</li>
+                                            <li>Use of Red Carpet</li>
+                                            <li>Basic Sound System for Public Address and Background Music</li>
+                                            <li>Full Bottle of Sparkling Wine for Ceremonial Toast</li>
+                                            <li>Guest Book and Pen</li>
+                                            <li>Use of Bubble Machine and Fog Machine</li>
+                                            <li>Food Tasting for 2 persons</li>
+                                            <li>Photo booth</li>
+                                            <li>Dedicated Professional Events Personnel to attend to your necessities</li>
+                                        </ul>
+                                        <!--<div class="subpackage-card__button"><a href="">Select</a></div>-->
+                                    </div>
+                                </div>
+                                <!-- Classic Wedding Package End-->
+
+                                <!-- Deluxe Wedding Package Start-->
+                                <div class="subpackage__card subpackage-card">
+                                    <div class="subpackage-card__top">
+                                        <div class="subpackage-card__title">Deluxe</div>
+                                        <div class="subpackage-card__price">Php 200, 000
+                                            <span>/ 200 pax</span>
+                                        </div>
+                                    </div>
+                                    <div class="subpackage-card__body">
+                                        <ul>
+                                            <li>Use of Function Room for 4 hours (Diamond Ballroom)</li>
+                                            <li>Use of Tiffany Chairs</li>
+                                            <li>Table Setting and Physical Arrangement of the Area</li>
+                                            <li>Use of Cake Table, Registration Table and Gift Table</li>
+                                            <li>Use of Red Carpet</li>
+                                            <li>Basic Sound System for Public Address and Background Music</li>
+                                            <li>Full Bottle of Sparkling Wine for Ceremonial Toast</li>
+                                            <li>Guest Book and Pen</li>
+                                            <li>Use of Bubble Machine and Fog Machine</li>
+                                            <li>Food Tasting for 2 persons</li>
+                                            <li>Photo booth</li>
+                                            <li>Dedicated Professional Events Personnel to attend to your necessities</li>
+                                        </ul>
+                                    </div>
+                                    <!--<div class="subpackage-card__button"><a href="">Select</a></div>-->
+                                </div>
+                                <!-- Deluxe Wedding Package End-->
+                            </div>
+                        </div>
+
+                        <!-- Birthday Subpackages Start-->
+                        <div class="text-center wow fadeInDown" data-wow-delay="0.1s">
+                            <br/><br/><br/>
+                            <h1 class="section-title ff-secondary text-center text-primary fw-normal">Birthday</h1>
+                            <h5 class="mb-5">Packages</h5>
+                        </div> 
+                        <div class="subpackage">
+                        <div class="container">
+                            <div class="subpackage__grid">
+                                <!-- Kiddie Birthday Subpackage -->
+                                <div class="subpackage__card subpackage-card">
+                                    <div class="subpackage-card__top">
+                                        <!--<img src="img/Intimate_Wedding.jpg" />-->
+                                        <div class="subpackage-card__title">Kiddie</div>
+                                        <div class="subpackage-card__price">Php 90, 000
+                                            <span>/ 50 Adults and 25 Kids</span>
+                                        </div>
+                                    </div>
+                                    <div class="subpackage-card__body">
+                                        <ul>
+                                            <li>Use of private function room for 4 hours (Golden or Platinum Ballroom)</li>
+                                            <li>Banquet set-up according to your color motif</li>
+                                            <li>Party host and magician</li>
+                                            <li>Balloon twisting show</li>
+                                            <li>Balloon arrangements: 10pcs. Hanging balloons, Table centerpieces, Cake ark and 2</li>
+                                            <li>Balloon pillars</li>
+                                            <li>Bubble machine</li>
+                                            <li>Basic sound system for public address and background music</li>
+                                        </ul>
+                                        <!--<div class="subpackage-card__button"><a href="">Select</a></div>-->
+                                    </div>
+                                </div>
+                                <!-- Kiddie Birthday Package End-->
+
+                                <!-- Debut Birthday Package Start-->
+                                <div class="subpackage__card subpackage-card">
+                                    <div class="subpackage-card__top">
+                                        <div class="subpackage-card__title">Debut</div>
+                                        <div class="subpackage-card__price">Php 175, 000
+                                            <span>/ 120 pax</span>
+                                        </div>
+                                        <br/>
+                                    </div>
+                                    <div class="subpackage-card__body">
+                                        <ul>
+                                            <li>Use of Function Room for 4 hours (Silver, Golden or Platinum Ballroom)</li>
+                                            <li>Use of tiffany chairs and red carpet</li>
+                                            <li>Banquet set-up according to your color motif</li>
+                                            <li>Floral centerpieces for presidential, buffet, and guest tables</li>
+                                            <li>18 Roses and 18 Candles</li>
+                                            <li>Photobooth</li>
+                                            <li>Tarpaulin</li>
+                                            <li>Bubble machine and fog machine</li>
+                                            <li>Food tasting for two persons</li>
+                                            <li>Basic sound system for public address and background music</li>
+                                        </ul>
+                                        <!--<div class="subpackage-card__button"><a href="">Select</a></div>-->
+                                    </div>
+                                </div>
+                                <!-- Debut Birthday Package End-->
+
+                                <!-- Basic Birthday Package Start-->
+                                <div class="subpackage__card subpackage-card">
+                                    <div class="subpackage-card__top">
+                                        <div class="subpackage-card__title">Basic</div>
+                                        <div class="subpackage-card__price">Php 100, 000
+                                            <span>/ 100 pax</span>
+                                        </div>
+                                        <br/>
+                                    </div>
+                                    <div class="subpackage-card__body">
+                                        <ul>
+                                            <li>Use of private function room for 4 hours (Silver or Golden Ballroom)</li>
+                                            <li>Use of tiffany chairs and red carpet</li>
+                                            <li>Photobooth</li>
+                                            <li>Tarpaulin</li>
+                                            <li>Bubble machine and fog machine</li>
+                                            <li>Food tasting for two persons</li>
+                                            <li>Basic sound system for public address and background music</li>
+                                        </ul>
+                                    </div>
+                                    <!--<div class="subpackage-card__button"><a href="">Select</a></div>-->
+                                </div>
+                                <!-- Basic Birthday Package End-->
+                            </div>
+                        </div>
+                        <!-- Birthday Subpackages End-->
+
+                        <!-- Occasion Celebration Packages Start -->
+                        <div class="text-center wow fadeInDown" data-wow-delay="0.1s">
+                            <br/><br/><br/><br/>
+                            <h1 class="section-title ff-secondary text-center text-primary fw-normal">All Occasions Celebration</h1>
+                            <h5 class="mb-5">Packages</h5>
+                        </div> 
+                        <div class="subpackage">
+                        <div class="container">
+                            <div class="subpackage__grid">
+                                <!-- Package A Celebration Subpackage Start -->
+                                <div class="subpackage__card subpackage-card">
+                                    <div class="subpackage-card__top">
+                                        <!--<img src="img/Intimate_Wedding.jpg" />-->
+                                        <div class="subpackage-card__title">Package A</div>
+                                        <div class="subpackage-card__price">Php 40, 000
+                                            <span>/ 50 pax</span>
+                                        </div>
+                                    </div>
+                                    <div class="subpackage-card__body">
+                                        <ul>
+                                            <li>Use of private function room for 4 hours (Silver or Golden Ballroom)</li>
+                                            <li>Use of tiffany chairs and red carpet</li>
+                                            <li>Food tasting for two persons</li>
+                                            <li>Basic sound system for public address and background music</li>
+                                        </ul>
+                                        <!--<div class="subpackage-card__button"><a href="">Select</a></div>-->
+                                    </div>
+                                </div>
+                                <!-- Package A Celebration Subpackage End-->
+
+                                <!-- Package B Celebration Subpackage Start-->
+                                <div class="subpackage__card subpackage-card">
+                                    <div class="subpackage-card__top">
+                                        <div class="subpackage-card__title">Package B</div>
+                                        <div class="subpackage-card__price">Php 75, 000
+                                            <span>/ 100 pax</span>
+                                        </div>
+                                    </div>
+                                    <div class="subpackage-card__body">
+                                        <ul>
+                                            <li>Use of private function room for 4 hours (Platinum or Diamond Ballroom)</li>
+                                            <li>Use of tiffany chairs and red carpet</li>
+                                            <li>Food tasting for two persons</li>
+                                            <li>Basic sound system for public address and background music</li>
+                                            <li>Photobooth</li>
+                                            <li>Tarpaulin</li>
+                                        </ul>
+                                        <!--<div class="subpackage-card__button"><a href="">Select</a></div>-->
+                                    </div>
+                                </div>
+                                <!-- Package B Celebration Subpackage End-->
+                            </div>
+                        </div>
+                        <!-- Occassion Celebration Packages End -->
+
+                        <!-- Function Room Packages Start -->
+                        <div class="text-center wow fadeInDown" data-wow-delay="0.1s">
+                            <br/><br/><br/><br/>
+                            <h1 class="section-title ff-secondary text-center text-primary fw-normal">Function Room</h1>
+                            <h5 class="mb-5">Packages</h5>
+                        </div> 
+                        <div class="subpackage">
+                        <div class="container">
+                            <div class="subpackage__grid">
+                                <!-- Silver Ballroom Start -->
+                                <div class="subpackage__card subpackage-card">
+                                    <div class="subpackage-card__top">
+                                        <!--<img src="img/Intimate_Wedding.jpg" />-->
+                                        <div class="subpackage-card__title">Silver Ballroom</div>
+                                        <div class="subpackage-card__price">
+                                            <span>Base Price: </span> Php 20, 000
+                                        </div>
+                                    </div>
+                                    <div class="subpackage-card__body">
+                                        <ul>
+                                            <li class = "room">Area: 150 sqm</li>
+                                            <li class = "room">Capacity: 50 persons</li>
+                                            <li class = "room">Time Limit: 4 hours</li>
+                                            <li class = "room">Overtime Additional Fee: Php 2, 000/hr.</li>
+                                        </ul>
+                                        <!--<div class="subpackage-card__button"><a href="">Select</a></div>-->
+                                    </div>
+                                </div>
+                                <!-- Silver Ballroom End-->
+
+                                <!-- Golden Ballroom Start -->
+                                <div class="subpackage__card subpackage-card">
+                                    <div class="subpackage-card__top">
+                                        <!--<img src="img/Intimate_Wedding.jpg" />-->
+                                        <div class="subpackage-card__title">Golden Ballroom</div>
+                                        <div class="subpackage-card__price">
+                                            <span>Base Price: </span> Php 40, 000
+                                        </div>
+                                    </div>
+                                    <div class="subpackage-card__body">
+                                        <ul>
+                                            <li class = "room">Area: 180 sqm</li>
+                                            <li class = "room">Capacity: 100 persons</li>
+                                            <li class = "room">Time Limit: 4 hours</li>
+                                            <li class = "room">Overtime Additional Fee: Php 4, 000/hr.</li>
+                                        </ul>
+                                        <!--<div class="subpackage-card__button"><a href="">Select</a></div>-->
+                                    </div>
+                                </div>
+                                <!-- Golden Ballroom End-->
+
+                                </div>
+                                </div>
+                                </div>
+                                
+                                <div class="subpackage">
+                                <div class="container">
+                                    <div class="subpackage__grid">
+                                <!-- Platinum Ballroom Start -->
+                                <div class="subpackage__card subpackage-card">
+                                    <div class="subpackage-card__top">
+                                        <!--<img src="img/Intimate_Wedding.jpg" />-->
+                                        <div class="subpackage-card__title">Platinum Ballroom</div>
+                                        <div class="subpackage-card__price">
+                                            <span>Base Price: </span> Php 60, 000
+                                        </div>
+                                    </div>
+                                    <div class="subpackage-card__body">
+                                        <ul>
+                                            <li class = "room">Area: 200 sqm</li>
+                                            <li class = "room">Capacity: 150 persons</li>
+                                            <li class = "room">Time Limit: 4 hours</li>
+                                            <li class = "room">Overtime Additional Fee: Php 6, 000/hr.</li>
+                                        </ul>
+                                        <!--<div class="subpackage-card__button"><a href="">Select</a></div>-->
+                                    </div>
+                                </div>
+                                <!-- Platinum Ballroom End-->
+
+                                <!-- Diamond Ballroom Start -->
+                                <div class="subpackage__card subpackage-card">
+                                    <div class="subpackage-card__top">
+                                        <!--<img src="img/Intimate_Wedding.jpg" />-->
+                                        <div class="subpackage-card__title">Diamond Ballroom</div>
+                                        <div class="subpackage-card__price">
+                                            <span>Base Price: </span> Php 80, 000
+                                        </div>
+                                    </div>
+                                    <div class="subpackage-card__body">
+                                        <ul>
+                                            <li class = "room">Area: 250 sqm</li>
+                                            <li class = "room">Capacity: 200 persons</li>
+                                            <li class = "room">Time Limit: 4 hours</li>
+                                            <li class = "room">Overtime Additional Fee: Php 8, 000/hr.</li>
+                                        </ul>
+                                        <!--<div class="subpackage-card__button"><a href="">Select</a></div>-->
+                                    </div>
+                                </div>
+                                <!-- Silver Ballroom End-->
+                            </div>
+                        </div>
                     </div>
-                    
-                    <!-- new row-->
-                    <div class="row g-4 justify-content-center package-m-fix" >
-
-                        <!-- Intimate Wedding Subpackages -->
-                        <div class="subpackage-card">
-                            <div id="subpackage-card__cover" class="subpackage-card__cover">
-                                <div class="subpackage-card__img">
-                                <img
-                                    src="img/Intimate_Wedding.jpg"
-                                    alt="Birthday">
-                                </div>
-                                <div class="subpackage-card__cover-details">
-                                    <div id="subpackage-card__pax" class="subpackage-card__pax">
-                                    <br/>
-                                    <p><span>50</span>pax</p>
-                                </div>
-                                <div id="subpackage-card__info" class="subpackage-card__info">
-                                    <div class="subpackage-card__title">
-                                    <h1>Intimate Package</h1>
-                                    </div>
-                                    <div class="subpackage-card__description">
-                                    <p>Wonderful blueberry french toast subpackage to serve for your whole family!</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div id="subpackage-card__content-container" class="subpackage-card__content-container">
-                            <div class="subpackage-card__actions">
-                                <ul>
-                                    <li><a id="inclusionsTab" href="#" class="active">Php 50,000</a></li>
-                                </ul>
-                            </div>
-                            <div id="subpackage-card__content--inclusions" class="subpackage-card__content subpackage-card__content--active">
-                                <ul>
-                                    <span>Inclusions:</span>
-                                    <li>Use of Function Room for 4 hours (Silver or Golden Ballroom)</li>
-                                    <li>Use of Tiffany Chairs</li>
-                                    <li>Table Setting and Physical Arrangement of the Area</li>
-                                    <li>Use of Cake Table,Registration Table and Gift Table</li>
-                                    <li>Use of Red Carpet</li>
-                                    <li>Basic Sound System for Public Address and Background Music</li>
-                                    <li>Full Bottle of Sparkling Wine for Ceremonial Toast</li>
-                                    <li>Guest Book and Pen</li>
-                                    <li>Use of Bubble Machine and Fog Machine</li>
-                                    <li>Food Tasting for 2 persons</li>
-                                </ul>
-                            </div>
-                        </div>
-                        <!-- Intimate Wedding Package End-->
-                    </div>                    
-                    
-                    <!-- Subpackages End -->
-
-                    <div class="pricing">
-  <div class="container">
-    <div class="pricing__grid">
-      <div class="pricing__card pricing-card">
-        <div class="pricing-card__top">
-        <div class="pricing-card__img"><img
-                                    src="img/Intimate_Wedding.jpg"
-                                    alt="Birthday"></div>
-          <div class="pricing-card__title">Intimate</div>
-          <div class="pricing-card__price">Php 50, 000<span>/ 50 pax</span></div>
-        </div>
-        <div class="pricing-card__body">
-          
-              <ul>
-              <li>Use of Function Room for 4 hours (Silver or Golden Ballroom)</li>
-                                    <li>Use of Tiffany Chairs</li>
-                                    <li>Table Setting and Physical Arrangement of the Area</li>
-                                    <li>Use of Cake Table, Registration Table and Gift Table</li>
-                                    <li>Use of Red Carpet</li>
-                                    <li>Basic Sound System for Public Address and Background Music</li>
-                                    <li>Full Bottle of Sparkling Wine for Ceremonial Toast</li>
-                                    <li>Guest Book and Pen</li>
-                                    <li>Use of Bubble Machine and Fog Machine</li>
-                                    <li>Food Tasting for 2 persons</li>
-              </ul>
-          <div class="pricing-card__button"><a href="">Select</a></div>
-        </div>
-      </div>
-      <div class="pricing__card pricing-card">
-        <div class="pricing-card__top">
-          <div class="pricing-card__title">Classic</div>
-          <div class="pricing-card__price">Php 150, 000<span>/ 150 pax</span></div>
-        </div>
-        <div class="pricing-card__body">
-          <ul>
-                                    <li>Use of Function Room for 4 hours (Silver, Golden or Platinum Ballroom)</li>
-                                    <li>Use of Tiffany Chairs</li>
-                                    <li>Table Setting and Physical Arrangement of the Area</li>
-                                    <li>Use of Cake Table, Registration Table and Gift Table</li>
-                                    <li>Use of Red Carpet</li>
-                                    <li>Basic Sound System for Public Address and Background Music</li>
-                                    <li>Full Bottle of Sparkling Wine for Ceremonial Toast</li>
-                                    <li>Guest Book and Pen</li>
-                                    <li>Use of Bubble Machine and Fog Machine</li>
-                                    <li>Food Tasting for 2 persons</li>
-                                    <li>Photo booth</li>
-                                    <li>Dedicated Professional Events Personnel to attend to your necessities</li>
-                                </ul>
-          <div class="pricing-card__button"><a href="">Select</a></div>
-        </div>
-      </div>
-      <div class="pricing__card pricing-card">
-        <div class="pricing-card__top">
-          <div class="pricing-card__title">Deluxe</div>
-          <div class="pricing-card__price">Php 200, 000<span>/ 200 pax</span></div>
-        </div>
-        <div class="pricing-card__body">
-        <ul>
-                                    <li>Use of Function Room for 4 hours (Diamond Ballroom)</li>
-                                    <li>Use of Tiffany Chairs</li>
-                                    <li>Table Setting and Physical Arrangement of the Area</li>
-                                    <li>Use of Cake Table, Registration Table and Gift Table</li>
-                                    <li>Use of Red Carpet</li>
-                                    <li>Basic Sound System for Public Address and Background Music</li>
-                                    <li>Full Bottle of Sparkling Wine for Ceremonial Toast</li>
-                                    <li>Guest Book and Pen</li>
-                                    <li>Use of Bubble Machine and Fog Machine</li>
-                                    <li>Food Tasting for 2 persons</li>
-                                    <li>Photo booth</li>
-                                    <li>Dedicated Professional Events Personnel to attend to your necessities</li>
-                                </ul>
-          </div>
-          <div class="pricing-card__button"><a href="">Select</a></div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-
+                        <!-- Function Room Packages End -->
                 </div>
             </div>
-        <!-- Team End -->
+        </div>
+        </div>
+        </div>
+        <!-- Packages End -->
 
         <!-- Footer Start -->
             <div class="container-fluid bg-dark text-light footer pt-5 mt-5 wow fadeIn" data-wow-delay="0.1s">
