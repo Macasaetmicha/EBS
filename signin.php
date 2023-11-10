@@ -11,7 +11,7 @@
     <!-- Favicon -->
     <link href="img/calendar2-event-fill.svg" rel="icon" type="image/svg+xml">
     
-    <title>Login Page</title>
+    <title>Mi Casa Events Place</title>
     <link rel="stylesheet" type="text/css" href="signStyle.css">
 </head>
 <body>
