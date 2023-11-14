@@ -31,12 +31,14 @@
 
     <!-- Template Stylesheet -->
     <link href="css/style.css" rel="stylesheet">
-
+    <link href="css/packages.css" rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
 </head>
 
 <body>
     <div class="container-xxl bg-white p-0">
+
         <!-- Navbar & Hero Start -->
         <div class="container-xxl position-relative p-0">
             <nav class="navbar navbar-expand-lg navbar-dark bg-dark px-4 px-lg-5 py-3 py-lg-0">
@@ -85,106 +87,252 @@
         <!-- Packages Start -->
         <div class="container-xxl pt-5 pb-3">
             <div class="container">
-                <div class="text-center wow fadeInDown" data-wow-delay="0.8s">
-                    <h5 class="section-title ff-secondary text-center text-primary fw-normal">These are our</h5>
-                    <h1 class="mb-5">Packages</h1>
-                </div>
-                <!--  -->
-                <section id="section-feature" class="container wow fadeInUp" data-wow-delay="0.1s">
-                    <div class="row">
-                            <li class="col-md-3 col-sm-6 col-xs-12">
-                                <div class="sf-wrap">
-                                    <div class="sf-mdl-left">
-                                        <div class="wed-bg">
-                                            <img src="img/wedding.jpg" alt="">
-                                        </div>
-                                        <h3>For Weddings</h3>
+                <section id="section-feature" class="container wow fadeInUp" data-wow-delay="0.9s">
+                    
+                    <!-- new row-->
+                    <div class="row g-4 justify-content-center package-m-fix" >
+                
+                        <!-- Weddings -->
+                        <li class="col-md-3 col-sm-6 col-xs-12">
+                            <div class="sf-wrap">
+                                <div class="sf-mdl-left">
+                                    <div class="wed-bg">
+                                        <img src="img/wedding.jpg" alt="">
                                     </div>
-                                    <div class="sf-mdl-right">
-                                        <div class="sf-icon">
-                                            <i class="fa fa-fw fa-regular fa-rings-weddings fa-4x"></i>
-                                        </div>
-                                        <h3>For Weddings</h3>
-                                    </div>
-                                    <div class="sf-mdl-left-full">
-                                        <h3>put deets here</h3>
-                                        <p>Curabitur blandit tempus ardua ridiculus sed magna. Integer legentibus erat a ante historiarum dapibus.</p>
-                                    </div>
-                                    <div class="sf-mdl-right-full">
-                                        <h3><a>put deets here</a></h3>
-                                        <p>Curabitur blandit tempus ardua ridiculus sed magna. Integer legentibus erat a ante historiarum dapibus.</p>
-                                    </div>
+                                    <h3>Weddings</h3>
                                 </div>
-                            </li>
-                            <li class="col-md-3 col-sm-6 col-xs-12">
-                                <div class="sf-wrap">
-                                    <div class="sf-mdl-left">
-                                        <div class="bday-bg">
-                                            <img src="img/BIRTHDAYS.jpg" alt="">
-                                        </div>
-                                        <h3>For Birthdays</h3>
+                                <div class="sf-mdl-right">
+                                    <div class="sf-icon">
+                                        <i class="fa fa-fw fa-regular fa-rings-weddings fa-4x"></i>
                                     </div>
-                                    <div class="sf-mdl-right">
-                                        <h3>For Birthdays</h3>
-                                    </div>
-                                    <div class="sf-mdl-left-full">
-                                        <h3>put deets</h3>
-                                        <p>Hi omnes lingua, institutis, legibus inter se differunt. Donec sed odio operae, eu vulputate felis rhoncus.</p>
-                                    </div>
-                                    <div class="sf-mdl-right-full">
-                                        <h3>put deets</h3>
-                                        <p>Hi omnes lingua, institutis, legibus inter se differunt. Donec sed odio operae, eu vulputate felis rhoncus.</p>
-                                    </div>
+                                    <h3>Weddings</h3>
                                 </div>
-                            </li>
-                            <li class="col-md-3 col-sm-6 col-xs-12">
-                                <div class="sf-wrap">
-                                    <div class="sf-mdl-left">
-                                        <div class="g-bg">
-                                            <img src="img/gatherings.jpeg" alt="">
-                                        </div>
-                                        <h3>Gatherings</h3>
-                                    </div>
-                                    <div class="sf-mdl-right">
-                                        <h3>Gatherings</h3>
-                                    </div>
-                                    <div class="sf-mdl-left-full">
-                                        <h3>deets</h3>
-                                        <p>Nec dubitamus multa iter quae et nos invenerat. Ullamco laboris nisi ut aliquid ex ea commodi consequat.</p>
-                                    </div>
-                                    <div class="sf-mdl-right-full">
-                                        <h3>deets</h3>
-                                        <p>Nec dubitamus multa iter quae et nos invenerat. Nigga laboris nisi ut aliquid ex ea commodi consequat.</p>
-                                    </div>
+                                <div class="sf-mdl-left-full">
+                                    <h3>Weddings</h3>
+                                    <p>Elevate your wedding day with our all-inclusive package, featuring a stunning venue, custom menu, and personalized decor for a truly unforgettable experience.</p>
                                 </div>
-                            </li>
-                            <li class="col-md-3 col-sm-6 col-xs-12">
-                                <div class="sf-wrap">
-                                    <div class="sf-mdl-left">
-                                        <div class="rooms-bg">
-                                            <img src="img/rooms.jpg" alt="">
-                                        </div>
-                                        <h3>Rooms</h3>
-                                    </div>
-                                    <div class="sf-mdl-right">
-                                        <h3>Rooms</h3>
-                                    </div>
-                                    <div class="sf-mdl-left-full">
-                                        <h3>deets</h3>
-                                        <p>Morbi fringilla convallis sapien, id pulvinar odio volutpat. Contra legem facit qui id facit quod lex prohibet.</p>
-                                    </div>
-                                    <div class="sf-mdl-right-full">
-                                        <h3>deets</h3>
-                                        <p>Morbin time fringilla convallis sapien, id pulvinar odio volutpat. Contra legem facit qui id facit quod lex prohibet.</p>
-                                    </div>
+                                <div class="sf-mdl-right-full">
+                                    <h3><a>Weddings</a></h3>
+                                    <p>Elevate your wedding day with our all-inclusive package, featuring a stunning venue, custom menu, and personalized decor for a truly unforgettable experience.</p>
                                 </div>
-                            </li>
-                        </div>
+                            </div>
+                        </li>
+
+                        <!-- Birthdays -->
+                        <li class="col-md-3 col-sm-6 col-xs-12">
+                            <div class="sf-wrap">
+                                <div class="sf-mdl-left">
+                                    <div class="bday-bg">
+                                        <img src="img/BIRTHDAYS.jpg" alt="">
+                                    </div>
+                                    <h3>Birthdays</h3>
+                                </div>
+                                <div class="sf-mdl-right">
+                                    <h3>Birthdays</h3>
+                                </div>
+                                <div class="sf-mdl-left-full">
+                                    <h3>Birthdays</h3>
+                                    <p>Transform your birthday celebration with our customizable packages, offering themed decor, delectable catering, and entertainment to create an unforgettable party experience for all ages.</p>
+                                </div>
+                                <div class="sf-mdl-right-full">
+                                    <h3>Birthdays</h3>
+                                    <p>Transform your birthday celebration with our customizable packages, offering themed decor, delectable catering, and entertainment to create an unforgettable party experience for all ages.</p>
+                                </div>
+                            </div>
+                        </li>
+                        <!-- All Occasions -->
+                        <li class="col-md-3 col-sm-6 col-xs-12">
+                            <div class="sf-wrap">
+                                <div class="sf-mdl-left">
+                                    <div class="g-bg">
+                                        <img src="img/gatherings.jpg" alt="">
+                                    </div>
+                                    <h3>All Occasions</h3>
+                                </div>
+                                <div class="sf-mdl-right">
+                                    <h3>All Occasions</h3>
+                                </div>
+                                <div class="sf-mdl-left-full">
+                                    <h3>All Occasions</h3>
+                                    <p>Make any occasion extraordinary with our all-inclusive event packages, offering versatile venues, expert planning, and personalized details to ensure unforgettable moments.</p>
+                                </div>
+                                <div class="sf-mdl-right-full">
+                                    <h3>All Occasions</h3>
+                                    <p>Make any occasion extraordinary with our all-inclusive event packages, offering versatile venues, expert planning, and personalized details to ensure unforgettable moments.</p>
+                                </div>
+                            </div>
+                        </li>
+
+                        <!-- Function Rooms -->
+                        <li class="col-md-3 col-sm-6 col-xs-12">
+                            <div class="sf-wrap">
+                                <div class="sf-mdl-left">
+                                    <div class="rooms-bg">
+                                        <img src="img/rooms.jpg" alt="">
+                                    </div>
+                                    <h3>Function Rooms</h3>
+                                </div>
+                                <div class="sf-mdl-right">
+                                    <h3>Function Rooms</h3>
+                                </div>
+                                <div class="sf-mdl-left-full">
+                                    <h3>Function Rooms</h3>
+                                    <p>Our function rooms provide a versatile and elegant space to host events, from corporate meetings to social gatherings, offering the ideal setting for a wide range of occasions.</p>
+                                </div>
+                                <div class="sf-mdl-right-full">
+                                    <h3>Function Rooms</h3>
+                                    <p>Our function rooms provide a versatile and elegant space to host events, from corporate meetings to social gatherings, offering the ideal setting for a wide range of occasions.</p>
+                                </div>
+                            </div>
+                        </li>
+                    </div> 
                 </section>
-            </div>
+
+                    <!-- Subpackages Start -->
+                    <!-- Subpackages Header -->
+                    <div class="text-center wow fadeInDown" data-wow-delay="0.1s">
+                        <br/><br/><br/>
+                        <h5 class="section-title ff-secondary text-center text-primary fw-normal">These Are Our</h5>
+                        <h1 class="mb-5">Subpackages</h1>
+                        <br/>
+                    </div>
+                    
+                    <!-- new row-->
+                    <div class="row g-4 justify-content-center package-m-fix" >
+
+                        <!-- Intimate Wedding Subpackages -->
+                        <div class="subpackage-card">
+                            <div id="subpackage-card__cover" class="subpackage-card__cover">
+                                <div class="subpackage-card__img">
+                                <img
+                                    src="img/Intimate_Wedding.jpg"
+                                    alt="Birthday">
+                                </div>
+                                <div class="subpackage-card__cover-details">
+                                    <div id="subpackage-card__pax" class="subpackage-card__pax">
+                                    <br/>
+                                    <p><span>50</span>pax</p>
+                                </div>
+                                <div id="subpackage-card__info" class="subpackage-card__info">
+                                    <div class="subpackage-card__title">
+                                    <h1>Intimate Package</h1>
+                                    </div>
+                                    <div class="subpackage-card__description">
+                                    <p>Wonderful blueberry french toast subpackage to serve for your whole family!</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="subpackage-card__content-container" class="subpackage-card__content-container">
+                            <div class="subpackage-card__actions">
+                                <ul>
+                                    <li><a id="inclusionsTab" href="#" class="active">Php 50,000</a></li>
+                                </ul>
+                            </div>
+                            <div id="subpackage-card__content--inclusions" class="subpackage-card__content subpackage-card__content--active">
+                                <ul>
+                                    <span>Inclusions:</span>
+                                    <li>Use of Function Room for 4 hours (Silver or Golden Ballroom)</li>
+                                    <li>Use of Tiffany Chairs</li>
+                                    <li>Table Setting and Physical Arrangement of the Area</li>
+                                    <li>Use of Cake Table,Registration Table and Gift Table</li>
+                                    <li>Use of Red Carpet</li>
+                                    <li>Basic Sound System for Public Address and Background Music</li>
+                                    <li>Full Bottle of Sparkling Wine for Ceremonial Toast</li>
+                                    <li>Guest Book and Pen</li>
+                                    <li>Use of Bubble Machine and Fog Machine</li>
+                                    <li>Food Tasting for 2 persons</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <!-- Intimate Wedding Package End-->
+                    </div>                    
+                    
+                    <!-- Subpackages End -->
+
+                    <div class="pricing">
+  <div class="container">
+    <div class="pricing__grid">
+      <div class="pricing__card pricing-card">
+        <div class="pricing-card__top">
+        <div class="pricing-card__img"><img
+                                    src="img/Intimate_Wedding.jpg"
+                                    alt="Birthday"></div>
+          <div class="pricing-card__title">Intimate</div>
+          <div class="pricing-card__price">Php 50, 000<span>/ 50 pax</span></div>
         </div>
-        <!-- Packages End -->
-        
+        <div class="pricing-card__body">
+          
+              <ul>
+              <li>Use of Function Room for 4 hours (Silver or Golden Ballroom)</li>
+                                    <li>Use of Tiffany Chairs</li>
+                                    <li>Table Setting and Physical Arrangement of the Area</li>
+                                    <li>Use of Cake Table, Registration Table and Gift Table</li>
+                                    <li>Use of Red Carpet</li>
+                                    <li>Basic Sound System for Public Address and Background Music</li>
+                                    <li>Full Bottle of Sparkling Wine for Ceremonial Toast</li>
+                                    <li>Guest Book and Pen</li>
+                                    <li>Use of Bubble Machine and Fog Machine</li>
+                                    <li>Food Tasting for 2 persons</li>
+              </ul>
+          <div class="pricing-card__button"><a href="">Select</a></div>
+        </div>
+      </div>
+      <div class="pricing__card pricing-card">
+        <div class="pricing-card__top">
+          <div class="pricing-card__title">Classic</div>
+          <div class="pricing-card__price">Php 150, 000<span>/ 150 pax</span></div>
+        </div>
+        <div class="pricing-card__body">
+          <ul>
+                                    <li>Use of Function Room for 4 hours (Silver, Golden or Platinum Ballroom)</li>
+                                    <li>Use of Tiffany Chairs</li>
+                                    <li>Table Setting and Physical Arrangement of the Area</li>
+                                    <li>Use of Cake Table, Registration Table and Gift Table</li>
+                                    <li>Use of Red Carpet</li>
+                                    <li>Basic Sound System for Public Address and Background Music</li>
+                                    <li>Full Bottle of Sparkling Wine for Ceremonial Toast</li>
+                                    <li>Guest Book and Pen</li>
+                                    <li>Use of Bubble Machine and Fog Machine</li>
+                                    <li>Food Tasting for 2 persons</li>
+                                    <li>Photo booth</li>
+                                    <li>Dedicated Professional Events Personnel to attend to your necessities</li>
+                                </ul>
+          <div class="pricing-card__button"><a href="">Select</a></div>
+        </div>
+      </div>
+      <div class="pricing__card pricing-card">
+        <div class="pricing-card__top">
+          <div class="pricing-card__title">Deluxe</div>
+          <div class="pricing-card__price">Php 200, 000<span>/ 200 pax</span></div>
+        </div>
+        <div class="pricing-card__body">
+        <ul>
+                                    <li>Use of Function Room for 4 hours (Diamond Ballroom)</li>
+                                    <li>Use of Tiffany Chairs</li>
+                                    <li>Table Setting and Physical Arrangement of the Area</li>
+                                    <li>Use of Cake Table, Registration Table and Gift Table</li>
+                                    <li>Use of Red Carpet</li>
+                                    <li>Basic Sound System for Public Address and Background Music</li>
+                                    <li>Full Bottle of Sparkling Wine for Ceremonial Toast</li>
+                                    <li>Guest Book and Pen</li>
+                                    <li>Use of Bubble Machine and Fog Machine</li>
+                                    <li>Food Tasting for 2 persons</li>
+                                    <li>Photo booth</li>
+                                    <li>Dedicated Professional Events Personnel to attend to your necessities</li>
+                                </ul>
+          </div>
+          <div class="pricing-card__button"><a href="">Select</a></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+                </div>
+            </div>
+        <!-- Team End -->
         <!-- Footer Start -->
         <div class="container-fluid bg-dark text-light footer pt-5 mt-5 wow fadeIn" data-wow-delay="0.1s">
             <div class="container py-5">

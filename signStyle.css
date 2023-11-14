@@ -1,5 +1,5 @@
 body {
-    background-image: linear-gradient(rgb(192,178,131,0.6),rgb(64,74,66,0.6)) ,url(bckround.jpg);
+    background-image: linear-gradient(rgb(192,178,131,0.6),rgb(64,74,66,0.6)) ,url(img/bckround.jpg);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -12,14 +12,14 @@ body {
 
 .signup-form{
     width: 800px;
-    background: transparent;
+    /*background: transparent;*/
     border: 2px solid rgba(255,255,255,0.5);
     backdrop-filter: blur(15px);
     padding: 30px;
     margin: 0 auto;
     box-shadow: 0 2px 16px rgba(0, 0, 0, 0.1);
     border-radius: 20px;
-    
+    align-items: center;
 }
 
 /*top buttons*/
@@ -29,9 +29,11 @@ body {
     justify-content: space-around;
     align-items: center;
     border-bottom: 2px solid rgba(229, 229, 229);
+    background-color: none;
     position: relative;
 }
 .tab_btn{
+    width: 200px;
     margin: 0;
     margin-bottom: 1rem;
     text-align: center;
@@ -42,16 +44,16 @@ body {
     color: #ffffff;
     background: none;
     border: none;
-    padding: 18px;
+    padding: 10px;
 }
 
 .line{
     position: absolute;
-    top: 55px;
+    top: 56px;
     left: 91px;
-    width: 90px;
+    width: 33.33%;
     height: 5px;
-    background-color: #8a661a8e;
+    background-color: rgb(130,122,85);
     border-radius: 10px;
     transition: all .3s;
 }
@@ -61,7 +63,6 @@ body {
     width: 0;
 
 }
-/*content boxes*/
 .content_box{
     padding: 20px;
 }
@@ -69,6 +70,7 @@ body {
 .content_box .content{
     display: none;
     animation: moving .5s ease;
+    align-items: center;
 }
 
 @keyframes moving{
@@ -78,6 +80,7 @@ body {
 
 .content_box .content.active{
     display: block;
+    align-items: center;
 }
 
 .content_box .content h2{
@@ -107,7 +110,7 @@ body {
     border-radius: 30px;
     border: 0;
     outline: none;
-    color: black;
+    color: #404a42;
     cursor: pointer;
 
 }
@@ -124,7 +127,7 @@ body {
     grid-template-columns: repeat(3, 1fr);
     display: flex;
     align-items: center; 
-    width: auto;
+    width: 100%;
 }
 
 .form-row2{
@@ -151,10 +154,9 @@ body {
     border-radius: 30px;
     border: 0;
     outline: none;
-    color: black;
+    color: #404a42;
     cursor: pointer;
 }
-
 
 select {
     width: 30%;
@@ -182,14 +184,14 @@ select option {
 
 /* Style the "Contact Number" input field */
 .form-row3 input[type="text"] {
-    width: 140%; /* Expand the width to 100% */
-    height: auto; /* Let the height adjust to content */
+    width: 140%; 
+    height: auto; 
     border: none;
-    background-color: #f1f1f1;
+    background-color: transparent;
     font-size: 16px;
-    outline: none; /* Remove the default focus outline */
-    margin: 5px 0; /* Adjust the top and bottom margin as needed */
-    padding: 10px; /* Adjust the padding as needed */
+    outline: none; 
+    margin: 5px 0; 
+    padding: 10px; 
 }
 
 /*input fields in f3*/
@@ -208,7 +210,7 @@ select option {
     border-radius: 30px;
     border: 0;
     outline: none;
-    color: black;
+    color: #404a42;
     cursor: pointer;
 }
 .form-row4{
@@ -263,21 +265,26 @@ input[type="submit"]:hover, input[type="reset"]:hover {
     opacity: 0.8;
 }
 
-.login {
-    color: #ffffff;
-    margin-right: 30px;
-    text-align: center;
-    padding-top: 15px;
-    padding-bottom: 15px;
-    float: right;
-    width: 120px; 
-    margin: 0 10px;
-    background: #fff;
-    border-radius: 30px;
-    border: 0;
-    outline: none;
-    color: black;
-    cursor: pointer;
+.buttons {
+    display: flex;
+    flex-direction: column; /* Stack the buttons vertically */
+    align-items: center; /* Center align the buttons horizontally */
+    margin-top: 10px; /* Add spacing between the buttons and the "Forget" section */
+}
+
+.register p {
+    margin: 0; /* Remove default margin for the "Register" link */
+}
+
+.buttons {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.register p {
+    margin: 0;
 }
 
 .header2{
@@ -287,11 +294,22 @@ input[type="submit"]:hover, input[type="reset"]:hover {
 }
 .inputbox{
     position: relative;
-    margin: 30px 0;
+    margin: 20px 0;
     width: 540px;
     border-bottom: 2px solid #fff;
     margin-left: auto;
     margin-right: auto;
+}
+.error-message{
+    position: relative;
+    width: 540px;
+    margin-left: auto;
+    margin-right: auto;
+    color: red;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    font-style: italic;
+    font-weight: bold;
 }
 
 .inputbox label{
@@ -307,7 +325,7 @@ input[type="submit"]:hover, input[type="reset"]:hover {
 .inputbox1{
     position: relative;
     margin: 30px 0;
-    width: 248px;
+    width: 100%;
     border-bottom: 2px solid #fff;
 }
 
@@ -333,7 +351,6 @@ top: -5px;
     border: none;
     outline: none;
     font-size: 1em;
-    padding:0 35px 0 5px;
     color: #fff;
 }
 .inputbox input {
@@ -394,6 +411,13 @@ h2{
     pointer-events: none;
     transition: .5s;
 }
+
+.form-row5 {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+}
 input:focus ~ label,
 input:valid ~ label{
 top: -5px;
@@ -444,7 +468,14 @@ button{
     cursor: pointer;
     font-size: 1em;
     font-weight: 600;
+    color: #404a42;
 }
+button:hover {
+    background-color: #404a42;
+    color: #f4f4f4;
+}
+
+
 .register{
     font-size: .9em;
     color: #fff;
@@ -458,4 +489,56 @@ button{
 }
 .register p a:hover{
     text-decoration: underline;
+}
+
+.back_btn {
+    display: block;
+    margin: 0 auto; 
+    line-height: 40px; 
+    text-decoration: none;
+    width: 100%;
+    height: 40px;
+    border-radius: 40px;
+    background: #fff;
+    color: #404a42;
+    border: none;
+    cursor: pointer;
+    font-size: 1em;
+    font-weight: 600;
+    transition: background-color 0.3s ease-in-out;
+    text-align:center;
+    margin-top: 20px;
+}
+    
+
+.back_btn:hover {
+    background-color: #404a42;
+    color: #f4f4f4;
+}
+
+.hyper_btn {
+    display: inline-block;
+    margin: 0 auto; 
+    line-height: 40px; 
+    text-decoration: none;
+    width: 120px;
+    height: 40px;
+    border-radius: 40px;
+    background: #fff;
+    color: #404a42;
+    border: none;
+    cursor: pointer;
+    font-size: 1em;
+    font-weight: 600;
+    transition: background-color 0.3s ease-in-out;
+    text-align:center;
+    margin-top: 20px;
+    padding: 5px 10px;
+    margin-right: 10px;
+}
+    
+
+.hyper_btn:hover {
+    background-color: #404a42;
+    color: #f4f4f4;
 }

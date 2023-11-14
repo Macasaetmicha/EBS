@@ -87,6 +87,15 @@
     margin-top: 15px;
     border: #404a42;
 }
+.payment-info {
+    width: 100%; 
+    padding: 20px; 
+    border-radius: 10px;
+    color: #404a42;
+    background-color: #fff;
+    vertical-align: middle;
+    font-family: 'Nunito' sans-serif;
+}
 
 /*** Spinner ***/
 #spinner {
