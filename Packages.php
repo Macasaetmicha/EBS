@@ -103,8 +103,8 @@
                                     <h3>Weddings</h3>
                                 </div>
                                 <div class="sf-mdl-right">
-                                    <div class="sf-icon">
-                                        <i class="fa fa-fw fa-regular fa-rings-weddings fa-4x"></i>
+                                    <div class="wed-bg-r">
+                                        <img src="img/weddingR.jpg" alt="">
                                     </div>
                                     <h3>Weddings</h3>
                                 </div>
@@ -129,6 +129,9 @@
                                     <h3>Birthdays</h3>
                                 </div>
                                 <div class="sf-mdl-right">
+                                    <div class="bday-bg-r">
+                                        <img src="img/BIRTHDAYS-r.jpg" alt="">
+                                    </div>
                                     <h3>Birthdays</h3>
                                 </div>
                                 <div class="sf-mdl-left-full">
@@ -151,6 +154,9 @@
                                     <h3>All Occasions</h3>
                                 </div>
                                 <div class="sf-mdl-right">
+                                    <div class="g-bg-r">
+                                        <img src="img/gatheringsR.jpeg" alt="">
+                                    </div>
                                     <h3>All Occasions</h3>
                                 </div>
                                 <div class="sf-mdl-left-full">
@@ -174,6 +180,9 @@
                                     <h3>Function Rooms</h3>
                                 </div>
                                 <div class="sf-mdl-right">
+                                    <div class="rooms-bg-r">
+                                        <img src="img/roomsR.jpg" alt="">
+                                    </div>
                                     <h3>Function Rooms</h3>
                                 </div>
                                 <div class="sf-mdl-left-full">

@@ -10,7 +10,7 @@ session_start()
     <!-- Favicon -->
     <link href="img/calendar2-event-fill.svg" rel="icon" type="image/svg+xml">
     
-    <title>Mi Casa Events Place</title>
+    <title>SignUp | MiCasa Events</title>
     <link rel="stylesheet" type="text/css" href="signStyle.css">
 </head>
 <body>
