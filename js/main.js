@@ -198,6 +198,7 @@
     window.addEventListener("resize", initSlider);
     window.addEventListener("load", initSlider);
 
+    
     //Details of packages flip
     $(function () {
         $('#section-feature .sf-wrap')
@@ -211,6 +212,6 @@
                     $(this).toggleClass('active');
                 //}
             });
-    });
+    });    
 })(jQuery);
 

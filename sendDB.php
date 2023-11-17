@@ -27,19 +27,15 @@ if(isset($_POST['submit'])) {
 
     $userEmail = $_SESSION['email'];
 
-    //retrieves data from specified table where email is the same as email entered.
     $querry1 = "SELECT u.userID FROM user u
     INNER JOIN logCredentials lc ON u.logID = lc.logID
     WHERE lc.email = '$userEmail'";
 
-    //sets the retrieved data as $result
     $result1 = mysqli_query($con,$querry1);
 
     if ($result1->num_rows > 0) {
-        // Fetch the userID
         $row = $result1->fetch_assoc();
         $userID = $row["userID"];
-        // You now have the userID associated with the user's email
     } 
 
     echo "Package: " . $package . "<br>";
@@ -52,7 +48,6 @@ if(isset($_POST['submit'])) {
     echo "request: " . $request . "<br>";
     echo "Contact Number: " . $contNum . "<br>";
     
-
     $sql2 = "INSERT INTO eventinfo (userID, package, funcRoom, eventType, numAttendee, eventDate, eventTimeStart, eventTimeEnd, request) 
             VALUES ('$userID', '$package', '$funcRoom', '$eventName','$guestNum', '$eventDate', '$eventSTime', '$eventETime', '$request')";
     mysqli_query($con, $sql2);
@@ -68,33 +63,47 @@ if(isset($_POST['submit'])) {
 
     }
 
-    $price=0;
+    $baseprice=0;
+    $ot_pay = 0;
+
+    $total=0;
     $down=0;
     $full=0;
 
-    //retrieves data from specified table where email is the same as email entered.
-    $querry2 = "SELECT BasePrice FROM pricinginfo WHERE Package ='$package' AND Ballroom = '$funcRoom'";
+    $querry2 = "SELECT BasePrice, OTFee FROM pricinginfo WHERE Package ='$package' AND Ballroom = '$funcRoom'";
 
-    //sets the retrieved data as $result
     $result2 = mysqli_query($con,$querry2);
 
     if ($result2->num_rows > 0) {
-        // Fetch the userID
         $row = $result2->fetch_assoc();
-        $price = $row["BasePrice"];
-        // You now have the userID associated with the user's email
+        $otFee = $row["OTFee"];
+        $baseprice = $row["BasePrice"];
+        
 
-        $percentage = 0.3; // 30% expressed as a decimal
-        $down = $percentage * $price;
+        $startDateTime = new DateTime($eventSTime);
+        $endDateTime = new DateTime($eventETime);
 
-        // Subtract 30% from the original value
-        $full = $price - $down;
+        $interval = $startDateTime->diff($endDateTime);
+
+        $totalHours = $interval->h + ($interval->i / 60); 
+
+        if ($totalHours > 4) {
+            $additionalHours = $totalHours - 4;
+            $ot_pay = $additionalHours * $otFee;
+        }
+
+        $total = $baseprice + $ot_pay;
+
+        $percentage = 0.3; 
+        $down = $percentage * $total;
+
+        $full = $total - $down;
     } 
 
     $type = $_POST['payType'];
 
     $sql4 = "INSERT INTO paymentinfo (eventID, total_bill, downpayment, paymentType, fullPayment) 
-            VALUES ('$eventID', '$price', '$down', '$type','$full')";
+            VALUES ('$eventID', '$total', '$down', '$type','$full')";
     mysqli_query($con, $sql4);
 
     $paymentID = mysqli_insert_id($con);
@@ -105,7 +114,6 @@ if(isset($_POST['submit'])) {
     echo "cvv: " . $cvv . "<br>";
     echo "expdate: " . $expDate . "<br>";
 
-    // Insert payment information into the database
     if ($type === "gcash" || $type === "maya") {
         $sql5 = "INSERT INTO onlineinfo (paymentID, referenceNum) VALUES ('$paymentID','$refNumber')";
         mysqli_query($con, $sql5);
@@ -114,31 +122,69 @@ if(isset($_POST['submit'])) {
         mysqli_query($con, $sql6);
     }
 
-    //retrieves data from specified table where email is the same as email entered.
     $querry3 = "SELECT username FROM logcredentials WHERE email = '$userEmail';";
 
-    //sets the retrieved data as $result
     $result3 = mysqli_query($con,$querry3);
 
     if ($result3->num_rows > 0) {
-        // Fetch the userID
         $row = $result3->fetch_assoc();
         $username = $row["username"];
-        // You now have the userID associated with the user's email
     } 
 
     echo "email: " . $userEmail . "<br>";
     echo "name: " . $username . "<br>";
 
+    $packageNames = array(
+        "ip" => "Intimate Package",
+        "cp" => "Classic Package",
+        "dp" => "Deluxe Package",
+        "kp" => "Kiddie Package",
+        "dep" => "Debut Package",
+        "bp" => "Basic Package",
+        "pA" => "Package A",
+        "pB" => "Package B",
+        "frm" => "Function Room",
+    );
+
+    $funcNames = array(
+        "sb" => "Silver Ballroom",
+        "gb" => "Golden Ballroom",
+        "pb" => "Platinum Ballroom",
+        "db" => "Diamond Ballroom",
+        
+    );
+
+    $packageAvail = $packageNames[$package];
+    $funcAvail = $funcNames[$funcRoom];
+
+    $fbase = number_format($baseprice, 2);
+    $fot = number_format($ot_pay, 2);
+    $ftotal = number_format($total, 2);
+    $fdown = number_format($down, 2);
+    $ffull = number_format($full, 2);
+
+    $date=date_create($eventDate);
+    $fdate=date_format($date,"F j, Y");
+
+    $time1=date_create($eventSTime);
+    $time2=date_create($eventETime);
+
+    $ftime1=date_format($time1, "g:i A");
+    $ftime2=date_format($time2, "g:i A");
+
+    $hours = floor($additionalHours); 
+    $minutes = number_format(($additionalHours - $hours) * 60, 0);
+    
+    $addhours =  $hours . " hours and " . $minutes . " minutes";
+
     try {
         $mail = new PHPMailer(true);
 
-        // Your email sending configuration
         $mail->isSMTP();
         $mail->Host = 'smtp.gmail.com';
         $mail->SMTPAuth = true;
-        $mail->Username = 'micasa.cosc75g2@gmail.com'; // Your email address
-        $mail->Password = 'wtuegngmimozidgg'; // Your email password
+        $mail->Username = 'micasa.cosc75g2@gmail.com'; 
+        $mail->Password = 'wtuegngmimozidgg'; 
         $mail->SMTPSecure = 'ssl';
         $mail->Port = 465;
 
@@ -151,6 +197,7 @@ if(isset($_POST['submit'])) {
         $emailContent = "
         <html>
         <body>
+        
         <p>Dear $username,</p>
         <p>We hope this email finds you well. We wanted to take a moment to express our sincere gratitude for choosing MiCasa Events for your upcoming special day. 
         It is our pleasure to assist you in making this day a memorable and stress-free experience.</p>
@@ -161,22 +208,25 @@ if(isset($_POST['submit'])) {
         <ul>
             <li>Event Name: $eventName</li>
             <li>Event Date: $eventDate</li>
-            <li>Start Time: $eventSTime</li>
-            <li>End Time: $eventETime</li>
+            <li>Start Time: $ftime1</li>
+            <li>End Time: $ftime2</li>
+            <li>Overtime Hours: $addhours</li>
             <li>Number of Guests: $guestNum</li>
         </ul>
 
         <strong>Package & Function Room:</strong>
         <ul>
-            <li>Package Selected: $package</li>
-            <li>Function Room: $funcRoom</li>
+            <li>Package Selected: $packageAvail</li>
+            <li>Function Room: $funcAvail</li>
         </ul>
 
         <strong>Payment Details:</strong>
         <ul>
-            <li>Total Amount: Php $price</li>
-            <li>Downpayment (30%): Php $down</li>
-            <li>Amount to be Paid on the Day of the Event: Php $full</li>
+            <li>Base Pay: Php $fbase</li>
+            <li>Overtime Pay: Php $fot</li>
+            <li>Total Amount: Php $ftotal</li>
+            <li>Downpayment (30%): Php $fdown</li>
+            <li>Amount to be Paid on the Day of the Event: Php $ffull</li>
         </ul>
 
         <p>If you have any special requests or additional information you'd like to share with us, please don't hesitate to let us know. 
@@ -206,7 +256,6 @@ if(isset($_POST['submit'])) {
         $successMessage = "Booking was successful! Thank you for choosing us. 
         \n\n An email was sent to you with Event details. Mark your Calendar!";
 
-        // Show SweetAlert with the custom class applied to the message
         echo "<script>
             Swal.fire({
                 icon: 'success',
@@ -219,7 +268,6 @@ if(isset($_POST['submit'])) {
                 }
             });
         </script>";
-
 
         header('Location: home.php?message=' . urlencode($successMessage));
         exit;
