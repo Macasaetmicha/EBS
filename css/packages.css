@@ -47,14 +47,38 @@ and (max-width: 974px)
   background-color: rgba(0, 0, 0, 0.5);
 }
 
+.wed-bg-r img{
+  height: 380px;
+  width: auto;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
 .bday-bg img{
   height: 300px;
   width: auto;
   background-color: rgba(0, 0, 0, 0.5);
 }
 
+.bday-bg-r img{
+  height: 380px;
+  width: auto;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
 .g-bg img{
   height: 300px;
+  width: auto;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.g-bg-r img{
+  height: 380px;
+  width: auto;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.rooms-bg-r img{
+  height: 380px;
   width: auto;
   background-color: rgba(0, 0, 0, 0.5);
 }
