@@ -41,7 +41,6 @@
                         <a href="" class="navbar-brand p-0">
                             <h1 class="text-primary m-0">
                             <i class=" fa fa-duotone fa-calendar me-3"></i>Mi Casa</h1>
-                            <!-- <img src="img/logo.png" alt="Logo"> -->
                         </a>
                         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
                             <span class="fa fa-bars"></span>
@@ -52,13 +51,20 @@
                                 <a href="Packages.php" class="nav-item nav-link">Packages</a>
                                 <a href="Booking.php" class="nav-item nav-link">Booking</a>
                                 <a href="About.php" class="nav-item nav-link">About us</a>
+                                <?php
+                                    if (isset($_SESSION['email'])) {
+                                        $role = $_SESSION['role'];
+                                    
+                                        if ($role == 'admin') {
+                                            echo '<a href="Archive.php" class="nav-item nav-link">Archive</a>';
+                                        }
+                                    } 
+                                ?>
                             </div>
                             <?php
                                 if (isset($_SESSION['email'])) {
-                                    // User is logged in, show Logout link
                                     echo '<a href="logout.php" class="btn btn-primary py-2 px-4">Logout</a>';
                                 } else {
-                                    // User is not logged in, show Login link
                                     echo '<a href="signin.php" class="btn btn-primary py-2 px-4">Login</a>';
                                 }
                             ?>
@@ -87,16 +93,16 @@
                             <div class="col-lg-6">
                                 <div class="row g-3">
                                     <div class="col-6 text-start">
-                                        <img class="img-fluid rounded w-100 wow zoomIn" data-wow-delay="0.1s" src="img/cathedral-8318952_1280.jpg">
+                                        <img class="img-fluid rounded w-100 wow zoomIn" data-wow-delay="0.1s" src="img/chairs.jpg">
                                     </div>
                                     <div class="col-6 text-start">
-                                        <img class="img-fluid rounded w-75 wow zoomIn" data-wow-delay="0.3s" src="img/cathedral-8318952_1280.jpg" style="margin-top: 25%;">
+                                        <img class="img-fluid rounded w-75 wow zoomIn" data-wow-delay="0.3s" src="img/Venue/Ven14.jpg" style="margin-top: 25%;">
                                     </div>
                                     <div class="col-6 text-end">
-                                        <img class="img-fluid rounded w-75 wow zoomIn" data-wow-delay="0.5s" src="img/cathedral-8318952_1280.jpg">
+                                        <img class="img-fluid rounded w-75 wow zoomIn" data-wow-delay="0.5s" src="img/Venue/Ven2.jpg">
                                     </div>
                                     <div class="col-6 text-end">
-                                        <img class="img-fluid rounded w-100 wow zoomIn" data-wow-delay="0.7s" src="img/cathedral-8318952_1280.jpg">
+                                        <img class="img-fluid rounded w-100 wow zoomIn" data-wow-delay="0.7s" src="img/Birthday/Birth1.jpg">
                                     </div>
                                 </div>
                             </div>
@@ -202,7 +208,6 @@
 
                                 <?php
                                     } else {
-                                        // User is logged in, display the reservation form
                                 ?>
                                 <div class="col-md-12 wow fadeIn" data-wow-delay="0.1s">
                                     <iframe class="position-relative rounded w-100 h-100"
@@ -220,7 +225,7 @@
                 </div>
                 <!-- Contact End -->
 
-                <!-- Footer Start -->
+                 <!-- Footer Start -->
                 <div class="container-fluid bg-dark text-light footer pt-5 mt-5 wow fadeIn" data-wow-delay="0.1s">
                     <div class="container py-5">
                         <div class="row g-5">
@@ -233,7 +238,7 @@
                             </div>
 
                             <dialog id="privacyDialog">
-                                <button id="closePrivacyDialog" onclick="closePrivacyDialog()">&times;</button> <!-- Close "x" button -->
+                                <button id="closePrivacyDialog" onclick="closePrivacyDialog()">&times;</button> 
                                 <h1>Privacy Policy for MiCasa Events</h1>
                                 <h5>Effective Date: November 1, 2023</h5>
                                 <br>
@@ -267,11 +272,11 @@
                                 <p class="non-bold"> We take measures to protect your information from unauthorized access, disclosure, or alteration. 
                                     However, no method of transmission over the internet or electronic storage is completely secure, 
                                     and we cannot guarantee absolute security.</p>
-                                                       
+                                                        
                                 <p><b> 6. Your Choices</b></p>
                                 <p class="non-bold">You have the right to access, correct, or delete your personal information. 
                                     You can also opt-out of marketing communications at any time.</p>
-                               
+                                
                                 <p><b>7. Children's Privacy</b></p>
                                 <p class="non-bold">Our services are not intended for individuals under the age of 18. 
                                     We do not knowingly collect or store information from children.</p>
@@ -285,7 +290,7 @@
                             </dialog>
 
                             <dialog id="termsDialog">
-                                <button id="closePrivacyDialog" onclick="closeTermsDialog()">&times;</button> <!-- Close "x" button -->
+                                <button id="closePrivacyDialog" onclick="closeTermsDialog()">&times;</button> 
                                 <h1>Terms and Conditions for MiCasa Events</h1>
                                 <h6>Please read the following terms and conditions carefully before making a booking with MiCasa Events. 
                                     By booking an event with us, you agree to abide by these terms and conditions.</h6>
@@ -312,7 +317,7 @@
                                 <br><p><b>5. House Rules</b></p>
                                 <p class="non-bold">5.1. <b>Adherence to Rules:</b> Clients and guests are expected to adhere to the house rules and guidelines provided by MiCasa Events for a safe and enjoyable experience.
                                     <br><br>5.2. <b>Liability:</b> MiCasa Events is not responsible for any loss or damage to personal property or injuries sustained during the event.</p>
-                                                       
+                                                        
                                 <br><p><b>6. Contact Information</b></p>
                                 <p class="non-bold">For any questions, concerns, or to make changes to your booking, please contact us at 09123456789 or email us at micasa.cosc75g2@gmail.com.
                                     <br><br>By booking with MiCasa Events, you acknowledge that you have read and agreed to these terms and conditions.</p>
@@ -322,22 +327,18 @@
                                 const privacyDialog = document.getElementById("privacyDialog");
                                 const termsDialog = document.getElementById("termsDialog");
 
-                                // Show the Privacy Policy dialog when the "Privacy Policy" link is clicked
                                 function showPrivacyDialog() {
                                     privacyDialog.showModal();
                                 }
 
-                                // Show the Terms and Conditions dialog when the "Terms & Conditions" link is clicked
                                 function showTermsDialog() {
                                     termsDialog.showModal();
                                 }
 
-                                // Close the Privacy Policy dialog when the "x" button is clicked
                                 function closePrivacyDialog() {
                                     privacyDialog.close();
                                 }
 
-                                // Close the Terms and Conditions dialog when the "x" button is clicked
                                 function closeTermsDialog() {
                                     termsDialog.close();
                                 }
@@ -368,7 +369,7 @@
                         <div class="copyright">
                             <div class="row">
                                 <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
-                                    &copy; <a class="border-bottom" href="#">ChuChu Events Place</a>, All Right Reserved. 
+                                    &copy; <a class="border-bottom" href="#">MiCasa Events Place</a>, All Right Reserved. 
                                     
                                     <!--/*** This template is free as long as you keep the footer author’s credit link/attribution link/backlink. If you'd like to use the template without the footer author’s credit link/attribution link/backlink, you can purchase the Credit Removal License from "https://htmlcodex.com/credit-removal". Thank you for your support. ***/-->
                                     <br>Designed By <a class="border-bottom" href="https://htmlcodex.com">HTML Codex</a>

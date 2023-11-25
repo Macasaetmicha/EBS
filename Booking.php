@@ -60,13 +60,20 @@
                         <a href="Packages.php" class="nav-item nav-link">Packages</a>
                         <a href="Booking.php" class="nav-item nav-link">Booking</a>
                         <a href="About.php" class="nav-item nav-link">About us</a>
+                        <?php
+                            if (isset($_SESSION['email'])) {
+                                $role = $_SESSION['role'];
+                            
+                                if ($role == 'admin') {
+                                    echo '<a href="Archive.php" class="nav-item nav-link">Archive</a>';
+                                }
+                            } 
+                        ?>
                     </div>
                     <?php
                         if (isset($_SESSION['email'])) {
-                            // User is logged in, show Logout link
                             echo '<a href="logout.php" class="btn btn-primary py-2 px-4">Logout</a>';
                         } else {
-                            // User is not logged in, show Login link
                             echo '<a href="signin.php" class="btn btn-primary py-2 px-4">Login</a>';
                         }
                     ?>
@@ -144,7 +151,7 @@
                                                     </optgroup>
                                                         <option value="frm">Function Room</option>
                                                 </select>
-                                                <label for="pk">Package</label>
+                                                <label for="pk" class="booking-label">Package</label>
                                             </div>
                                         </div>
 
@@ -157,14 +164,14 @@
                                                     <option value="pb" >Platinum Ballroom</option>
                                                     <option value="db" >Diamond Ballroom</option>
                                                 </select>
-                                                <label for="fr">Function Room</label>
+                                                <label for="fr" class="booking-label">Function Room</label>
                                             </div>
                                         </div>
 
                                         <div class="col-md-13">
                                             <div class="form-floating">
                                                 <input type="text" class="form-control" name="event" placeholder="Event Name" id="event" required>
-                                                <label for="event">Event Name</label>
+                                                <label for="event" class="booking-label">Event Name</label>
                                             </div>
                                         </div>
 
@@ -205,7 +212,7 @@
                                         <div class="col-md-6">
                                             <div class="form-floating">
                                                 <input type="number" class="form-control" name="number" placeholder="No. Of Guests" id="guestNo" required>
-                                                <label for="number">No Of Guests</label>
+                                                <label for="number" class="booking-label">No Of Guests</label>
                                             </div>
                                         </div> 
 
@@ -249,7 +256,6 @@
                                                     $room = $row["funcRoom"];
                                                     $date = $row["eventDate"];
                                             
-                                                    // Check if the room exists
                                                     if (!isset($bookedDates[$room])) {
                                                         $bookedDates[$room] = array();
                                                     }
@@ -258,7 +264,6 @@
                                                 }
                                             }
                                             
-                                            // Convert the PHP array to a JSON string
                                             $bookedDatesJSON = json_encode($bookedDates);
                                             ?>
 
@@ -279,7 +284,6 @@
                                                             var dateString = $.datepicker.formatDate("yy-mm-dd", date);
                                                             var selectedRoom = $("#ballroom").val();
 
-                                                            // Check if the date is in the array of booked dates for the selected room
                                                             if (bookedDates[selectedRoom] && bookedDates[selectedRoom].indexOf(dateString) !== -1) {
                                                                 return [false];
                                                             }
@@ -288,28 +292,27 @@
                                                         }
                                                     });
 
-                                                    // Trigger the datepicker update on room selection change
                                                     $("#ballroom").on("change", function() {
                                                         $("#dateEvent").datepicker("refresh");
                                                     });
                                                 });
                                             </script>
                                                 <input type="text" id="dateEvent" class="form-control" name="dateEvent" required>
-                                                <label for="date">Date</label>
+                                                <label for="date" class="booking-label">Date</label>
                                             </div>
                                         </div>
 
                                         <div class="col-md-6">
                                             <div class="form-floating time" data-target-input="nearest">
                                                 <input type="time" class="form-control" id="timestart" name="sTime" placeholder="Start Time" name="sTime" required>
-                                                <label for="timestart">Start Time</label>
+                                                <label for="timestart" class="booking-label">Start Time</label>
                                             </div>
                                         </div>
 
                                         <div class="col-md-6">
                                             <div class="form-floating time" data-target-input="nearest">
                                                 <input type="time" class="form-control" id="endtime" anme="eTime" placeholder="End Time" name="eTime" required>
-                                                <label for="endtime">End Time</label>
+                                                <label for="endtime" class="booking-label">End Time</label>
                                             </div>
                                         </div>
                                         
@@ -348,7 +351,7 @@
                                         <div class="col-md-13">
                                             <div class="form-floating">
                                                 <textarea class="form-control" placeholder="Special Request" id="message" name="reqs" style="height: 100px"></textarea>
-                                                <label for="message">Special Request</label>
+                                                <label for="message" class="booking-label">Special Request</label>
                                             </div>
                                         </div>
                                     </div>
@@ -433,7 +436,7 @@
                                         <div class="col-md-12">
                                             <div class="form-floating" id="contNumField" style="display: none;">
                                                 <input type="text" class="form-control" id="contNum"  name="contNum" maxlength="11" oninput="formatPhoneNumber(this)">
-                                                <label for="Contact-Number">Contact Number</label>
+                                                <label for="Contact-Number" class="booking-label">Contact Number</label>
                                             </div>
 
                                             <div class="form-floating" id="contNumFieldPlaceholder" style="display: none;">
@@ -458,16 +461,12 @@
                                             }
 
                                             function formatPhoneNumber(input) {
-                                                // Remove non-numeric characters from the input
                                                 const phoneNumber = input.value.replace(/\D/g, '');
 
-                                                // Check if the phone number is empty or too long
                                                 if (phoneNumber.length === 0) {
                                                     input.value = '';
                                                 } else {
-                                                    // Use regular expressions to insert hyphens
                                                     const formattedPhoneNumber = phoneNumber.replace(/(\d{4})(\d{3})(\d{4})/, '$1-$2-$3');
-                                                    // Limit the phone number to 13 characters
                                                     input.value = formattedPhoneNumber.slice(0, 13);
                                                 }
                                             }
@@ -512,14 +511,14 @@
                                                 <option value="pB">Debit Card</option>
                                             </optgroup>
                                             </select>
-                                            <label for="select1 ">Type of Payment</label>
+                                            <label for="select1 " class="booking-label">Type of Payment</label>
                                         </div>
                                     </div>
 
                                     <div class="col-md-12" style="display: none;" id="referenceNumberField">
                                         <div class="form-floating">
                                             <input type="text" class="form-control" name="refNum" id="referenceNumber" placeholder="Reference Number">
-                                            <label for="referenceNumber">Reference Number</label>
+                                            <label for="referenceNumber" class="booking-label">Reference Number</label>
                                         </div>
                                     </div>
 
@@ -527,7 +526,7 @@
                                         <div class="col-md-12" style="margin-bottom: 15px;">
                                             <div class="form-floating">
                                                 <input type="text" class="form-control" name="cardNum" id="cardNum" placeholder="Card Number" maxlength="19" oninput="formatCardNumber(this)">
-                                                <label for="cardNum">Card Number</label>
+                                                <label for="cardNum" class="booking-label">Card Number</label>
                                             </div>
                                         </div>
 
@@ -558,7 +557,7 @@
                                             <div class="col-md-6">
                                                 <div class="form-floating">
                                                     <input type="password" class="form-control" name="cvv" id="cvv" placeholder="CVV" maxlength="3" oninput="formatCVV(this)">
-                                                    <label for="cvv">CVV</label>
+                                                    <label for="cvv" class="booking-label">CVV</label>
                                                 </div>
                                             </div>
                                             
@@ -574,7 +573,7 @@
                                             <div class="col-md-6">
                                                 <div class="form-floating">
                                                     <input type="month" class="form-control" name="expDate" id="expDate" placeholder="Exp Date">
-                                                    <label for="expDate">Exp Date</label>
+                                                    <label for="expDate" class="booking-label">Exp Date</label>
                                                 </div>
                                             </div>
                                             
@@ -619,7 +618,14 @@
                                         }
                                     </script>
                                 </div>
-
+                                <div class="TandC">
+                                    <input type="checkbox" id="agreeCheckbox" name="agreeCheckbox" required>
+                                    <label for="agreeCheckbox">I have read and agree to the 
+                                        <a id="termsLink" onclick="showTermsDialog()" style="text-decoration: underline;">Terms & Condition</a>
+                                        and 
+                                        <a id="privacyLink" onclick="showPrivacyDialog()" style="text-decoration: underline;">Privacy Policy</a>.
+                                    </label>
+                                </div>
                                 <div class="row">
                                     <div class="col-md-6">
                                         <button type="button" class="booking_btn btn-primary w-100 py-3" id="s1Previous" onclick="previousStep(2)">Previous</button>
@@ -649,7 +655,7 @@
             function nextStep(targetStep) {
                 if (targetStep >= 1 && targetStep <= formSteps.length) {
                     formSteps[currentStep].style.display = 'none';
-                    currentStep = targetStep - 1; // -1 to match the array index
+                    currentStep = targetStep - 1; 
                     formSteps[currentStep].style.display = 'block';
                 }
             }
@@ -657,7 +663,7 @@
             function previousStep(targetStep) {
                 if (targetStep >= 1 && targetStep <= formSteps.length) {
                     formSteps[currentStep].style.display = 'none';
-                    currentStep = targetStep - 1; // -1 to match the array index
+                    currentStep = targetStep - 1; 
                     formSteps[currentStep].style.display = 'block';
                 }
             }
@@ -677,7 +683,7 @@
                     </div>
 
                     <dialog id="privacyDialog">
-                        <button id="closePrivacyDialog" onclick="closePrivacyDialog()">&times;</button> <!-- Close "x" button -->
+                        <button id="closePrivacyDialog" onclick="closePrivacyDialog()">&times;</button> 
                         <h1>Privacy Policy for MiCasa Events</h1>
                         <h5>Effective Date: November 1, 2023</h5>
                         <br>
@@ -729,7 +735,7 @@
                     </dialog>
 
                     <dialog id="termsDialog">
-                        <button id="closePrivacyDialog" onclick="closeTermsDialog()">&times;</button> <!-- Close "x" button -->
+                        <button id="closePrivacyDialog" onclick="closeTermsDialog()">&times;</button> 
                         <h1>Terms and Conditions for MiCasa Events</h1>
                         <h6>Please read the following terms and conditions carefully before making a booking with MiCasa Events. 
                             By booking an event with us, you agree to abide by these terms and conditions.</h6>
@@ -766,22 +772,18 @@
                         const privacyDialog = document.getElementById("privacyDialog");
                         const termsDialog = document.getElementById("termsDialog");
 
-                        // Show the Privacy Policy dialog when the "Privacy Policy" link is clicked
                         function showPrivacyDialog() {
                             privacyDialog.showModal();
                         }
 
-                        // Show the Terms and Conditions dialog when the "Terms & Conditions" link is clicked
                         function showTermsDialog() {
                             termsDialog.showModal();
                         }
 
-                        // Close the Privacy Policy dialog when the "x" button is clicked
                         function closePrivacyDialog() {
                             privacyDialog.close();
                         }
 
-                        // Close the Terms and Conditions dialog when the "x" button is clicked
                         function closeTermsDialog() {
                             termsDialog.close();
                         }
@@ -812,7 +814,7 @@
                 <div class="copyright">
                     <div class="row">
                         <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
-                            &copy; <a class="border-bottom" href="#">ChuChu Events Place</a>, All Right Reserved. 
+                            &copy; <a class="border-bottom" href="#">MiCasa Events Place</a>, All Right Reserved. 
                             
                             <!--/*** This template is free as long as you keep the footer author’s credit link/attribution link/backlink. If you'd like to use the template without the footer author’s credit link/attribution link/backlink, you can purchase the Credit Removal License from "https://htmlcodex.com/credit-removal". Thank you for your support. ***/-->
                             <br>Designed By <a class="border-bottom" href="https://htmlcodex.com">HTML Codex</a>

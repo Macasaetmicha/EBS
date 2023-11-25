@@ -47,21 +47,10 @@ if(isset($_POST['submit'])) {
     echo "End Time: " . $eventETime . "<br>";
     echo "request: " . $request . "<br>";
     echo "Contact Number: " . $contNum . "<br>";
-    
-    $sql2 = "INSERT INTO eventinfo (userID, package, funcRoom, eventType, numAttendee, eventDate, eventTimeStart, eventTimeEnd, request) 
-            VALUES ('$userID', '$package', '$funcRoom', '$eventName','$guestNum', '$eventDate', '$eventSTime', '$eventETime', '$request')";
-    mysqli_query($con, $sql2);
 
-    $eventID = mysqli_insert_id($con);
+    $querry2 = "SELECT BasePrice, OTFee FROM pricinginfo WHERE Package ='$package' AND Ballroom = '$funcRoom'";
 
-    if (isset($_POST["contactChoice"]) && $_POST["contactChoice"] === "yes") {
-        $sql6 = "UPDATE user
-        SET contNum = '$contNum'
-        WHERE userID = $userID";
-        mysqli_query($con, $sql6);
-    } else{
-
-    }
+    $result2 = mysqli_query($con,$querry2);
 
     $baseprice=0;
     $ot_pay = 0;
@@ -69,10 +58,6 @@ if(isset($_POST['submit'])) {
     $total=0;
     $down=0;
     $full=0;
-
-    $querry2 = "SELECT BasePrice, OTFee FROM pricinginfo WHERE Package ='$package' AND Ballroom = '$funcRoom'";
-
-    $result2 = mysqli_query($con,$querry2);
 
     if ($result2->num_rows > 0) {
         $row = $result2->fetch_assoc();
@@ -99,6 +84,22 @@ if(isset($_POST['submit'])) {
 
         $full = $total - $down;
     } 
+
+    
+    $sql2 = "INSERT INTO eventinfo (userID, package, funcRoom, eventType, numAttendee, eventDate, eventTimeStart, eventTimeEnd, overTime, request) 
+            VALUES ('$userID', '$package', '$funcRoom', '$eventName','$guestNum', '$eventDate', '$eventSTime', '$eventETime', '$additionalHours','$request')";
+    mysqli_query($con, $sql2);
+
+    $eventID = mysqli_insert_id($con);
+
+    if (isset($_POST["contactChoice"]) && $_POST["contactChoice"] === "yes") {
+        $sql6 = "UPDATE user
+        SET contNum = '$contNum'
+        WHERE userID = $userID";
+        mysqli_query($con, $sql6);
+    } else{
+
+    }
 
     $type = $_POST['payType'];
 

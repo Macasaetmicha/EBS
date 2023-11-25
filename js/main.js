@@ -213,25 +213,5 @@
                 //}
             });
     });
-
-    //Subpackages
-    const subpackageCardCover = document.getElementById('subpackage-card__cover');
-    const subpackageCardInfo = document.getElementById('subpackage-card__info');
-    const subpackageCardContentContainer = document.getElementById('subpackage-card__content-container');
-    const inclusionsTab = document.getElementById('inclusionsTab');
-    const inclusionsContent = document.getElementById('subpackage-card__content--inclusions');
-    
-    subpackageCardCover.addEventListener("click", (event) => {
-        subpackageCardCover.classList.toggle('subpackage-card__cover--open');
-        subpackageCardContentContainer.classList.toggle('subpackage-card__content-container--open');
-        subpackageCardInfo.classList.toggle('subpackage-card__info--show');
-    });
-    
-    inclusionsTab.addEventListener("click", (event) => {
-        event.preventDefault();
-        inclusionsTab.classList.add('active');
-        inclusionsContent.classList.add('subpackage-card__content--active');
-    });
-    
 })(jQuery);
 

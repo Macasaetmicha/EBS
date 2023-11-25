@@ -50,7 +50,6 @@
         </div>
         <!-- Spinner End -->
 
-
         <!-- Navbar & Hero Start -->
         <div class="container-xxl position-relative p-0">
             <nav class="navbar navbar-expand-lg navbar-dark bg-dark px-4 px-lg-5 py-3 py-lg-0">
@@ -68,13 +67,20 @@
                         <a href="Packages.php" class="nav-item nav-link">Packages</a>
                         <a href="Booking.php" class="nav-item nav-link">Booking</a>
                         <a href="About.php" class="nav-item nav-link">About us</a>
+                        <?php
+                            if (isset($_SESSION['email'])) {
+                                $role = $_SESSION['role'];
+                            
+                                if ($role == 'admin') {
+                                    echo '<a href="Archive.php" class="nav-item nav-link">Archive</a>';
+                                }
+                            } 
+                        ?>
                     </div>
                     <?php
                         if (isset($_SESSION['email'])) {
-                            // User is logged in, show Logout link
                             echo '<a href="logout.php" class="btn btn-primary py-2 px-4">Logout</a>';
                         } else {
-                            // User is not logged in, show Login link
                             echo '<a href="signin.php" class="btn btn-primary py-2 px-4">Login</a>';
                         }
                     ?>
@@ -87,45 +93,38 @@
                 <div class="row align-items-center g-5">
                     <div class="col-lg-6 text-center text-lg-start">
                     <?php
-
                         if (isset($_SESSION['email'])) {
-                            // Access the 'email' session variable
                             $email = $_SESSION['email'];
 
                             include 'connection.php';
 
-                            //retrieves data from specified table where email is the same as email entered.
                             $querry = "SELECT * FROM logcredentials WHERE email = '$email'";
-                            //sets the retrieved data as $result
                             $result = mysqli_query($con,$querry);
 
-                            //check if there are 0 rows in result, meaning no email match
                             if(mysqli_num_rows($result)<=0) 
                             {
-                                //if there are 0
-                                echo '<h1 class="display-3 text-white animated slideInLeft">Welcome!</h1>';
+                                echo '<h1 class="display-3 text-white animated slideInLeft">Welcome to MiCasa - Where Every Event Finds its Perfect Home!</h1>';
                             }
                             else
                             {
-                                //check now for password y getting the row in result 
                                 $row = mysqli_fetch_array($result);
-                                //checks if password matches with password retrieved in db
                                 if($email==$row['email'])
                                 {
-                                    echo '<h1 class="display-3 text-white animated slideInLeft">Welcome ' . $row['username'] . '!</h1>';
-            
+                                    echo '<h1 class="display-3 text-white animated slideInLeft">Welcome to MiCasa, ' . $row['username'] . '!</h1>';
+                                    echo '<h3 class="display-6 text-white animated slideInLeft">Where Your Every Event Finds its Perfect Home!</h3>';
                                 }
                             }
                         } else {
                             echo '<h1 class="display-3 text-white animated slideInLeft">Welcome!</h1>';
                         }
                     ?>
-                        <h1 class="display-3 text-white animated slideInLeft">Enjoy your Special Day</h1>
-                        <p class="text-white animated slideInLeft mb-4 pb-2">Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit. Aliqu diam amet diam et eos. Clita erat ipsum et lorem et sit, sed stet lorem sit clita duo justo magna dolore erat amet</p>
+                        <p class="text-white animated slideInLeft mb-4 pb-2">Discover the seamless way to plan and book your events.  
+                            From intimate gatherings to grand celebrations, we're here to make your event planning journey effortless.
+                            <br><br>Start your event journey with MiCasa today – because every celebration deserves a perfect home.</p>
                         <a href="Booking.php" class="btn btn-primary py-sm-3 px-sm-5 me-3 animated slideInLeft">Save the Date</a>
                     </div>
                     <div class="col-lg-6 text-center text-lg-end overflow-hidden">
-                        <img class="img-fluid" src="img/circlee.png" alt="">
+                        <img class="img-fluid" src="img/circle5.png" alt="">
                     </div>
                 </div>
             </div>
@@ -133,101 +132,109 @@
     </div>
     <!-- Navbar & Hero End -->
 
-    <!-- Services Start -->
-    <div class="container-xxl py-5">
-        <div class="container">
-            <div class="row g-4">
-                <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.1s">
-                    <div class="service-item rounded pt-3">
-                        <div class="p-4">
-                            <i class="fa fa-3x fa-user-tie text-primary mb-4"></i>
-                            <h5>Offers</h5>
-                            <p>I got front row seats for the park side livin'
-                                Feel like the one but I'm one in a billion</p>
-                        </div>
+    <!-- Offers Start -->
+    <div class="container-xxl pt-5 pb-3">
+    <div class="container">
+        <div class="text-center wow fadeInDown" data-wow-delay="0.1s">
+            <h5 class="section-title ff-secondary text-center text-primary fw-normal">These are Our</h5>
+            <h1 class="mb-5">Packages</h1>
+        </div>
+        <div class="row g-4">
+            <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.1s" onclick="showPopup('For Wedding ',' Details for it.')">
+                <div class="team-item text-center rounded overflow-hidden">
+                    <div class="rounded-circle overflow-hidden m-4">
+                        <img class="criteria" src="img/wedding.jpg" alt="">
                     </div>
+                    <h5 class="mb-0">For Wedding</h5>
+                    <ul>Intimate | 50pax</ul>
+                    <ul>Classic | 150pax</ul>
+                    <ul>Deluxe | 200pax</ul>
                 </div>
-                <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.3s">
-                    <div class="service-item rounded pt-3">
-                        <div class="p-4">
-                            <i class="fa fa-3x fa-envelope text-primary mb-4"></i>
-                            <h5>Offers</h5>
-                            <p>Teenage cynical and I don't really know
-                                What's the point of living if my heart gets broken?</p>
-                        </div>
+            </div>
+            <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.3s" onclick="showPopup('For Birthdays ',' Details for it.')">
+                <div class="team-item text-center rounded overflow-hidden">
+                    <div class="rounded-circle overflow-hidden m-4">
+                        <img class="criteria" src="img\BIRTHDAYS.jpg" alt="image" class="flip">
                     </div>
+                    <h5 class="mb-0">For Birthdays</h5>
+                    <ul>Kiddie | 50pax</ul>
+                    <ul>Debut | 120pax</ul>
+                    <ul>Basic | 100pax</ul>
                 </div>
-                <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.5s">
-                    <div class="service-item rounded pt-3">
-                        <div class="p-4">
-                            <i class="fa fa-3x fa-cart-plus text-primary mb-4"></i>
-                            <h5>Offers</h5>
-                            <p>Driving on the road, waiting for head-on collision
-                                Springtime funeral, I miss you but I'd rather be alone</p>
-                        </div>
+            </div>
+            <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.5s" onclick="showPopup('For Gatherings ',' Details for it.')">
+                <div class="team-item text-center rounded overflow-hidden">
+                    <div class="rounded-circle overflow-hidden m-4">
+                        <img class="criteria" src="img/gatherings.jpeg" alt="">
                     </div>
+                    <h5 class="mb-0">Gatherings</h5>
+                    <ul>Package A | 50pax</ul>
+                    <ul>Package B | 100pax</ul>
                 </div>
-                <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.7s">
-                    <div class="service-item rounded pt-3">
-                        <div class="p-4">
-                            <i class="fa fa-3x fa-headset text-primary mb-4"></i>
-                            <h5>Offers</h5>
-                            <p>To keep me from Heartbreaks, headaches The doctor says I'm diagnosed with Shit days, mistakes But I'll be fine But I'll be fine</p>
-                        </div>
+            </div>
+            <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.7s" onclick="showPopup('For Rooms ',' Details for it.')">
+                <div class="team-item text-center rounded overflow-hidden">
+                    <div class="rounded-circle overflow-hidden m-4">
+                        <img class="criteria" src="img/rooms.jpg">
                     </div>
+                    <h5 class="mb-3">Rooms</h5>
+                    <ul>Silver Ballroom | 50pax</ul>
+                    <ul>Golden Ballroom | 100pax</ul>
+                    <ul>Platinum Ballroom | 150pax</ul>
+                    <ul>Diamond Ballroom | 200pax</ul>
                 </div>
             </div>
         </div>
     </div>
-    <!-- Services End -->
- 
-    <!-- Slideshow Start -->
-    <div class="container">
-        <div class="text-center">
-            <h5 class="section-title ff-secondary text-center text-primary fw-normal">Venues</h5>
-            <h1 class="mb-5">Look Around Our Venues</h1>
-        </div>
-    <div class="slider-wrapper">
-        <button id="prev-slide" class="slide-button material-symbols-rounded">chevron_left</button>
-        <ul class="image-list">
-        <img class="image-item" src="img/img-1.jpg" alt="img-1" />
-        <img class="image-item" src="img/img-2.jpg" alt="img-2" />
-        <img class="image-item" src="img/img-3.jpg" alt="img-3" />
-        <img class="image-item" src="img/img-4.jpg" alt="img-4" />
-        <img class="image-item" src="img/img-5.jpg" alt="img-5" />
-        <img class="image-item" src="img/img-6.jpg" alt="img-6" />
-        <img class="image-item" src="img/img-7.jpg" alt="img-7" />
-        <img class="image-item" src="img/img-8.jpg" alt="img-8" />
-        <img class="image-item" src="img/img-9.jpg" alt="img-9" />
-        <img class="image-item" src="img/img-10.jpg" alt="img-10" />
-        </ul>
-        <button id="next-slide" class="slide-button material-symbols-rounded">chevron_right</button>
     </div>
-    <div class="slider-scrollbar">
-        <div class="scrollbar-track">
-        <div class="scrollbar-thumb"></div>
+    <!-- try animation -->
+    <div class="popup" id="popup">
+        <div class="popup-content">
+            <span class="close" onclick="closePopup()">&times;</span>
+            <h2 id="popup-title">Package Title</h2>
+            <p id="popup-description">Package Description</p>
         </div>
     </div>
-    </div>
-    <!-- Slideshow End -->
+
+    <script>
+        function showPopup(title, description) {
+            var popup = document.getElementById("popup");
+            var popupTitle = document.getElementById("popup-title");
+            var popupDescription = document.getElementById("popup-description");
+
+            popup.style.display = "flex";
+            popupTitle.textContent = title;
+            popupDescription.textContent = description;
+        }
+
+        function closePopup() {
+            var popup = document.getElementById("popup");
+            popup.style.display = "none";
+        }
+    </script>
+    <!-- Offers End -->
     
     <!-- About Us Start -->
     <div class="container-xxl py-5">
+        <div class="text-center wow fadeInDown" data-wow-delay="0.1s">
+            <h5 class="section-title ff-secondary text-center text-primary fw-normal">Get to know</h5>
+            <h1 class="mb-5">About us</h1>
+        </div>
         <div class="container">
             <div class="row g-5 align-items-center">
                 <div class="col-lg-6">
                     <div class="row g-3">
                         <div class="col-6 text-start">
-                            <img class="img-fluid rounded w-100 wow zoomIn" data-wow-delay="0.1s" src="img/about-1.jpg">
+                            <img class="img-fluid rounded w-100 wow zoomIn" data-wow-delay="0.1s" src="img/AllOccassion/AOBG1.jpg">
                         </div>
                         <div class="col-6 text-start">
-                            <img class="img-fluid rounded w-75 wow zoomIn" data-wow-delay="0.3s" src="img/about-2.jpg" style="margin-top: 25%;">
+                            <img class="img-fluid rounded w-75 wow zoomIn" data-wow-delay="0.3s" src="img/AllOccassion/AOBG3.jpg" style="margin-top: 25%;">
                         </div>
                         <div class="col-6 text-end">
-                            <img class="img-fluid rounded w-75 wow zoomIn" data-wow-delay="0.5s" src="img/about-3.jpg">
+                            <img class="img-fluid rounded w-75 wow zoomIn" data-wow-delay="0.5s" src="img/Wedding/WedBG3.jpg">
                         </div>
                         <div class="col-6 text-end">
-                            <img class="img-fluid rounded w-100 wow zoomIn" data-wow-delay="0.7s" src="img/about-4.jpg">
+                            <img class="img-fluid rounded w-100 wow zoomIn" data-wow-delay="0.7s" src="img/AllOccassion/AOBG4.jpg">
                         </div>
                     </div>
                 </div>
@@ -264,140 +271,131 @@
     </div>
     <!-- About Us End -->
 
-    <!-- Team Start -->
-    <div class="container-xxl pt-5 pb-3">
+    <!-- Services Start -->
+    <div class="container-xxl py-5">
         <div class="container">
-            <div class="text-center wow fadeInDown" data-wow-delay="0.1s">
-                <h5 class="section-title ff-secondary text-center text-primary fw-normal">This Is Our</h5>
-                <h1 class="mb-5">Packages</h1>
-            </div>
             <div class="row g-4">
-                <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.1s" onclick="showPopup('For Wedding ',' Details for it.')">
-                    <div class="team-item text-center rounded overflow-hidden">
-                        <div class="rounded-circle overflow-hidden m-4">
-                            <img class="criteria" src="img/wedding.jpg" alt="">
+                <div class="col-lg-4 wow fadeInUp" data-wow-delay="0.1s">
+                    <div class="service-item rounded pt-3">
+                        <div class="p-4">
+                            <i class="fa fa-3x fa-user-tie text-primary mb-4"></i>
+                            <h5>Our Vision</h5>
+                            <p>To be the premier platform that seamlessly connects individuals 
+                                with their perfect event experiences, fostering memorable moments and a sense of belonging.</p>
                         </div>
-                        <h5 class="mb-0">For Wedding</h5>
-                        <small>Designation</small>
                     </div>
                 </div>
-                <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.3s" onclick="showPopup('For Birthdays ',' Details for it.')">
-                    <div class="team-item text-center rounded overflow-hidden">
-                        <div class="rounded-circle overflow-hidden m-4">
-                            <img class="criteria" src="img\BIRTHDAYS.jpg" alt="image" class="flip">
+                <div class="col-lg-8 wow fadeInUp" data-wow-delay="0.3s">
+                    <div class="service-item rounded pt-3">
+                        <div class="p-4">
+                            <i class="fa fa-3x fa-envelope text-primary mb-4"></i>
+                            <h5>Our Mission</h5>
+                            <p>At MiCasa, our mission is to empower people to discover and book events that resonate 
+                                with their passions and preferences. We strive to provide a user-friendly platform that 
+                                offers a diverse array of events, from intimate gatherings to grand celebrations, 
+                                ensuring everyone can find and create moments that matter. We are committed to 
+                                fostering partnerships with event organizers and creating a community where innovation, 
+                                inclusivity, and joy thrive. By leveraging technology and user insights, we aim to 
+                                continually enhance the event discovery and booking process, making MiCasa the go-to 
+                                destination for anyone seeking to enrich their lives through meaningful experiences.</p>
                         </div>
-                        <h5 class="mb-0">For Birthdays</h5>
-                        <small>Designation</small>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.5s" onclick="showPopup('For Gatherings ',' Details for it.')">
-                    <div class="team-item text-center rounded overflow-hidden">
-                        <div class="rounded-circle overflow-hidden m-4">
-                            <img class="criteria" src="img/gatherings.jpeg" alt="">
-                        </div>
-                        <h5 class="mb-0">Gatherings</h5>
-                        <small>Designation</small>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.7s" onclick="showPopup('For Rooms ',' Details for it.')">
-                    <div class="team-item text-center rounded overflow-hidden">
-                        <div class="rounded-circle overflow-hidden m-4">
-                            <img class="criteria" src="img/rooms.jpg">
-                        </div>
-                        <h5 class="mb-3">Rooms</h5>
-                        <small>Designation</small>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    <!-- try animation -->
-    <div class="popup" id="popup">
-        <div class="popup-content">
-            <span class="close" onclick="closePopup()">&times;</span>
-            <h2 id="popup-title">Package Title</h2>
-            <p id="popup-description">Package Description</p>
-        </div>
-    </div>
-
-    <script>
-        function showPopup(title, description) {
-            var popup = document.getElementById("popup");
-            var popupTitle = document.getElementById("popup-title");
-            var popupDescription = document.getElementById("popup-description");
-
-            popup.style.display = "flex";
-            popupTitle.textContent = title;
-            popupDescription.textContent = description;
-        }
-
-        function closePopup() {
-            var popup = document.getElementById("popup");
-            popup.style.display = "none";
-        }
-    </script>
-    <!-- Team End -->
-
+    <!-- Services End -->
+    
     <!-- Testimonial Start -->
     <div class="container-xxl py-5 wow fadeInUp" data-wow-delay="0.1s">
-        <div class="container">
-            <div class="text-center">
-                <h5 class="section-title ff-secondary text-center text-primary fw-normal">Feedbacks</h5>
-                <h1 class="mb-5">Our Clients Say!!!</h1>
+    <div class="container">
+        <div class="text-center">
+            <h5 class="section-title ff-secondary text-center text-primary fw-normal">Feedbacks</h5>
+            <h1 class="mb-5">Our Clients Say!!!</h1>
+        </div>
+        <div class="owl-carousel testimonial-carousel">
+            <div class="testimonial-item bg-transparent border rounded p-4">
+                <i class="fa fa-quote-left fa-2x text-primary mb-3"></i>
+                <p>Ang Gandaaa </p>
+                <div class="d-flex align-items-center">
+                    <img class="img-fluid flex-shrink-0 rounded-circle" src="img/testimonial-1.jpg" style="width: 50px; height: 50px;">
+                    <div class="ps-3">
+                        <h5 class="mb-1">Sir Nortz</h5>
+                        <small>Sir DCIT</small>
+                    </div>
+                </div>
             </div>
-            <div class="owl-carousel testimonial-carousel">
-                <div class="testimonial-item bg-transparent border rounded p-4">
-                    <i class="fa fa-quote-left fa-2x text-primary mb-3"></i>
-                    <p>Ang Gandaaa </p>
-                    <div class="d-flex align-items-center">
-                        <img class="img-fluid flex-shrink-0 rounded-circle" src="img/testimonial-1.jpg" style="width: 50px; height: 50px;">
-                        <div class="ps-3">
-                            <h5 class="mb-1">Sir Nortz</h5>
-                            <small>Sir DCIT</small>
-                        </div>
+            <div class="testimonial-item bg-transparent border rounded p-4">
+                <i class="fa fa-quote-left fa-2x text-primary mb-3"></i>
+                <p>Sheeeeeeeeeeeeeeeeeeeeeeesh</p>
+                <div class="d-flex align-items-center">
+                    <img class="img-fluid flex-shrink-0 rounded-circle" src="img/testimonial-2.jpg" style="width: 50px; height: 50px;">
+                    <div class="ps-3">
+                        <h5 class="mb-1">Sir Hugo</h5>
+                        <small>Sir COSC</small>
                     </div>
                 </div>
-                <div class="testimonial-item bg-transparent border rounded p-4">
-                    <i class="fa fa-quote-left fa-2x text-primary mb-3"></i>
-                    <p>Sheeeeeeeeeeeeeeeeeeeeeeesh</p>
-                    <div class="d-flex align-items-center">
-                        <img class="img-fluid flex-shrink-0 rounded-circle" src="img/testimonial-2.jpg" style="width: 50px; height: 50px;">
-                        <div class="ps-3">
-                            <h5 class="mb-1">Sir Hugo</h5>
-                            <small>Sir COSC</small>
-                        </div>
+            </div>
+            <div class="testimonial-item bg-transparent border rounded p-4">
+                <i class="fa fa-quote-left fa-2x text-primary mb-3"></i>
+                <p>Calcu'laaaaaa'ted</p>
+                <div class="d-flex align-items-center">
+                    <img class="img-fluid flex-shrink-0 rounded-circle" src="img/testimonial-3.jpg" style="width: 50px; height: 50px;">
+                    <div class="ps-3">
+                        <h5 class="mb-1">Sir Bayan</h5>
+                        <small>Sir Math</small>
                     </div>
                 </div>
-                <div class="testimonial-item bg-transparent border rounded p-4">
-                    <i class="fa fa-quote-left fa-2x text-primary mb-3"></i>
-                    <p>Calcu'laaaaaa'ted</p>
-                    <div class="d-flex align-items-center">
-                        <img class="img-fluid flex-shrink-0 rounded-circle" src="img/testimonial-3.jpg" style="width: 50px; height: 50px;">
-                        <div class="ps-3">
-                            <h5 class="mb-1">Sir Bayan</h5>
-                            <small>Sir Math</small>
-                        </div>
-                    </div>
-                </div>
-                <div class="testimonial-item bg-transparent border rounded p-4">
-                    <i class="fa fa-quote-left fa-2x text-primary mb-3"></i>
-                    <p>Grabe ang bilis</p>
-                    <div class="d-flex align-items-center">
-                        <img class="img-fluid flex-shrink-0 rounded-circle" src="img/testimonial-4.jpg" style="width: 50px; height: 50px;">
-                        <div class="ps-3">
-                            <h5 class="mb-1">Sir Opella</h5>
-                            <small>Sir of the Sir</small>
-                        </div>
+            </div>
+            <div class="testimonial-item bg-transparent border rounded p-4">
+                <i class="fa fa-quote-left fa-2x text-primary mb-3"></i>
+                <p>Grabe ang bilis</p>
+                <div class="d-flex align-items-center">
+                    <img class="img-fluid flex-shrink-0 rounded-circle" src="img/testimonial-4.jpg" style="width: 50px; height: 50px;">
+                    <div class="ps-3">
+                        <h5 class="mb-1">Sir Opella</h5>
+                        <small>Sir of the Sir</small>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+    </div>
     <!-- Testimonial End -->
+ 
+    <!-- Slideshow Start -->
+    <div class="container">
+        <div class="text-center">
+            <h5 class="section-title ff-secondary text-center text-primary fw-normal">Venues</h5>
+            <h1 class="mb-5">Look Around Our Venues</h1>
+        </div>
+    <div class="slider-wrapper">
+        <button id="prev-slide" class="slide-button material-symbols-rounded">chevron_left</button>
+        <ul class="image-list">
+        <img class="image-item" src="img/Wedding/Wed1.jpg" alt="img-1" />
+        <img class="image-item" src="img/Venue/Ven7.jpg" alt="img-2" />
+        <img class="image-item" src="img/Wedding/Wed9.jpg" alt="img-3" />
+        <img class="image-item" src="img/Venue/Ven1.jpg" alt="img-4" />
+        <img class="image-item" src="img/Venue/Ven10.jpg" alt="img-5" />
+        <img class="image-item" src="img/Birthday/Birth3.jpg" alt="img-6" />
+        <img class="image-item" src="img/AllOccassion/AO1.jpg" alt="img-7" />
+        <img class="image-item" src="img/AllOccassion/AO3.jpg" alt="img-8" />
+        <img class="image-item" src="img/Wedding/Wed5.jpg" alt="img-9" />
+        <img class="image-item" src="img/Wedding/Wed3.jpg" alt="img-10" />
+        </ul>
+        <button id="next-slide" class="slide-button material-symbols-rounded">chevron_right</button>
+    </div>
+    <div class="slider-scrollbar">
+        <div class="scrollbar-track">
+        <div class="scrollbar-thumb"></div>
+        </div>
+    </div>
+    </div>
+    <!-- Slideshow End -->
 
     <!-- Javascript to display booking success -->
-    <<script>
-        // Check if a success message was passed in the URL
+    <script>
+
         var urlParams = new URLSearchParams(window.location.search);
         if (urlParams.has('message')) {
             var successMessage = urlParams.get('message');
@@ -424,7 +422,7 @@
                 </div>
 
                 <dialog id="privacyDialog">
-                    <button id="closePrivacyDialog" onclick="closePrivacyDialog()">&times;</button> <!-- Close "x" button -->
+                    <button id="closePrivacyDialog" onclick="closePrivacyDialog()">&times;</button> 
                     <h1>Privacy Policy for MiCasa Events</h1>
                     <h5>Effective Date: November 1, 2023</h5>
                     <br>
@@ -476,7 +474,7 @@
                 </dialog>
 
                 <dialog id="termsDialog">
-                    <button id="closePrivacyDialog" onclick="closeTermsDialog()">&times;</button> <!-- Close "x" button -->
+                    <button id="closePrivacyDialog" onclick="closeTermsDialog()">&times;</button> 
                     <h1>Terms and Conditions for MiCasa Events</h1>
                     <h6>Please read the following terms and conditions carefully before making a booking with MiCasa Events. 
                         By booking an event with us, you agree to abide by these terms and conditions.</h6>
@@ -513,22 +511,18 @@
                     const privacyDialog = document.getElementById("privacyDialog");
                     const termsDialog = document.getElementById("termsDialog");
 
-                    // Show the Privacy Policy dialog when the "Privacy Policy" link is clicked
                     function showPrivacyDialog() {
                         privacyDialog.showModal();
                     }
 
-                    // Show the Terms and Conditions dialog when the "Terms & Conditions" link is clicked
                     function showTermsDialog() {
                         termsDialog.showModal();
                     }
 
-                    // Close the Privacy Policy dialog when the "x" button is clicked
                     function closePrivacyDialog() {
                         privacyDialog.close();
                     }
 
-                    // Close the Terms and Conditions dialog when the "x" button is clicked
                     function closeTermsDialog() {
                         termsDialog.close();
                     }
@@ -559,7 +553,7 @@
             <div class="copyright">
                 <div class="row">
                     <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
-                        &copy; <a class="border-bottom" href="#">ChuChu Events Place</a>, All Right Reserved. 
+                        &copy; <a class="border-bottom" href="#">MiCasa Events Place</a>, All Right Reserved. 
                         
                         <!--/*** This template is free as long as you keep the footer author’s credit link/attribution link/backlink. If you'd like to use the template without the footer author’s credit link/attribution link/backlink, you can purchase the Credit Removal License from "https://htmlcodex.com/credit-removal". Thank you for your support. ***/-->
                         <br>Designed By <a class="border-bottom" href="https://htmlcodex.com">HTML Codex</a>

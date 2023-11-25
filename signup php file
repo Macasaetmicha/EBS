@@ -1,0 +1,65 @@
+<?php
+    include 'connection.php';
+
+    if(isset($_POST['submit'])) {
+        $email = $_POST['email'];
+        $username = $_POST['username'];
+        $password = $_POST['password'];
+
+        // Check if the email, username, or contact number is already in use
+        $checkQuery = "SELECT * FROM logcredentials WHERE email = '$email' OR username = '$username'";
+        $result = mysqli_query($con, $checkQuery);
+        if (mysqli_num_rows($result) > 0) {
+            echo "Email, username, or contact number is already in use. Please choose a different one.";
+        }
+
+        // Check for email validity
+        elseif (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+            echo "Invalid email address.";
+        }
+
+        // Check password and set minumum length
+        elseif (strlen($password) < 8 || !preg_match('/[0-9\W]/', $password)) {
+            echo "Password must have at least 8 characters and include at least 1 symbol or number.";
+        }
+        elseif (!preg_match('/[0-9\W]/', $password)){
+            echo "Password must include at least 1 symbol or number.";
+        }
+                
+        // Check for username validity
+        elseif (!preg_match("/^[a-zA-Z0-9_]+$/", $username)) {
+            echo "Invalid username. Only letters, numbers, and underscores are allowed.";
+        }
+
+        else{
+            $sql1 = "INSERT INTO logcredentials (email, username, password) 
+                VALUES ('$email', '$username', '$password')";
+            mysqli_query($con, $sql1);
+
+            // Get the last auto-generated userID
+            $logID = mysqli_insert_id($con);
+
+            $fname = $_POST['fname'];
+            $mname = $_POST['mname'];
+            $lname = $_POST['lname'];
+            $bday = $_POST['bday'];
+            $contNum = $_POST['contNum'];
+            $gender = $_POST['Gender'];
+            $IDType = $_POST['idType'];
+            $idNum = $_POST['idNum'];
+            $idFront = $_POST['frontimage'];
+            $idBack = $_POST['backimage'];
+            
+            // Insert into logcredentials
+            $sql2 = "INSERT INTO user (logID, fname, mname, lname, bday, gender, contNum, idType, idNum, idFront, idBack) 
+                    VALUES ($logID, '$fname' , '$mname', '$lname', '$bday', '$gender', '$contNum', '$IDType', '$idNum', '$idFront', '$idBack')";
+            mysqli_query($con, $sql2);
+
+            echo "<div class='success-message'>You have successfully registered!</div>";
+            header('Location: signin.php');
+            exit();
+            
+            mysqli_close($con);
+        }
+    }
+?>

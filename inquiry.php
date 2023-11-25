@@ -19,8 +19,8 @@ if(isset($_POST['inquire'])){
     $mail->isSMTP();
     $mail->Host = 'smtp.gmail.com';
     $mail->SMTPAuth = true;
-    $mail->Username = 'micasa.cosc75g2@gmail.com'; // Your email address
-    $mail->Password = 'wtuegngmimozidgg'; // Your email password
+    $mail->Username = 'micasa.cosc75g2@gmail.com'; 
+    $mail->Password = 'wtuegngmimozidgg'; 
     $mail->SMTPSecure = 'ssl';
     $mail->Port = 465;
 
@@ -47,8 +47,6 @@ if(isset($_POST['inquire'])){
         echo 'Mailer Error: ' . $mail->ErrorInfo;
     }
     
-    
-
     $successMessage = "We have recieved your query. Rest assured we will get back to you shortly!";
 
     
@@ -64,7 +62,6 @@ if(isset($_POST['inquire'])){
             }
         });
     </script>";
-
 
     header('Location: About.php?message=' . urlencode($successMessage));
     exit;
