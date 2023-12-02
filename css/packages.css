@@ -1,9 +1,14 @@
 /*** Packages ***/
 :root {
-  --card-color: #c0b283;
+  --card-color: #404a42;
   --primary: #404a42;
-  --light: #f4f4f4;
+  --light: #ffffff;
   --dark: #c0b283;
+  --lighterdark: #f8f5e8;
+}
+
+.ff-secondary {
+  font-family: 'Pacifico', cursive;
 }
 
 /* Styles to fix responsiveness of package elements*/
@@ -44,49 +49,57 @@ and (max-width: 974px)
 .wed-bg img{
   height: 300px;
   width: auto;
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: var(--primary);
+  opacity: 0.6;
 }
 
 .wed-bg-r img{
   height: 380px;
   width: auto;
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: var(--primary);
+  opacity: 0.6;
 }
 
 .bday-bg img{
   height: 300px;
   width: auto;
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: var(--primary);
+  opacity: 0.6;
 }
 
 .bday-bg-r img{
   height: 380px;
   width: auto;
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: var(--primary);
+  opacity: 0.6;
 }
 
 .g-bg img{
   height: 300px;
   width: auto;
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: var(--primary);
+  opacity: 0.6;
 }
 
 .g-bg-r img{
   height: 380px;
   width: auto;
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: var(--primary);
+  opacity: 0.6;
 }
 
 .rooms-bg-r img{
   height: 380px;
   width: auto;
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: var(--primary);
+  opacity: 0.6;
 }
 
 .rooms-bg img{
   height: 300px;
   width: auto;
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: var(--primary);
+  opacity: 0.6;
 }
 
 #section-feature ul {
@@ -101,7 +114,8 @@ and (max-width: 974px)
   height: 300px;
   width: 230px;
   float: center;
-  margin: 2%;
+  margin: 1.8%;
+  padding-left: 5%;
   user-select: none;
   list-style-type: none;
 }
@@ -278,7 +292,7 @@ and (max-width: 974px)
   overflow: hidden;
   text-overflow: ellipsis;
   font-size: 22px;
-  color: darkslategray;
+  color: var(--card-color);
    
 }
 
@@ -317,11 +331,13 @@ and (max-width: 974px)
 /** Subpackages **/  
 .container {
   max-width: 1170px;
-  padding: 0 15px;
+  padding-left: 2.55%;
+  padding-right: 0;
   margin: 0 auto;
 }
 .subpackage {
   padding: 60px 0;
+  padding-top: 0.3%;
   background: #fff;
 }
 .subpackage__grid {
@@ -334,7 +350,7 @@ and (max-width: 974px)
   border-radius: 15px;
   display: flex;
   flex-direction: column;
-  background: #edf2ff;
+  background: var(--light);
   border: 1px solid transparent;
   border-color: var(--card-color);
 }
@@ -346,6 +362,7 @@ and (max-width: 974px)
   color: #fff;
   display: flex;
   flex-direction: column;
+  font-family:"Heebo",sans-serif;
 }
 .subpackage-card__top img {
 	opacity: 1;
@@ -359,11 +376,13 @@ and (max-width: 974px)
 	opacity: .5;
 }
 .subpackage-card__title {
-  font-weight: 700;
+  font-weight: 500;
   font-size: 36px;
   margin-bottom: 80px;
-  color: var(--primary);
+  color: var(--dark);
+  font-family: 'Pacifico', cursive;
 }
+
 .subpackage-card__price {
   font-size: 700;
   font-size: 24px;
@@ -374,18 +393,35 @@ and (max-width: 974px)
   font-size: 14px;
 }
 .subpackage-card__body {
-  padding: 30px;
+  padding: 0px;
+  margin-left: 0%;
+  margin-top: 3%;
+  margin-bottom: 3%;
   display: flex;
   flex-direction: column;
   flex: 1;
 }
-ul{
-  list-style-type: '\2714';
+
+.subpackage-card__body ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.subpackage-card__body li {
+  min-height: 30px;
+  display: flex;
+  align-items: center;
+  padding: 5px 3px;
+  line-height: 1.4;
   color: var(--primary);
 }
-li{
-  color: var(--primary);
+.subpackage-card__body li:nth-child(odd) {
+  background:var(--lighterdark);
 }
+
 .room{
   list-style-type: none;
 }

@@ -264,79 +264,126 @@
     </div>
     <!-- About Us End -->
 
-    <!-- Team Start -->
+    <!-- Packages Start -->
     <div class="container-xxl pt-5 pb-3">
-        <div class="container">
-            <div class="text-center wow fadeInDown" data-wow-delay="0.1s">
-                <h5 class="section-title ff-secondary text-center text-primary fw-normal">This Is Our</h5>
-                <h1 class="mb-5">Packages</h1>
+            <div class="text-center">
+                <h5 class="section-title ff-secondary text-center text-primary fw-normal">Packages</h5>
+                <h1 class="mb-5">What We Offer</h1>
             </div>
-            <div class="row g-4">
-                <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.1s" onclick="showPopup('For Wedding ',' Details for it.')">
-                    <div class="team-item text-center rounded overflow-hidden">
-                        <div class="rounded-circle overflow-hidden m-4">
-                            <img class="criteria" src="img/wedding.jpg" alt="">
-                        </div>
-                        <h5 class="mb-0">For Wedding</h5>
-                        <small>Designation</small>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.3s" onclick="showPopup('For Birthdays ',' Details for it.')">
-                    <div class="team-item text-center rounded overflow-hidden">
-                        <div class="rounded-circle overflow-hidden m-4">
-                            <img class="criteria" src="img\BIRTHDAYS.jpg" alt="image" class="flip">
-                        </div>
-                        <h5 class="mb-0">For Birthdays</h5>
-                        <small>Designation</small>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.5s" onclick="showPopup('For Gatherings ',' Details for it.')">
-                    <div class="team-item text-center rounded overflow-hidden">
-                        <div class="rounded-circle overflow-hidden m-4">
-                            <img class="criteria" src="img/gatherings.jpeg" alt="">
-                        </div>
-                        <h5 class="mb-0">Gatherings</h5>
-                        <small>Designation</small>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.7s" onclick="showPopup('For Rooms ',' Details for it.')">
-                    <div class="team-item text-center rounded overflow-hidden">
-                        <div class="rounded-circle overflow-hidden m-4">
-                            <img class="criteria" src="img/rooms.jpg">
-                        </div>
-                        <h5 class="mb-3">Rooms</h5>
-                        <small>Designation</small>
-                    </div>
-                </div>
+            <div class="container">
+                <section id="section-feature" class="container wow fadeInUp" data-wow-delay="0.9s">
+                    
+                    <!-- new row-->
+                    <div class="row g-4 justify-content-center package-m-fix" >
+                
+                        <!-- Weddings -->
+                        <li class="col-md-3 col-sm-6 col-xs-12">
+                            <div class="sf-wrap">
+                                <div class="sf-mdl-left">
+                                    <div class="wed-bg">
+                                        <img src="img/wedding.jpg" alt="">
+                                    </div>
+                                    <h3>Weddings</h3>
+                                </div>
+                                <div class="sf-mdl-right">
+                                    <div class="wed-bg-r">
+                                        <img src="img/weddingR.jpg" alt="">
+                                    </div>
+                                    <h3>Weddings</h3>
+                                </div>
+                                <div class="sf-mdl-left-full">
+                                    <h3>Weddings</h3>
+                                    <p>Elevate your wedding day with our all-inclusive package, featuring a stunning venue, custom menu, and personalized decor for a truly unforgettable experience.</p>
+                                </div>
+                                <div class="sf-mdl-right-full">
+                                    <h3><a>Weddings</a></h3>
+                                    <p>Elevate your wedding day with our all-inclusive package, featuring a stunning venue, custom menu, and personalized decor for a truly unforgettable experience.</p>
+                                </div>
+                            </div>
+                        </li>
+
+                        <!-- Birthdays -->
+                        <li class="col-md-3 col-sm-6 col-xs-12">
+                            <div class="sf-wrap">
+                                <div class="sf-mdl-left">
+                                    <div class="bday-bg">
+                                        <img src="img/BIRTHDAYS-L.jpg" alt="">
+                                    </div>
+                                    <h3>Birthdays</h3>
+                                </div>
+                                <div class="sf-mdl-right">
+                                    <div class="bday-bg-r">
+                                        <img src="img/BIRTHDAYS-r.jpg" alt="">
+                                    </div>
+                                    <h3>Birthdays</h3>
+                                </div>
+                                <div class="sf-mdl-left-full">
+                                    <h3>Birthdays</h3>
+                                    <p>Transform your birthday celebration with our customizable packages, offering themed decor, delectable catering, and entertainment to create an unforgettable party experience for all ages.</p>
+                                </div>
+                                <div class="sf-mdl-right-full">
+                                    <h3>Birthdays</h3>
+                                    <p>Transform your birthday celebration with our customizable packages, offering themed decor, delectable catering, and entertainment to create an unforgettable party experience for all ages.</p>
+                                </div>
+                            </div>
+                        </li>
+
+                        <!-- All Occasions -->
+                        <li class="col-md-3 col-sm-6 col-xs-12">
+                            <div class="sf-wrap">
+                                <div class="sf-mdl-left">
+                                    <div class="g-bg">
+                                        <img src="img/gatherings-L.jpg" alt="">
+                                    </div>
+                                    <h3>All Occasions</h3>
+                                </div>
+                                <div class="sf-mdl-right">
+                                    <div class="g-bg-r">
+                                        <img src="img/gatherings-R.jpeg" alt="">
+                                    </div>
+                                    <h3>All Occasions</h3>
+                                </div>
+                                <div class="sf-mdl-left-full">
+                                    <h3>All Occasions</h3>
+                                    <p>Make any occasion extraordinary with our all-inclusive event packages, offering versatile venues, expert planning, and personalized details to ensure unforgettable moments.</p>
+                                </div>
+                                <div class="sf-mdl-right-full">
+                                    <h3>All Occasions</h3>
+                                    <p>Make any occasion extraordinary with our all-inclusive event packages, offering versatile venues, expert planning, and personalized details to ensure unforgettable moments.</p>
+                                </div>
+                            </div>
+                        </li>
+
+                        <!-- Function Rooms -->
+                        <li class="col-md-3 col-sm-6 col-xs-12">
+                            <div class="sf-wrap">
+                                <div class="sf-mdl-left">
+                                    <div class="rooms-bg">
+                                        <img src="img/rooms.jpg" alt="">
+                                    </div>
+                                    <h3>Function Rooms</h3>
+                                </div>
+                                <div class="sf-mdl-right">
+                                    <div class="rooms-bg-r">
+                                        <img src="img/roomsR.jpg" alt="">
+                                    </div>
+                                    <h3>Function Rooms</h3>
+                                </div>
+                                <div class="sf-mdl-left-full">
+                                    <h3>Function Rooms</h3>
+                                    <p>Our function rooms provide a versatile and elegant space to host events, from corporate meetings to social gatherings, offering the ideal setting for a wide range of occasions.</p>
+                                </div>
+                                <div class="sf-mdl-right-full">
+                                    <h3>Function Rooms</h3>
+                                    <p>Our function rooms provide a versatile and elegant space to host events, from corporate meetings to social gatherings, offering the ideal setting for a wide range of occasions.</p>
+                                </div>
+                            </div>
+                        </li>
+                    </div> 
+                </section>
             </div>
         </div>
-    </div>
-    <!-- try animation -->
-    <div class="popup" id="popup">
-        <div class="popup-content">
-            <span class="close" onclick="closePopup()">&times;</span>
-            <h2 id="popup-title">Package Title</h2>
-            <p id="popup-description">Package Description</p>
-        </div>
-    </div>
-
-    <script>
-        function showPopup(title, description) {
-            var popup = document.getElementById("popup");
-            var popupTitle = document.getElementById("popup-title");
-            var popupDescription = document.getElementById("popup-description");
-
-            popup.style.display = "flex";
-            popupTitle.textContent = title;
-            popupDescription.textContent = description;
-        }
-
-        function closePopup() {
-            var popup = document.getElementById("popup");
-            popup.style.display = "none";
-        }
-    </script>
-    <!-- Team End -->
+        <!--Packages End-->
 
     <!-- Testimonial Start -->
     <div class="container-xxl py-5 wow fadeInUp" data-wow-delay="0.1s">

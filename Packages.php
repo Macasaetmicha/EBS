@@ -123,7 +123,7 @@
                             <div class="sf-wrap">
                                 <div class="sf-mdl-left">
                                     <div class="bday-bg">
-                                        <img src="img/BIRTHDAYS.jpg" alt="">
+                                        <img src="img/BIRTHDAYS-L.jpg" alt="">
                                     </div>
                                     <h3>Birthdays</h3>
                                 </div>
@@ -149,13 +149,13 @@
                             <div class="sf-wrap">
                                 <div class="sf-mdl-left">
                                     <div class="g-bg">
-                                        <img src="img/gatherings.jpg" alt="">
+                                        <img src="img/gatherings-L.jpg" alt="">
                                     </div>
                                     <h3>All Occasions</h3>
                                 </div>
                                 <div class="sf-mdl-right">
                                     <div class="g-bg-r">
-                                        <img src="img/gatheringsR.jpeg" alt="">
+                                        <img src="img/gatherings-R.jpeg" alt="">
                                     </div>
                                     <h3>All Occasions</h3>
                                 </div>
@@ -197,6 +197,7 @@
                         </li>
                     </div> 
                 </section>
+        </div>
 
                     <!-- Subpackages Start -->
                     <!-- Subpackages Header -->
@@ -335,7 +336,6 @@
                                         <div class="subpackage-card__price">Php 175, 000
                                             <span>/ 120 pax</span>
                                         </div>
-                                        <br/>
                                     </div>
                                     <div class="subpackage-card__body">
                                         <ul>
@@ -362,7 +362,6 @@
                                         <div class="subpackage-card__price">Php 100, 000
                                             <span>/ 100 pax</span>
                                         </div>
-                                        <br/>
                                     </div>
                                     <div class="subpackage-card__body">
                                         <ul>
@@ -488,13 +487,7 @@
                                 </div>
                                 <!-- Golden Ballroom End-->
 
-                                </div>
-                                </div>
-                                </div>
                                 
-                                <div class="subpackage">
-                                <div class="container">
-                                    <div class="subpackage__grid">
                                 <!-- Platinum Ballroom Start -->
                                 <div class="subpackage__card subpackage-card">
                                     <div class="subpackage-card__top">
@@ -542,7 +535,6 @@
                         <!-- Function Room Packages End -->
                 </div>
             </div>
-        </div>
         </div>
         </div>
         <!-- Packages End -->
