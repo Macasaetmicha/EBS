@@ -16,17 +16,19 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         "frm" => "Function Room",
     );
 
-    $query = "SELECT lc.logID, lc.email, u.fname, u.lname, u.contNum, ei.userID, ei.funcRoom, ei.package, ei.eventType, ei.numAttendee, ei.eventDate, ei.eventTimeStart, ei.eventTimeEnd, ei.overtime, ei.request, ei.date_booked
+    $query = "SELECT lc.logID, lc.email, u.fname, u.lname, u.contNum, ei.userID, ei.eventID, ei.funcRoom, ei.package, ei.eventType, ei.numAttendee, ei.eventDate, ei.eventTimeStart, ei.eventTimeEnd, ei.overtime, ei.request, ei.date_booked, pi.paymentStatus
             FROM user u 
             JOIN eventinfo ei ON u.userID = ei.userID
             JOIN  logcredentials lc ON lc.logID = u.logID
+            JOIN paymentinfo pi ON pi.eventID = ei.eventID
             WHERE 
             LOWER(u.fname) LIKE '%$keyword%' OR 
             LOWER(u.lname) LIKE '%$keyword%' OR 
             LOWER(u.contNum) LIKE '%$keyword%' OR 
             LOWER(ei.eventType) LIKE '%$keyword%' OR
             LOWER(lc.email) LIKE '%$keyword%' OR
-            LOWER(lc.username) LIKE '%$keyword%'";
+            LOWER(lc.username) LIKE '%$keyword%' OR
+            LOWER(pi.paymentStatus) LIKE '%$keyword%'";
 
     $result = mysqli_query($con, $query);
 

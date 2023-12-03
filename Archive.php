@@ -1,6 +1,12 @@
-<?php 
- session_start();
- include 'connection.php';
+<?php
+session_start();
+include 'connection.php';
+
+// Check if the user is logged in and has the admin role
+if (!isset($_SESSION['email']) || $_SESSION['role'] !== 'admin') {
+    header("Location: unauthorize.php"); 
+    exit();
+}
 ?>
 
 <head>
@@ -205,105 +211,323 @@
             </div>
         </div>
 
+        <dialog id="paymentDialog">
+            <button id="closePaymentDialog" onclick="closePaymentDialog()">&times;</button> 
+            <h1>Payment Details</h1>
+            <h5>Event: <span id="eventName"></span></h5>
+            <br>
+            <hr>
+            <br>
+            <p><b>Status: </b><span id="paymentStatus"></span></p>
+            <p><b>Total Amount: </b><span id="totalPayment"></span></p>
+            <p><b>Partial Payment: </b><span id="downPayment"></span></p>
+            <p><b>Date of Payment: </b><span id="downPaymentDate"></span></p>
+            <p><b>Full Payment: </b><span id="balance"></span></p>
+            <p><b>Date of Payment: </b><span id="fullPaymentDate"></span></p>
+
+            <form action="archive_fullPay.php" method="post" class="Archive_fullPay" >
+            <div id="paymentForm">
+                <div class="col-md-12" style="margin-bottom: 20px;">
+                    <div class="form-floating">
+                        <select class="form-select" id="payType" name="payType" onchange="selectOption()" required>
+                        <option selected disabled value="">Select Payment Method</option>
+                        <optgroup label="Online Payment">
+                            <option value="gcash">GCash</option>
+                            <option value="maya">Paymaya</option>
+                        </optgroup>
+                        <optgroup label="Card Payment">
+                            <option value="pA">Credit Card</option>
+                            <option value="pB">Debit Card</option>
+                        </optgroup>
+                        <option value="cash">Cash</option>
+                        </select>
+                        <label for="select1 " class="booking-label">Type of Payment</label>
+                    </div>
+                </div>
+                
+                <div class="col-md-12" style="display: none;" id="referenceNumberField">
+                    <div class="form-floating">
+                        <input type="text" class="form-control" name="refNum" id="referenceNumber" placeholder="Reference Number">
+                        <label for="referenceNumber" class="booking-label">Reference Number</label>
+                    </div>
+                </div>
+
+                <div class="col-md-12" style="display: none;" id="cardDetailsField">
+                    <div class="col-md-12" style="margin-bottom: 15px;">
+                        <div class="form-floating">
+                            <input type="text" class="form-control" name="cardNum" id="cardNum" placeholder="Card Number" maxlength="19" oninput="formatCardNumber(this)">
+                            <label for="cardNum" class="booking-label">Card Number</label>
+                        </div>
+                    </div>
+
+                    <!--Javascript for CardNumber input-->
+                    <script>
+                        function formatCardNumber(input) {
+                            const cursorPosition = input.selectionStart;
+
+                            const cardNumber = input.value.replace(/\D/g, '');
+
+                            let formattedCardNumber = '';
+                            for (let i = 0; i < cardNumber.length; i++) {
+                                if (i > 0 && i % 4 === 0) {
+                                    formattedCardNumber += '-';
+                                }
+                                formattedCardNumber += cardNumber[i];
+                            }
+
+                            input.value = formattedCardNumber;
+
+                            const newPosition = cursorPosition + (formattedCardNumber.length - cardNumber.length);
+                            input.setSelectionRange(newPosition, newPosition);
+                        }
+
+                    </script>
+
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-floating">
+                                <input type="password" class="form-control" name="cvv" id="cvv" placeholder="CVV" maxlength="3" oninput="formatCVV(this)">
+                                <label for="cvv" class="booking-label">CVV</label>
+                            </div>
+                        </div>
+                        
+                        <!--Javascript for CVV-->
+                        <script>
+                            function formatCVV(input) {
+                                const cvv = input.value.replace(/\D/g, '');
+
+                                input.value = cvv.slice(0, 3);
+                            }
+                        </script>
+
+                        <div class="col-md-6">
+                            <div class="form-floating">
+                                <input type="month" class="form-control" name="expDate" id="expDate" placeholder="Exp Date">
+                                <label for="expDate" class="booking-label">Exp Date</label>
+                            </div>
+                        </div>
+                        
+                        <!--Javascript for expDate-->
+                        <script>
+                            const currentDate = new Date();
+                            const currentYear = currentDate.getFullYear();
+                            const currentMonth = (currentDate.getMonth() + 1).toString().padStart(2, '0'); 
+
+                            const monthInput = document.getElementById("expDate");
+                            monthInput.min = `${currentYear}-${currentMonth}`;
+                        </script>
+
+                    </div>
+                </div>
+
+                <div class="col-md-12" style="display: none;" id="cashField">
+                    <div class="form-floating" style="margin-bottom: 20px;">
+                        <input type="text" class="form-control" name="receiptNum" id="receiptNum" placeholder="Receipt Number">
+                        <label for="receiptNum" class="booking-label">Receipt Number</label>
+                    </div>  
+                    <div class="file-input">
+                        <label for="receiptPic" class="booking-label">Receipt Picture: </label>
+                        <input type="file" name="receiptImg" id="receiptPic" accept="image/*">
+                    </div>
+                </div>
+
+                <!--JavaScript for Payment Method Additional Fields-->
+                <script>
+                    function selectOption() {
+                        const payType = document.getElementById("payType").value;
+                        const referenceNumberField = document.getElementById("referenceNumberField");
+                        const cardDetailsField = document.getElementById("cardDetailsField");
+                        const cashField = document.getElementById("cashField");
+
+                        referenceNumberField.style.display = "none";
+                        document.getElementById("referenceNumber").removeAttribute("required");
+
+                        cardDetailsField.style.display = "none";
+                        document.getElementById("cardNum").removeAttribute("required");
+                        document.getElementById("cvv").removeAttribute("required");
+                        document.getElementById("expDate").removeAttribute("required");
+
+                        cashField.style.display = "none";
+                        document.getElementById("receiptNum").removeAttribute("required");
+                        document.getElementById("receiptPic").removeAttribute("required");
+
+
+                        if (payType === "gcash" || payType === "maya") {
+                            referenceNumberField.style.display = "block";
+                            document.getElementById("referenceNumber").setAttribute("required", "required");
+                        } else if (payType === "pA" || payType === "pB") {
+                            cardDetailsField.style.display = "block";
+                            document.getElementById("cardNum").setAttribute("required", "required");
+                            document.getElementById("cvv").setAttribute("required", "required");
+                            document.getElementById("expDate").setAttribute("required", "required");
+                        } else if (payType === "cash") {
+                            cashField.style.display = "block";
+                            document.getElementById("receiptNum").setAttribute("required", "required");
+                            document.getElementById("receiptPic").setAttribute("required", "required");
+                        }
+                    }
+                </script>
+
+                <input type="submit" name="submit" class="archive_btn btn-primary w-100 py-3" style="margin-top: 20px;" value="Pay">
+            </div>
+            </form>
+        </dialog>
+
         <script>
-        function displaySearchResults(results) {
-            var resultsContainer = document.getElementById("searchResults");
-            resultsContainer.innerHTML = ""; 
+            function displaySearchResults(results) {
+                var resultsContainer = document.getElementById("searchResults");
+                resultsContainer.innerHTML = ""; 
 
-            if (results.length > 0) {
-                var resultHTML = "<div class='table-responsive'><table class='table bordered-table'><thead><tr><th>Email</th><th>Full Name</th><th>Contact Number</th><th>Package</th><th>Event Type</th><th>Number of Attendees</th><th>Event Date</th><th>Event Time Start</th><th>Event Time End</th><th>Overtime</th><th>Request</th><th>Date Booked</th></tr></thead><tbody>";
+                if (results.length > 0) {
+                    var resultHTML = "<div class='table-responsive'><table class='table bordered-table'><thead><tr><th></th><th>Email</th><th>Full Name</th><th>Contact Number</th><th>Package</th><th>Event Type</th><th>Number of Attendees</th><th>Event Date</th><th>Event Time Start</th><th>Event Time End</th><th>Overtime</th><th>Request</th><th>Date Booked</th><th>Payment Status</th></tr></thead><tbody>";
 
-                for (var i = 0; i < results.length; i++) {
-                    resultHTML += "<tr>" +
-                        "<td>" + results[i].email + "</td>" +
-                        "<td>" + results[i].fname + " " + results[i].lname + "</td>" +
-                        "<td>" + results[i].contNum + "</td>" +
-                        "<td>" + results[i].package + "</td>" +
-                        "<td>" + results[i].eventType + "</td>" +
-                        "<td>" + results[i].numAttendee + "</td>" +
-                        "<td>" + results[i].eventDate + "</td>" +
-                        "<td>" + results[i].eventTimeStart + "</td>" +
-                        "<td>" + results[i].eventTimeEnd + "</td>" +
-                        "<td>" + results[i].overtime + "</td>" +
-                        "<td>" + (results[i].request ? results[i].request : '-') + "</td>" + 
-                        "<td>" + results[i].date_booked + "</td>" +
-                        "</tr>";
+                    for (var i = 0; i < results.length; i++) {
+                        resultHTML += "<tr>" +
+                            "<td>" + (i + 1) + "</td>" +
+                            "<td>" + results[i].email + "</td>" +
+                            "<td>" + results[i].fname + " " + results[i].lname + "</td>" +
+                            "<td>" + results[i].contNum + "</td>" +
+                            "<td>" + results[i].package + "</td>" +
+                            "<td>" + results[i].eventType + "</td>" +
+                            "<td>" + results[i].numAttendee + "</td>" +
+                            "<td>" + results[i].eventDate + "</td>" +
+                            "<td>" + results[i].eventTimeStart + "</td>" +
+                            "<td>" + results[i].eventTimeEnd + "</td>" +
+                            "<td>" + results[i].overtime + "</td>" +
+                            "<td>" + (results[i].request ? results[i].request : '-') + "</td>" + 
+                            "<td>" + results[i].date_booked + "</td>" +
+                            "<td><a class='btn btn-link' id='paymentLink' onclick='showPaymentDetails(" + results[i].eventID + ")'>" + results[i].paymentStatus + "</a></td>" +
+                            "</tr>";
+                    }
+
+                    resultHTML += "</tbody></table></div>";
+                    resultsContainer.innerHTML = resultHTML;
+                } else {
+                    resultsContainer.innerHTML = "<p class='text-center fw-bold mt-5'>No results found.</p>";
                 }
-
-                resultHTML += "</tbody></table></div>";
-                resultsContainer.innerHTML = resultHTML;
-            } else {
-                resultsContainer.innerHTML = "<p class='text-center fw-bold mt-5'>No results found.</p>";
             }
-        }
 
-        function searchEvents() {
-            var selectedYear = document.getElementById("year").value;
-            var selectedMonth = document.getElementById("month").value;
-            var selectedRoom = document.getElementById("ballroom").value;
+            function searchEvents() {
+                var selectedYear = document.getElementById("year").value;
+                var selectedMonth = document.getElementById("month").value;
+                var selectedRoom = document.getElementById("ballroom").value;
 
-            $.ajax({
-                type: "POST",
-                url: "search_events.php",
-                data: { month: selectedMonth, year: selectedYear, room: selectedRoom },
-                success: function (data) {
-                    console.log(data);
+                $.ajax({
+                    type: "POST",
+                    url: "search_events.php",
+                    data: { month: selectedMonth, year: selectedYear, room: selectedRoom },
+                    success: function (data) {
+                        console.log(data);
 
-                    displaySearchResults(JSON.parse(data));
-                },
-                error: function (xhr, status, error) {
-                    console.error(error);
-                }
-            });
-        }
+                        displaySearchResults(JSON.parse(data));
+                    },
+                    error: function (xhr, status, error) {
+                        console.error(error);
+                    }
+                });
+            }
 
-        function updateMonths() {
-            var selectedYear = $("#year").val();
-            console.log("Selected Year: " + selectedYear);
-            console.log("Year changed")
+            function updateMonths() {
+                var selectedYear = $("#year").val();
+                console.log("Selected Year: " + selectedYear);
+                console.log("Year changed")
 
-            $.ajax({
-                type: "POST",
-                url: "fetch_booked_months.php",
-                data: { year: selectedYear },
-                success: function (data) {
-                    var bookedMonths = JSON.parse(data);
+                $.ajax({
+                    type: "POST",
+                    url: "fetch_booked_months.php",
+                    data: { year: selectedYear },
+                    success: function (data) {
+                        var bookedMonths = JSON.parse(data);
 
-                    $("#month").prop("disabled", false);
+                        $("#month").prop("disabled", false);
 
-                    $("#month option:not(:first-child)").each(function () {
-                        var month = $(this).val();
-                        var isBooked = (bookedMonths.indexOf(month) !== -1);
-                        $(this).toggle(isBooked); 
-                    });
-                },
-                error: function (xhr, status, error) {
-                    console.error(error);
-                }
-            });
-        }
+                        $("#month option:not(:first-child)").each(function () {
+                            var month = $(this).val();
+                            var isBooked = (bookedMonths.indexOf(month) !== -1);
+                            $(this).toggle(isBooked); 
+                        });
+                    },
+                    error: function (xhr, status, error) {
+                        console.error(error);
+                    }
+                });
+            }
 
-        function searchQuery() {
-            var keyword = document.getElementById("searchQuery").value.trim().toLowerCase();
+            function searchQuery() {
+                var keyword = document.getElementById("searchQuery").value.trim().toLowerCase();
 
-            $.ajax({
-                type: "POST",
-                url: "query_events.php",
-                data: { keyword: keyword },
-                success: function (data) {
-                    console.log(data);
+                $.ajax({
+                    type: "POST",
+                    url: "query_events.php",
+                    data: { keyword: keyword },
+                    success: function (data) {
+                        console.log(data);
 
-                    displaySearchResults(JSON.parse(data));
-                },
-                error: function (xhr, status, error) {
-                    console.error(error);
-                }
-            });
-        }
+                        displaySearchResults(JSON.parse(data));
+                    },
+                    error: function (xhr, status, error) {
+                        console.error(error);
+                    }
+                });
+            }
+
+            const paymentDialog = document.getElementById("paymentDialog");
+            
+            function showPaymentDetails(eventId) {
+                $.ajax({
+                    type: "POST",
+                    url: "get_payment_details.php",
+                    data: { eventId: eventId },
+                    success: function (data) {
+                        var paymentDetails = JSON.parse(data);
+
+                        $("#eventName").text(paymentDetails[0].eventType); 
+                        $("#paymentStatus").text(paymentDetails[0].paymentStatus.toUpperCase());
+                        $("#totalPayment").text(parseFloat(paymentDetails[0].total_bill).toLocaleString('en-PH', { style: 'currency', currency: 'PHP' }));
+                        $("#downPayment").text(parseFloat(paymentDetails[0].downpayment).toLocaleString('en-PH', { style: 'currency', currency: 'PHP' }));
+                        $("#downPaymentDate").text(new Date(paymentDetails[0].date_booked.replace(/-/g, '/')).toLocaleString('en-US', { year: 'numeric', month: 'long', day: 'numeric', hour: 'numeric', minute: 'numeric', hour12: true }));
+                        $("#balance").text(parseFloat(paymentDetails[0].balance).toLocaleString('en-PH', { style: 'currency', currency: 'PHP' }));
+                        $("#fullPaymentDate").text(new Date(paymentDetails[0].eventDate).toLocaleDateString('en-PH', { year: 'numeric', month: 'long', day: 'numeric' }));
+                        
+                        if (paymentDetails[0].paymentStatus.toLowerCase() !== 'paid') {
+                            $('#paymentForm').show();
+                        } else {
+                            $('#paymentForm').hide();
+                        }
+
+                        paymentDialog.showModal();
+                        
+                    },
+                    error: function (xhr, status, error) {
+                        console.error(error);
+                    }
+                });
+            }
+
+            function closePaymentDialog() {
+                paymentDialog.close();
+            }
+
+
 
         </script>
 
         <!--Table End-->
+
+        <!-- Javascript to display payment success -->
+        <script>
+
+        var urlParams = new URLSearchParams(window.location.search);
+        if (urlParams.has('message')) {
+            var successMessage = urlParams.get('message');
+            Swal.fire({
+                title: 'Success',
+                text: successMessage,
+                icon: 'success',
+                confirmButtonText: 'OK'
+            });
+        }
+        </script>
 
         <!-- Footer Start -->
         <div class="container-fluid bg-dark text-light footer pt-5 mt-5 wow fadeIn" data-wow-delay="0.1s">

@@ -210,7 +210,7 @@ if(isset($_POST['submit'])){
                         <!-- Row 3: Contact Number -->
                         <div class="form-row3">
                             <div class="inputbox1">
-                            <input type="text" id="contNum"  name="contNum" maxlength="11" oninput="formatPhoneNumber(this)">
+                            <input type="text" id="contNum"  name="contNum" maxlength="11" oninput="formatPhoneNumber(this)" required>
                                 <label for="">Contact Number</label>
                             </div>
                         </div>

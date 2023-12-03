@@ -96,11 +96,13 @@
 
         <!-- Packages Start -->
         <div class="container-xxl pt-5 pb-3">
+            <button id="Top"><a href="#section-feature" style="color: white">^</a></button>
+
             <div class="container">
                 <section id="section-feature" class="container wow fadeInUp" data-wow-delay="0.9s">
                     
                     <!-- new row-->
-                    <div class="summary g-4 justify-content-center package-m-fix" >
+                    <div class="row g-4 justify-content-center package-m-fix" >
                 
                         <!-- Weddings -->
                         <li class="col-md-3 col-sm-6 col-xs-12">
@@ -133,7 +135,7 @@
                             <div class="sf-wrap">
                                 <div class="sf-mdl-left">
                                     <div class="bday-bg">
-                                        <img src="img/BIRTHDAYS.jpg" alt="">
+                                        <img src="img/BIRTHDAYS-L.jpg" alt="">
                                     </div>
                                     <h3>Birthdays</h3>
                                 </div>
@@ -153,18 +155,19 @@
                                 </div>
                             </div>
                         </li>
+
                         <!-- All Occasions -->
                         <li class="col-md-3 col-sm-6 col-xs-12">
                             <div class="sf-wrap">
                                 <div class="sf-mdl-left">
                                     <div class="g-bg">
-                                        <img src="img/gatherings.jpg" alt="">
+                                        <img src="img/gatherings-L.jpg" alt="">
                                     </div>
                                     <h3>All Occasions</h3>
                                 </div>
                                 <div class="sf-mdl-right">
                                     <div class="g-bg-r">
-                                        <img src="img/gatheringsR.jpeg" alt="">
+                                        <img src="img/gatherings-R.jpeg" alt="">
                                     </div>
                                     <h3>All Occasions</h3>
                                 </div>
@@ -305,7 +308,7 @@
 
                         <!-- Slideshow Start -->
                         <div class="container">
-                            <div class="galleryHeader">
+                            <div class="galleryHeader wow fadeInDown">
                                 <h5 class="section-title ff-secondary text-center text-primary fw-normal">Gallery</h5>
                                 <h1 class="mb-5">Weddings</h1>
                             </div>
@@ -423,7 +426,7 @@
 
                         <!-- Slideshow Start -->
                         <div class="container">
-                            <div class="galleryHeader">
+                            <div class="galleryHeader wow fadeInDown">
                                 <h5 class="section-title ff-secondary text-center text-primary fw-normal">Gallery</h5>
                                 <h1 class="mb-5">Birthday</h1>
                             </div>
@@ -502,7 +505,7 @@
 
                         <!-- Slideshow Start -->
                         <div class="container">
-                            <div class="galleryHeader">
+                            <div class="galleryHeader wow fadeInDown">
                                 <h5 class="section-title ff-secondary text-center text-primary fw-normal">Gallery</h5>
                                 <h1 class="mb-5">All-Occassions</h1>
                             </div>
@@ -635,7 +638,7 @@
 
                         <!-- Slideshow Start -->
                         <div class="container">
-                            <div class="galleryHeader">
+                            <div class="galleryHeader wow fadeInDown">
                                 <h5 class="section-title ff-secondary text-center text-primary fw-normal">Gallery</h5>
                                 <h1 class="mb-5">Function Rooms</h1>
                             </div>

@@ -321,9 +321,18 @@
                                             const startTimeInput = document.getElementById("timestart");
                                             const endTimeInput = document.getElementById("endtime");
 
-                                            function updateEndTime() {
+                                            startTimeInput.addEventListener("input", function(){
                                                 const startTime = new Date(`1970-01-01T${startTimeInput.value}`);
-                                                
+                                                if (startTime.getHours() >= 20){
+                                                    alert("Oops. Start Time cut off is at 7:59PM. Please take note that setup and clean up time is included in booking time.")
+
+                                                    startTimeInput.value = "";
+                                                    endTimeInput.value = "";
+                                                }
+                                            });
+
+                                            function updateEndTime() {
+                                                const startTime = new Date(`2020-01-01T${startTimeInput.value}`);
                                                 const endTime = new Date(startTime.getTime() + 4 * 60 * 60 * 1000);
                                                 
                                                 const endTimeString = endTime.toTimeString().substring(0, 5);
@@ -339,11 +348,16 @@
 
                                                 const timeDifference = endTime - startTime;
 
-                                                if (timeDifference < 4 * 60 * 60 * 1000) {
+                                                if (endTime.getHours() >= 0){
+                                                    alert("Oops. End Time cut off is at 11:59PM. Please take note that setup and clean up time is included in booking time.")
+                                                    updateEndTime();
+                                                }
+                                                else if (timeDifference < 4 * 60 * 60 * 1000) {
                                                     alert("The minimum time duration must be 4 hours. Please adjust your input.");
                                                 
                                                     updateEndTime();
                                                 }
+                                            
                                             });
 
                                         </script>

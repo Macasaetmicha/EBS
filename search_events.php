@@ -19,10 +19,11 @@
         "frm" => "Function Room",
     );
 
-    $query = "SELECT lc.logID, lc.email, u.fname, u.lname, u.contNum, ei.userID, ei.funcRoom, ei.package, ei.eventType, ei.numAttendee, ei.eventDate, ei.eventTimeStart, ei.eventTimeEnd, ei.overtime, ei.request, ei.date_booked
+    $query = "SELECT lc.logID, lc.email, u.fname, u.lname, u.contNum, ei.userID, ei.eventID, ei.funcRoom, ei.package, ei.eventType, ei.numAttendee, ei.eventDate, ei.eventTimeStart, ei.eventTimeEnd, ei.overtime, ei.request, ei.date_booked, pi.paymentStatus
             FROM logcredentials lc
             JOIN user u ON lc.logID = u.logID
             JOIN eventinfo ei ON u.userID = ei.userID
+            JOIN paymentinfo pi ON pi.eventID = ei.eventID
             WHERE YEAR(ei.eventDate) = '$selectedYear' AND MONTHNAME(ei.eventDate) = '$selectedMonth' AND ei.funcRoom = '$selectedRoom'";
 
     $result = mysqli_query($con, $query);

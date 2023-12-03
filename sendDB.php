@@ -103,8 +103,8 @@ if(isset($_POST['submit'])) {
 
     $type = $_POST['payType'];
 
-    $sql4 = "INSERT INTO paymentinfo (eventID, total_bill, downpayment, paymentType, fullPayment) 
-            VALUES ('$eventID', '$total', '$down', '$type','$full')";
+    $sql4 = "INSERT INTO paymentinfo (eventID, total_bill, downpayment, paymentType, balance, paymentStatus) 
+            VALUES ('$eventID', '$total', '$down', '$type','$full', 'not paid')";
     mysqli_query($con, $sql4);
 
     $paymentID = mysqli_insert_id($con);

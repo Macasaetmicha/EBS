@@ -50,6 +50,7 @@
         </div>
         <!-- Spinner End -->
 
+
         <!-- Navbar & Hero Start -->
         <div class="container-xxl position-relative p-0">
             <nav class="navbar navbar-expand-lg navbar-dark bg-dark px-4 px-lg-5 py-3 py-lg-0">
@@ -132,61 +133,126 @@
     </div>
     <!-- Navbar & Hero End -->
 
-    <!-- Offers Start -->
+    <!-- Packages Start -->
     <div class="container-xxl pt-5 pb-3">
-    <div class="container">
-        <div class="text-center wow fadeInDown" data-wow-delay="0.1s">
-            <h5 class="section-title ff-secondary text-center text-primary fw-normal">These are Our</h5>
-            <h1 class="mb-5">Packages</h1>
+            <div class="text-center">
+                <h5 class="section-title ff-secondary text-center text-primary fw-normal">Packages</h5>
+                <h1 class="mb-5">What We Offer</h1>
+            </div>
+            <div class="container">
+                <section id="section-feature" class="container wow fadeInUp" data-wow-delay="0.9s">
+                    
+                    <!-- new row-->
+                    <div class="row g-4 justify-content-center package-m-fix" >
+                
+                        <!-- Weddings -->
+                        <li class="col-md-3 col-sm-6 col-xs-12">
+                            <div class="sf-wrap">
+                                <div class="sf-mdl-left">
+                                    <div class="wed-bg">
+                                        <img src="img/wedding.jpg" alt="">
+                                    </div>
+                                    <h3>Weddings</h3>
+                                </div>
+                                <div class="sf-mdl-right">
+                                    <div class="wed-bg-r">
+                                        <img src="img/weddingR.jpg" alt="">
+                                    </div>
+                                    <h3>Weddings</h3>
+                                </div>
+                                <div class="sf-mdl-left-full">
+                                    <h3>Weddings</h3>
+                                    <p>Elevate your wedding day with our all-inclusive package, featuring a stunning venue, custom menu, and personalized decor for a truly unforgettable experience.</p>
+                                </div>
+                                <div class="sf-mdl-right-full">
+                                    <h3><a>Weddings</a></h3>
+                                    <p>Elevate your wedding day with our all-inclusive package, featuring a stunning venue, custom menu, and personalized decor for a truly unforgettable experience.</p>
+                                </div>
+                            </div>
+                        </li>
+
+                        <!-- Birthdays -->
+                        <li class="col-md-3 col-sm-6 col-xs-12">
+                            <div class="sf-wrap">
+                                <div class="sf-mdl-left">
+                                    <div class="bday-bg">
+                                        <img src="img/BIRTHDAYS-L.jpg" alt="">
+                                    </div>
+                                    <h3>Birthdays</h3>
+                                </div>
+                                <div class="sf-mdl-right">
+                                    <div class="bday-bg-r">
+                                        <img src="img/BIRTHDAYS-r.jpg" alt="">
+                                    </div>
+                                    <h3>Birthdays</h3>
+                                </div>
+                                <div class="sf-mdl-left-full">
+                                    <h3>Birthdays</h3>
+                                    <p>Transform your birthday celebration with our customizable packages, offering themed decor, delectable catering, and entertainment to create an unforgettable party experience for all ages.</p>
+                                </div>
+                                <div class="sf-mdl-right-full">
+                                    <h3>Birthdays</h3>
+                                    <p>Transform your birthday celebration with our customizable packages, offering themed decor, delectable catering, and entertainment to create an unforgettable party experience for all ages.</p>
+                                </div>
+                            </div>
+                        </li>
+
+                        <!-- All Occasions -->
+                        <li class="col-md-3 col-sm-6 col-xs-12">
+                            <div class="sf-wrap">
+                                <div class="sf-mdl-left">
+                                    <div class="g-bg">
+                                        <img src="img/gatherings-L.jpg" alt="">
+                                    </div>
+                                    <h3>All Occasions</h3>
+                                </div>
+                                <div class="sf-mdl-right">
+                                    <div class="g-bg-r">
+                                        <img src="img/gatherings-R.jpeg" alt="">
+                                    </div>
+                                    <h3>All Occasions</h3>
+                                </div>
+                                <div class="sf-mdl-left-full">
+                                    <h3>All Occasions</h3>
+                                    <p>Make any occasion extraordinary with our all-inclusive event packages, offering versatile venues, expert planning, and personalized details to ensure unforgettable moments.</p>
+                                </div>
+                                <div class="sf-mdl-right-full">
+                                    <h3>All Occasions</h3>
+                                    <p>Make any occasion extraordinary with our all-inclusive event packages, offering versatile venues, expert planning, and personalized details to ensure unforgettable moments.</p>
+                                </div>
+                            </div>
+                        </li>
+
+                        <!-- Function Rooms -->
+                        <li class="col-md-3 col-sm-6 col-xs-12">
+                            <div class="sf-wrap">
+                                <div class="sf-mdl-left">
+                                    <div class="rooms-bg">
+                                        <img src="img/rooms.jpg" alt="">
+                                    </div>
+                                    <h3>Function Rooms</h3>
+                                </div>
+                                <div class="sf-mdl-right">
+                                    <div class="rooms-bg-r">
+                                        <img src="img/roomsR.jpg" alt="">
+                                    </div>
+                                    <h3>Function Rooms</h3>
+                                </div>
+                                <div class="sf-mdl-left-full">
+                                    <h3>Function Rooms</h3>
+                                    <p>Our function rooms provide a versatile and elegant space to host events, from corporate meetings to social gatherings, offering the ideal setting for a wide range of occasions.</p>
+                                </div>
+                                <div class="sf-mdl-right-full">
+                                    <h3>Function Rooms</h3>
+                                    <p>Our function rooms provide a versatile and elegant space to host events, from corporate meetings to social gatherings, offering the ideal setting for a wide range of occasions.</p>
+                                </div>
+                            </div>
+                        </li>
+                    </div> 
+                </section>
+            </div>
         </div>
-        <div class="row g-4">
-            <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.1s" onclick="showPopup('For Wedding ',' Details for it.')">
-                <div class="team-item text-center rounded overflow-hidden">
-                    <div class="rounded-circle overflow-hidden m-4">
-                        <img class="criteria" src="img/wedding.jpg" alt="">
-                    </div>
-                    <h5 class="mb-0">For Wedding</h5>
-                    <ul>Intimate | 50pax</ul>
-                    <ul>Classic | 150pax</ul>
-                    <ul>Deluxe | 200pax</ul>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.3s" onclick="showPopup('For Birthdays ',' Details for it.')">
-                <div class="team-item text-center rounded overflow-hidden">
-                    <div class="rounded-circle overflow-hidden m-4">
-                        <img class="criteria" src="img\BIRTHDAYS.jpg" alt="image" class="flip">
-                    </div>
-                    <h5 class="mb-0">For Birthdays</h5>
-                    <ul>Kiddie | 50pax</ul>
-                    <ul>Debut | 120pax</ul>
-                    <ul>Basic | 100pax</ul>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.5s" onclick="showPopup('For Gatherings ',' Details for it.')">
-                <div class="team-item text-center rounded overflow-hidden">
-                    <div class="rounded-circle overflow-hidden m-4">
-                        <img class="criteria" src="img/gatherings.jpeg" alt="">
-                    </div>
-                    <h5 class="mb-0">Gatherings</h5>
-                    <ul>Package A | 50pax</ul>
-                    <ul>Package B | 100pax</ul>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.7s" onclick="showPopup('For Rooms ',' Details for it.')">
-                <div class="team-item text-center rounded overflow-hidden">
-                    <div class="rounded-circle overflow-hidden m-4">
-                        <img class="criteria" src="img/rooms.jpg">
-                    </div>
-                    <h5 class="mb-3">Rooms</h5>
-                    <ul>Silver Ballroom | 50pax</ul>
-                    <ul>Golden Ballroom | 100pax</ul>
-                    <ul>Platinum Ballroom | 150pax</ul>
-                    <ul>Diamond Ballroom | 200pax</ul>
-                </div>
-            </div>
-        </div>
-    </div>
-    </div>
+        <!--Packages End-->
     <!-- try animation -->
     <div class="popup" id="popup">
         <div class="popup-content">
@@ -225,13 +291,13 @@
                 <div class="col-lg-6">
                     <div class="row g-3">
                         <div class="col-6 text-start">
-                            <img class="img-fluid rounded w-100 wow zoomIn" data-wow-delay="0.1s" src="img/AllOccassion/AOBG1.jpg">
+                            <img class="img-fluid rounded w-100 wow zoomIn" data-wow-delay="0.1s" src="img/pexels-rachel-claire-4846549.jpg">
                         </div>
-                        <div class="col-6 text-start">
-                            <img class="img-fluid rounded w-75 wow zoomIn" data-wow-delay="0.3s" src="img/AllOccassion/AOBG3.jpg" style="margin-top: 25%;">
+                        <div class="col-6 align-self-start align-self-end text-start">
+                            <img class="img-fluid rounded w-75 wow zoomIn" data-wow-delay="0.3s" src="img/Wedding/Wed7.jpg" style="margin-top: 25%;">
                         </div>
                         <div class="col-6 text-end">
-                            <img class="img-fluid rounded w-75 wow zoomIn" data-wow-delay="0.5s" src="img/Wedding/WedBG3.jpg">
+                            <img class="img-fluid rounded w-75 wow zoomIn" data-wow-delay="0.5s" src="img/AllOccassion/AOBG3.jpg">
                         </div>
                         <div class="col-6 text-end">
                             <img class="img-fluid rounded w-100 wow zoomIn" data-wow-delay="0.7s" src="img/AllOccassion/AOBG4.jpg">
@@ -240,26 +306,25 @@
                 </div>
                 <div class="col-lg-6">
                     <h5 class="section-title ff-secondary text-start text-primary fw-normal">Learn About Us</h5>
-                    <h1 class="mb-4">Welcome to <i class="fa fa-envelope text-primary me-2"></i>MiCasa Events</h1>
-                    <p class="mb-4">'Cause you're my painkiller When my brain gets bitter You keep me close When I've been miserable And it takes forever To let my brain get better You keep me close You keep me close
-                        </p>
-                    <p class="mb-4">Window seats as the plane starts leavin' Miss those streets where my knees were bleedin' Homesick veteran I left my bed again</p>
+                    <h1 class="mb-4">Welcome to <i class="fa fa-duotone fa-calendar me-3"></i>MiCasa Events</h1>
+                    <p class="mb-4">MiCasa Events is where memories are born, and dreams come to life. We're not just an events place; we're the canvas for your most cherished moments. Our passion is crafting unforgettable experiences that bring people together in the heart of our inviting and versatile space.</p>
+                    <p class="mb-4">MiCasa Events is more than a venue; it's where your story unfolds.</p>
                     <div class="row g-4 mb-4">
                         <div class="col-sm-6">
                             <div class="d-flex align-items-center border-start border-5 border-primary px-3">
-                                <h1 class="flex-shrink-0 display-5 text-primary mb-0" data-toggle="counter-up">147</h1>
+                                <h1 class="flex-shrink-0 display-5 text-primary mb-0" data-toggle="counter-up">3</h1>
                                 <div class="ps-4">
-                                    <p class="mb-0">Years Since</p>
-                                    <h6 class="text-uppercase mb-0">Establish</h6>
+                                    <p class="mb-0">Years of</p>
+                                    <h6 class="text-uppercase mb-0">Experience</h6>
                                 </div>
                             </div>
                         </div>
                         <div class="col-sm-6">
                             <div class="d-flex align-items-center border-start border-5 border-primary px-3">
-                                <h1 class="flex-shrink-0 display-5 text-primary mb-0" data-toggle="counter-up">17089</h1>
+                                <h1 class="flex-shrink-0 display-5 text-primary mb-0" data-toggle="counter-up">15</h1>
                                 <div class="ps-4">
-                                    <p class="mb-0">Events</p>
-                                    <h6 class="text-uppercase mb-0">Done</h6>
+                                    <p class="mb-0">Popular</p>
+                                    <h6 class="text-uppercase mb-0">Event Managers</h6>
                                 </div>
                             </div>
                         </div>
@@ -278,7 +343,7 @@
                 <div class="col-lg-4 wow fadeInUp" data-wow-delay="0.1s">
                     <div class="service-item rounded pt-3">
                         <div class="p-4">
-                            <i class="fa fa-3x fa-user-tie text-primary mb-4"></i>
+                            <i class="fa fa-3x fa-solid fa-eye text-primary mb-4"></i>
                             <h5>Our Vision</h5>
                             <p>To be the premier platform that seamlessly connects individuals 
                                 with their perfect event experiences, fostering memorable moments and a sense of belonging.</p>
@@ -288,7 +353,7 @@
                 <div class="col-lg-8 wow fadeInUp" data-wow-delay="0.3s">
                     <div class="service-item rounded pt-3">
                         <div class="p-4">
-                            <i class="fa fa-3x fa-envelope text-primary mb-4"></i>
+                            <i class="fa fa-3x fa-regular fa-bullseye text-primary mb-4"></i>
                             <h5>Our Mission</h5>
                             <p>At MiCasa, our mission is to empower people to discover and book events that resonate 
                                 with their passions and preferences. We strive to provide a user-friendly platform that 

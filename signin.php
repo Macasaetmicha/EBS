@@ -1,6 +1,39 @@
 <?php 
- session_start();
- include 'connection.php';
+session_start();
+include 'connection.php';
+
+$error_message = ""; 
+
+if(isset($_GET['submit'])){
+$email = $_GET['email'];
+$password = $_GET['password'];
+
+$querry = "SELECT * FROM logcredentials WHERE email = '$email'";
+
+$result = mysqli_query($con,$querry);
+
+if(mysqli_num_rows($result)<=0) {
+    $error_message = 'Invalid email or password!';
+    echo '<script>hideErrorMessage();</script>';
+    goto here;
+}
+else{
+    $row = mysqli_fetch_array($result);
+    
+    if($password==$row['password'])
+    {
+        $_SESSION["email"] = $email;
+        $_SESSION["role"] = $row[7];
+        header("location: Home.php");
+        exit();
+    }else {
+        $error_message = 'Invalid email or password!';
+        echo '<script>hideErrorMessage();</script>';
+    }
+    here:
+    mysqli_close($con);
+}
+}
 ?>
 
 <head>
@@ -79,7 +112,6 @@
                             <label for="">Password</label>
                         </div>
                         <div class="forget">
-                            <label for=""><input type="checkbox">Remember Me</label>
                             <label><a href="fpass.php">Forgot Password</a></label>
                         </div>
                         <div class="buttons">
@@ -90,46 +122,7 @@
                         </div> 
                     </form>
                     <div class="error-message">
-                    <?php
-                    if(isset($_GET['submit']))
-                    {
-                        $email = $_GET['email'];
-                        $password = $_GET['password'];
-                        
-                        include 'connection.php';
-                        
-                        $querry = "SELECT * FROM logcredentials WHERE email = '$email'";
-                        
-                        $result = mysqli_query($con,$querry);
-                        
-                        if(mysqli_num_rows($result)<=0) 
-                        {
-                            echo "Invalid email or password";
-                            echo '<script>hideErrorMessage();</script>';
-                            goto here;
-                        }
-                        else
-                        {
-                            $row = mysqli_fetch_array($result);
-                            
-                            if($password==$row['password'])
-                            {
-                                session_start();
-                                
-                                $_SESSION["email"] = $email;
-                                $_SESSION["role"] = $row[7];
-                                header("location: Home.php");
-                            }
-                            else
-                            {
-                                echo '<p>Invalid email or password!</p>';
-                                echo '<script>hideErrorMessage();</script>';
-                            }
-                            here:
-                            mysqli_close($con);
-                        }
-                    }
-                    ?>
+                        <?php echo $error_message; ?>
                     </div>
                 </div>
             </div>
