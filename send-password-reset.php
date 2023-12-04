@@ -9,8 +9,14 @@ require 'vendor/autoload.php';
 
 $email = $_POST['email'];
 
-$query = "SELECT username FROM logcredentials WHERE email = '$email'";
-$result = mysqli_query($con, $query);
+$query = "SELECT username FROM logcredentials WHERE email = '$email';";
+
+$result = mysqli_query($con,$query);
+
+if ($result->num_rows > 0) {
+    $row = $result->fetch_assoc();
+    $username = $row["username"];
+} 
 
 if ($result) {
     $row = mysqli_fetch_assoc($result);
@@ -41,12 +47,31 @@ if ($result) {
         $mail->isHtml(true);
 
         $mail->setFrom('micasa.cosc75g2@gmail.com', 'MiCasa');
-        $mail->addAddress($email, $result); 
-        $mail->Subject = "Password Reset";
-        $mail->Body = <<<END
-        Click <a href="http://localhost/COSC75Project/reset-password.php?token=$token">here</a> 
-        to reset your password.
-        END;
+        $mail->addAddress($email, $username); 
+        $mail->Subject = "Password Change Request Confirmation";
+
+        $emailContent = "
+        <html>
+        <body>
+        
+        <p>Dear $username,</p>
+        <p>We have received a request to change the password associated with your account. 
+        To ensure the security of your account, we require your confirmation before proceeding with this change.</p>
+
+        <p>If you initiated this request, please click <a href='http://localhost/COSC75Project/reset-password.php?token=$token'>here</a> to confirm the password change.</p>
+
+        <p>If you did not request a password change or believe this request was made in error, please ignore this email. 
+        Your current password will remain unchanged, and your account will continue to be secure.</p>
+
+        <p>Thank you for your prompt attention to this matter. If you have any questions or concerns, 
+        please do not hesitate to contact our support team at micasa.cosc75g2@gmail.com or 09123456789.</p>
+
+        <p>Warm regards,<br>Mica<br>MiCasa Events</p>
+        </body>
+        </html>
+        ";
+
+        $mail->Body = $emailContent;
 
         try {
             $mail->send();

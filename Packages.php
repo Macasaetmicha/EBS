@@ -39,6 +39,8 @@
     <link rel="stylesheet" href="style.css" />
     <script src="script.js" defer></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
 
 </head>
 
@@ -96,8 +98,6 @@
 
         <!-- Packages Start -->
         <div class="container-xxl pt-5 pb-3">
-            <button id="Top"><a href="#section-feature" style="color: white">^</a></button>
-
             <div class="container">
                 <section id="section-feature" class="container wow fadeInUp" data-wow-delay="0.9s">
                     
@@ -307,32 +307,39 @@
                         </div>
 
                         <!-- Slideshow Start -->
-                        <div class="container">
+                        <div class="Weddingcontainer">
                             <div class="galleryHeader wow fadeInDown">
                                 <h5 class="section-title ff-secondary text-center text-primary fw-normal">Gallery</h5>
                                 <h1 class="mb-5">Weddings</h1>
                             </div>
+                            <section class="container">
                             <div class="slider-wrapper">
-                                <button id="prev-slide" class="slide-button material-symbols-rounded">chevron_left</button>
-                                <ul class="image-list">
-                                <img class="image-item" src="img/Wedding/Wed1.jpg" alt="imgw-1" />
-                                <img class="image-item" src="img/Wedding/Wed13.jpg" alt="imgw-2" />
-                                <img class="image-item" src="img/Wedding/Wed3.jpg" alt="imgw-3" />
-                                <img class="image-item" src="img/Wedding/Wed4.jpg" alt="imgw-4" />
-                                <img class="image-item" src="img/Wedding/Wed5.jpg" alt="imgw-5" />
-                                <img class="image-item" src="img/Wedding/Wed6.jpg" alt="imgw-6" />
-                                <img class="image-item" src="img/Wedding/Wed7.jpg" alt="imgw-7" />
-                                <img class="image-item" src="img/Wedding/Wed8.jpg" alt="imgw-8" />
-                                <img class="image-item" src="img/Wedding/Wed9.jpg" alt="imgw-9" />
-                                <img class="image-item" src="img/Wedding/Wed10.jpg" alt="imgw-10" />
-                                </ul>
-                                <button id="next-slide" class="slide-button material-symbols-rounded">chevron_right</button>
-                            </div>
-                            <div class="slider-scrollbar">
-                                <div class="scrollbar-track">
-                                <div class="scrollbar-thumb"></div>
+                                <div class="slider">
+                                    <img id="slide-1" src="img/Wedding/Wed1.jpg" alt="imgw-1" />
+                                    <img id="slide-2" src="img/Wedding/Wed13.jpg" alt="imgw-2" />
+                                    <img id="slide-3" src="img/Wedding/Wed3.jpg" alt="imgw-3" />
+                                    <img id="slide-4" src="img/Wedding/Wed4.jpg" alt="imgw-4" />
+                                    <img id="slide-5" src="img/Wedding/Wed5.jpg" alt="imgw-5" />
+                                    <img id="slide-6" src="img/Wedding/Wed6.jpg" alt="imgw-6" />
+                                    <img id="slide-7" src="img/Wedding/Wed7.jpg" alt="imgw-7" />
+                                    <img id="slide-8" src="img/Wedding/Wed8.jpg" alt="imgw-8" />
+                                    <img id="slide-9" src="img/Wedding/Wed9.jpg" alt="imgw-9" />
+                                    <img id="slide-10" src="img/Wedding/Wed10.jpg" alt="imgw-10" />
+                                </div>
+                                <div class="slider-nav">
+                                    <a href="#slide-1"></a>
+                                    <a href="#slide-2"></a>
+                                    <a href="#slide-4"></a>
+                                    <a href="#slide-5"></a>
+                                    <a href="#slide-6"></a>
+                                    <a href="#slide-7"></a>
+                                    <a href="#slide-8"></a>
+                                    <a href="#slide-9"></a>
+                                    <a href="#slide-10"></a>
                                 </div>
                             </div>
+                        </section>
+
                         </div>
                         <!-- Slideshow End -->
 
@@ -425,26 +432,28 @@
                         <!-- Birthday Subpackages End-->
 
                         <!-- Slideshow Start -->
-                        <div class="container">
+                        <div class="Bdaycontainer">
                             <div class="galleryHeader wow fadeInDown">
                                 <h5 class="section-title ff-secondary text-center text-primary fw-normal">Gallery</h5>
                                 <h1 class="mb-5">Birthday</h1>
                             </div>
+
+                            <section class="container">
                             <div class="slider-wrapper">
-                                <button id="prev-slide" class="slide-button material-symbols-rounded">chevron_left</button>
-                                <ul class="image-list">
-                                <img class="image-item" src="img/Birthday/Birth1.jpg" alt="imgb-1" />
-                                <img class="image-item" src="img/Birthday/Birth2.jpg" alt="imgb-2" />
-                                <img class="image-item" src="img/Birthday/Birth3.jpg" alt="imgb-3" />
-                                <img class="image-item" src="img/Birthday/Birth4.jpg" alt="imgb-4" />
-                                </ul>
-                                <button id="next-slide" class="slide-button material-symbols-rounded">chevron_right</button>
-                            </div>
-                            <div class="slider-scrollbar">
-                                <div class="scrollbar-track">
-                                <div class="scrollbar-thumb"></div>
+                                <div class="slider">
+                                    <img id="slide-11" src="img/Birthday/Birth1.jpg" alt="imgb-1" />
+                                    <img id="slide-12" src="img/Birthday/Birth2.jpg" alt="imgb-2" />
+                                    <img id="slide-13" src="img/Birthday/Birth3.jpg" alt="imgb-3" />
+                                    <img id="slide-14" src="img/Birthday/Birth4.jpg" alt="imgb-4" />
+                                </div>
+                                <div class="slider-nav">
+                                    <a href="#slide-11"></a>
+                                    <a href="#slide-12"></a>
+                                    <a href="#slide-13"></a>
+                                    <a href="#slide-14"></a>
                                 </div>
                             </div>
+                        </section>
                         </div>
                         <!-- Slideshow End -->
 
@@ -504,31 +513,37 @@
                         <!-- Occassion Celebration Packages End -->
 
                         <!-- Slideshow Start -->
-                        <div class="container">
+                        <div class="AllOcccontainer">
                             <div class="galleryHeader wow fadeInDown">
                                 <h5 class="section-title ff-secondary text-center text-primary fw-normal">Gallery</h5>
                                 <h1 class="mb-5">All-Occassions</h1>
                             </div>
+                            <section class="container">
                             <div class="slider-wrapper">
-                                <button id="prev-slide" class="slide-button material-symbols-rounded">chevron_left</button>
-                                <ul class="image-list">
-                                <img class="image-item" src="img/AllOccassion/AO1.jpg" alt="imga-1" />
-                                <img class="image-item" src="img/AllOccassion/AO2.jpg" alt="imga-2" />
-                                <img class="image-item" src="img/AllOccassion/AO3.jpg" alt="imga-3" />
-                                <img class="image-item" src="img/AllOccassion/AO4.jpg" alt="imga-4" />
-                                <img class="image-item" src="img/AllOccassion/AOBG.jpg" alt="imga-5" />
-                                <img class="image-item" src="img/AllOccassion/AOBG1.jpg" alt="imga-6" />
-                                <img class="image-item" src="img/AllOccassion/AOBG2.jpg" alt="imga-7" />
-                                <img class="image-item" src="img/AllOccassion/AOBG3.jpg" alt="imga-8" />
-                                <img class="image-item" src="img/AllOccassion/AOBG4.jpg" alt="imga-9" />
-                                </ul>
-                                <button id="next-slide" class="slide-button material-symbols-rounded">chevron_right</button>
-                            </div>
-                            <div class="slider-scrollbar">
-                                <div class="scrollbar-track">
-                                <div class="scrollbar-thumb"></div>
+                                <div class="slider">
+                                    <img id="slide-15" src="img/AllOccassion/AO1.jpg" alt="imga-1" />
+                                    <img id="slide-16" src="img/AllOccassion/AO2.jpg" alt="imga-2" />
+                                    <img id="slide-17" src="img/AllOccassion/AO3.jpg" alt="imga-3" />
+                                    <img id="slide-18" src="img/AllOccassion/AO4.jpg" alt="imga-4" />
+                                    <img id="slide-19" src="img/AllOccassion/AOBG.jpg" alt="imga-5" />
+                                    <img id="slide-20" src="img/AllOccassion/AOBG1.jpg" alt="imga-6" />
+                                    <img id="slide-21" src="img/AllOccassion/AOBG2.jpg" alt="imga-7" />
+                                    <img id="slide-22" src="img/AllOccassion/AOBG3.jpg" alt="imga-8" />
+                                    <img id="slide-23" src="img/AllOccassion/AOBG4.jpg" alt="imga-9" />
+                                </div>
+                                <div class="slider-nav">
+                                    <a href="#slide-15"></a>
+                                    <a href="#slide-16"></a>
+                                    <a href="#slide-17"></a>
+                                    <a href="#slide-18"></a>
+                                    <a href="#slide-19"></a>
+                                    <a href="#slide-20"></a>
+                                    <a href="#slide-21"></a>
+                                    <a href="#slide-22"></a>
+                                    <a href="#slide-23"></a>
                                 </div>
                             </div>
+                        </section>
                         </div>
                         <!-- Slideshow End -->
 
@@ -637,32 +652,40 @@
                         <!-- Function Room Packages End -->
 
                         <!-- Slideshow Start -->
-                        <div class="container">
+                        <div class="Funccontainer">
                             <div class="galleryHeader wow fadeInDown">
                                 <h5 class="section-title ff-secondary text-center text-primary fw-normal">Gallery</h5>
                                 <h1 class="mb-5">Function Rooms</h1>
                             </div>
+                            <section class="container">
                             <div class="slider-wrapper">
-                                <button id="prev-slide" class="slide-button material-symbols-rounded">chevron_left</button>
-                                <ul class="image-list">
-                                <img class="image-item" src="img/Venue/Ven1.jpg" alt="imgf-1" />
-                                <img class="image-item" src="img/Venue/Ven2.jpg" alt="imgf-2" />
-                                <img class="image-item" src="img/Venue/Ven3.jpg" alt="imgf-3" />
-                                <img class="image-item" src="img/Venue/Ven4.jpg" alt="imgf-4" />
-                                <img class="image-item" src="img/Venue/Ven5.jpg" alt="imgf-5" />
-                                <img class="image-item" src="img/Venue/Ven6.jpg" alt="imgf-6" />
-                                <img class="image-item" src="img/Venue/Ven7.jpg" alt="imgf-7" />
-                                <img class="image-item" src="img/Venue/Ven8.jpg" alt="imgf-8" />
-                                <img class="image-item" src="img/Venue/Ven9.jpg" alt="imgf-9" />
-                                <img class="image-item" src="img/Venue/Ven10.jpg" alt="imgf-10" />
-                                </ul>
-                                <button id="next-slide" class="slide-button material-symbols-rounded">chevron_right</button>
-                            </div>
-                            <div class="slider-scrollbar">
-                                <div class="scrollbar-track">
-                                <div class="scrollbar-thumb"></div>
+                                <div class="slider">
+                                    <img id="slide-24" src="img/Venue/Ven1.jpg" alt="imgf-1" />
+                                    <img id="slide-25" src="img/Venue/Ven2.jpg" alt="imgf-2" />
+                                    <img id="slide-26" src="img/Venue/Ven3.jpg" alt="imgf-3" />
+                                    <img id="slide-27" src="img/Venue/Ven4.jpg" alt="imgf-4" />
+                                    <img id="slide-28" src="img/Venue/Ven5.jpg" alt="imgf-5" />
+                                    <img id="slide-30" src="img/Venue/Ven6.jpg" alt="imgf-6" />
+                                    <img id="slide-31" src="img/Venue/Ven7.jpg" alt="imgf-7" />
+                                    <img id="slide-32" src="img/Venue/Ven8.jpg" alt="imgf-8" />
+                                    <img id="slide-33" src="img/Venue/Ven9.jpg" alt="imgf-9" />
+                                    <img id="slide-34" src="img/Venue/Ven10.jpg" alt="imgf-10" />
+                                </div>
+                                <div class="slider-nav">
+                                    <a href="#slide-24"></a>
+                                    <a href="#slide-25"></a>
+                                    <a href="#slide-26"></a>
+                                    <a href="#slide-27"></a>
+                                    <a href="#slide-28"></a>
+                                    <a href="#slide-29"></a>
+                                    <a href="#slide-30"></a>
+                                    <a href="#slide-31"></a>
+                                    <a href="#slide-32"></a>
+                                    <a href="#slide-33"></a>
+                                    <a href="#slide-34"></a>
                                 </div>
                             </div>
+                        </section>
                         </div>
                         <!-- Slideshow End -->
                 </div>

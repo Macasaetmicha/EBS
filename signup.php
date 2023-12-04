@@ -4,6 +4,18 @@ include 'connection.php';
 
 $errorMessages = array();
 
+$emailValue = ""; 
+$passwordValue = "";
+$usernameValue = "";
+$fnameValue = "";
+$mnameValue = "";
+$lnameValue = "";
+$genderValue = "";
+$bdayValue = "";
+$contNumValue = "";
+$idTypeValue = "";
+$idNumValue = "";
+
 if(isset($_POST['submit'])){
     $email = filter_input(INPUT_POST, "email", FILTER_SANITIZE_EMAIL);
     $password = filter_input(INPUT_POST, "password", FILTER_SANITIZE_SPECIAL_CHARS);
@@ -62,6 +74,18 @@ if(isset($_POST['submit'])){
         } 
     }
 
+    $emailValue = htmlspecialchars($email);
+    $passwordValue = htmlspecialchars($password);
+    $usernameValue = htmlspecialchars($username);
+    $fnameValue = htmlspecialchars($fname);
+    $mnameValue = htmlspecialchars($mname);
+    $lnameValue = htmlspecialchars($lname);
+    $genderValue = htmlspecialchars($gender);
+    $bdayValue = htmlspecialchars($bday);
+    $contNumValue = htmlspecialchars($contNum);
+    $idTypeValue = htmlspecialchars($idType);
+    $idNumValue = htmlspecialchars($idNum);
+
     mysqli_close($con);
 
 }
@@ -69,7 +93,7 @@ if(isset($_POST['submit'])){
 ?>
 <head>
     <meta charset="utf-8">
-    <title>Sign-in | MiCasa Events</title>
+    <title>Sign-up | MiCasa Events</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta content="" name="keywords">
     <meta content="" name="description">
@@ -159,15 +183,15 @@ if(isset($_POST['submit'])){
                     <h2 class="header2">Login Credentials</h2><br>
                     <div class="login_form1" id="step-1">
                         <div class="inputbox">
-                            <input type="email" name="email" id="emailInput" required><br>
+                            <input type="email" name="email" id="emailInput" value="<?php echo $emailValue; ?>" required><br>
                             <label for="">Email</label>
                         </div>
                         <div class="inputbox">
-                            <input type="password" name="password" id="password" required><br>
+                            <input type="password" name="password" id="password" value="<?php echo $passwordValue ; ?>" required><br>
                             <label for="">Password</label>
                         </div>
                         <div class="inputbox" >
-                            <input type="text" name="username" id="username" required>
+                            <input type="text" name="username" id="username" value="<?php echo $usernameValue ; ?>" required>
                             <label for="">Username</label>
                         </div>
                         <div class="btn_button">
@@ -182,35 +206,59 @@ if(isset($_POST['submit'])){
                         <!-- Row 1: First Name, Middle Name, Last Name -->
                         <div class="form-row1">
                             <div class="inputbox1">
-                                <input type="text" name="fname" id="fname" required>
+                                <input type="text" name="fname" id="fname" value="<?php echo $fnameValue ; ?>" required>
                                 <label for="">First Name</label>
                             </div>
-                            <div class="inputbox1">
-                                <input type="text" name="mname" id="mname" required>
-                                <label for="">Middle Name (N/A)</label>
+                            <div class="inputbox1" id="middleNameInput">
+                                <input type="text" name="mname" id="mname" value="<?php echo $mnameValue; ?>" <?php echo isset($_POST['noMiddleNameCheckbox']) ? 'disabled' : 'required'; ?>>
+                                <label for="">Middle Name</label>
                             </div>
                             <div class="inputbox1">
-                                <input type="text" name="lname" id="lname" required>
+                                <input type="text" name="lname" id="lname" value="<?php echo $lnameValue ; ?>" required>
                                 <label for="">Last Name</label>
                             </div>
                         </div>
+                        <div class="form-row1">
+                            <div class="inputbox1" id="check"></div>
+                            <div class="checkbox-container">
+                                <input type="checkbox" name="noMiddleNameCheckbox" id="noMiddleNameCheckbox" onchange="toggleMiddleNameField()">
+                                <label for="noMiddleNameCheckbox">No Middle Name</label>
+                            </div>
+                            <div class="inputbox1" id="check"></div>
+                        </div>
+
+                        <script>
+                            function toggleMiddleNameField() {
+                                var middleNameInputBox = document.getElementById('middleNameInputBox');
+                                var noMiddleNameCheckbox = document.getElementById('noMiddleNameCheckbox');
+                                var middleNameInput = document.getElementById('mname');
+
+                                if (noMiddleNameCheckbox.checked) {
+                                    middleNameInput.removeAttribute('required');
+                                    middleNameInput.setAttribute('disabled', 'disabled');
+                                } else {
+                                    middleNameInput.setAttribute('required', 'required');
+                                    middleNameInput.removeAttribute('disabled');
+                                }
+                            }
+                        </script>
 
                         <!-- Row 2: Gender and Birthdate -->
                         <div class="form-row2">
                             <label for="gender">Gender:</label>
-                            <select id="gender" name="Gender" class="s3">
+                            <select id="gender" name="Gender" class="s3" value="<?php echo $genderValue ; ?>"required>
                                 <option value="Male">Male</option>
                                 <option value="Female">Female</option>
                                 <option value="Others">Prefer not to say</option>
                             </select>
                             <label for="bday">Birthdate:</label>
-                            <input type="date" name="bday" class="s3" id="bday" required>
+                            <input type="date" name="bday" class="s3" id="bday" value="<?php echo $bdayValue ; ?>" required>
                         </div>
 
                         <!-- Row 3: Contact Number -->
                         <div class="form-row3">
                             <div class="inputbox1">
-                            <input type="text" id="contNum"  name="contNum" maxlength="11" oninput="formatPhoneNumber(this)" required>
+                            <input type="text" id="contNum"  name="contNum" maxlength="11" oninput="formatPhoneNumber(this)" value="<?php echo $contNumValue ; ?>" required>
                                 <label for="">Contact Number</label>
                             </div>
                         </div>
@@ -227,7 +275,7 @@ if(isset($_POST['submit'])){
                         <div class="form-row4">
                             <br>
                             <label for="idType">ID Type:</label>
-                            <select id="idType" name="idType" class="s3">
+                            <select id="idType" name="idType" class="s3" value="<?php echo $idTypeValue ; ?>" required>
                                 <option value="passport">Passport</option>
                                 <option value="natID">National ID</option>
                                 <option value="drivLicense">Drivers License</option>
@@ -238,7 +286,7 @@ if(isset($_POST['submit'])){
                                 <option value="ofw">OFW ID</option>
                             </select>
                             <div class="inputbox3">
-                                <input type="text" name="idNum" required><br>
+                                <input type="text" name="idNum" value="<?php echo $idNumValue ; ?>" required><br>
                                 <label for="">ID Number</label>
                             </div>
                             <input type="hidden" name="step" value="3">

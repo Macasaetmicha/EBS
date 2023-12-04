@@ -8,8 +8,10 @@ include 'connection.php';
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no" />
-    <title>Reset Password</title>
+    <title>Reset Password | MiCasa Events</title>
     <link rel="stylesheet" type="text/css" href="signStyle.css">
+    <!-- Favicon -->
+    <link href="img/calendar2-event-fill.svg" rel="icon" type="image/svg+xml">
 </head>
 <body>
   <section>

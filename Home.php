@@ -381,45 +381,45 @@
         <div class="owl-carousel testimonial-carousel">
             <div class="testimonial-item bg-transparent border rounded p-4">
                 <i class="fa fa-quote-left fa-2x text-primary mb-3"></i>
-                <p>Ang Gandaaa </p>
+                <p>Great Service and Decor</p>
                 <div class="d-flex align-items-center">
                     <img class="img-fluid flex-shrink-0 rounded-circle" src="img/testimonial-1.jpg" style="width: 50px; height: 50px;">
                     <div class="ps-3">
-                        <h5 class="mb-1">Sir Nortz</h5>
-                        <small>Sir DCIT</small>
+                        <h5 class="mb-1">Maam Juana</h5>
+                        <small>Debut Package</small>
                     </div>
                 </div>
             </div>
             <div class="testimonial-item bg-transparent border rounded p-4">
                 <i class="fa fa-quote-left fa-2x text-primary mb-3"></i>
-                <p>Sheeeeeeeeeeeeeeeeeeeeeeesh</p>
+                <p>Exceeded my expectations!</p>
                 <div class="d-flex align-items-center">
                     <img class="img-fluid flex-shrink-0 rounded-circle" src="img/testimonial-2.jpg" style="width: 50px; height: 50px;">
                     <div class="ps-3">
-                        <h5 class="mb-1">Sir Hugo</h5>
-                        <small>Sir COSC</small>
+                        <h5 class="mb-1">Sir Juan</h5>
+                        <small>All Occasions Celebration</small>
                     </div>
                 </div>
             </div>
             <div class="testimonial-item bg-transparent border rounded p-4">
                 <i class="fa fa-quote-left fa-2x text-primary mb-3"></i>
-                <p>Calcu'laaaaaa'ted</p>
+                <p>Fantastic experience</p>
                 <div class="d-flex align-items-center">
                     <img class="img-fluid flex-shrink-0 rounded-circle" src="img/testimonial-3.jpg" style="width: 50px; height: 50px;">
                     <div class="ps-3">
-                        <h5 class="mb-1">Sir Bayan</h5>
-                        <small>Sir Math</small>
+                        <h5 class="mb-1">Sir Juanito</h5>
+                        <small>Golden Ballroom</small>
                     </div>
                 </div>
             </div>
             <div class="testimonial-item bg-transparent border rounded p-4">
                 <i class="fa fa-quote-left fa-2x text-primary mb-3"></i>
-                <p>Grabe ang bilis</p>
+                <p>Will definitely partner with them again</p>
                 <div class="d-flex align-items-center">
                     <img class="img-fluid flex-shrink-0 rounded-circle" src="img/testimonial-4.jpg" style="width: 50px; height: 50px;">
                     <div class="ps-3">
-                        <h5 class="mb-1">Sir Opella</h5>
-                        <small>Sir of the Sir</small>
+                        <h5 class="mb-1">Maam Juanita</h5>
+                        <small>Deluxe Package</small>
                     </div>
                 </div>
             </div>
