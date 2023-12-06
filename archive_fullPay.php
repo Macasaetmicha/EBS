@@ -174,7 +174,7 @@ if(isset($_POST['submit'])) {
             });
         </script>";
 
-        //header('Location: Archive.php?message=' . urlencode($successMessage));
+        header('Location: Archive.php?message=' . urlencode($successMessage));
         exit;
 
     }

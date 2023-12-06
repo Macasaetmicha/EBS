@@ -23,6 +23,7 @@ if ($result) {
 
     $token = bin2hex(random_bytes(16));
     $token_hash = hash("sha256", $token);
+    date_default_timezone_set('Asia/Manila');
     $expiry = date("Y-m-d H:i:s", time() + 60 * 30);
 
     $sql = "UPDATE logcredentials SET reset_token_hash = ?, reset_token_expires_at = ? WHERE email = ?";

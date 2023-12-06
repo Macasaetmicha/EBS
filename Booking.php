@@ -348,13 +348,12 @@
 
                                                 const timeDifference = endTime - startTime;
 
-                                                if (endTime.getHours() >= 0){
-                                                    alert("Oops. End Time cut off is at 11:59PM. Please take note that setup and clean up time is included in booking time.")
+                                                if (timeDifference < 4 * 60 * 60 * 1000) {
+                                                    alert("The minimum time duration must be 4 hours. Please adjust your input.");
                                                     updateEndTime();
                                                 }
-                                                else if (timeDifference < 4 * 60 * 60 * 1000) {
-                                                    alert("The minimum time duration must be 4 hours. Please adjust your input.");
-                                                
+                                                if (endTime.getHours() = 0){
+                                                    alert("Oops. End Time cut off is at 11:59PM. Please take note that setup and clean up time is included in booking time.")
                                                     updateEndTime();
                                                 }
                                             

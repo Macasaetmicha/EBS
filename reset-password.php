@@ -1,4 +1,5 @@
 <?php
+  session_start(); // Start the session to access session variables
 
   $token = $_GET["token"];
 
@@ -17,15 +18,22 @@
 
   $result = $stmt->get_result();
 
-  $user = $result->fetch_assoc();
+  $email = $result->fetch_assoc();
 
-  if ($user === null) {
-        die("token not found");
+  if ($email === null) {
+      //echo '<script>console.error("Token not found");</script>';
+      die("token not found");
   }
 
-  if (strtotime($user["reset_token_expires_at"]) <= time()) {
-        die("token has expired");
+  if (strtotime($email["reset_token_expires_at"]) <= time()) {
+      //echo '<script>console.error("Token has expired");</script>';
+      die("token na expired");
   }
+
+  //var_dump($email);
+
+  //echo "Token: " . $token . "<br>";
+  //echo "Hash: " . $token_hash;
 
 ?>
 
@@ -42,35 +50,35 @@
 <body>
   <section>
     <div class="form-box">
-    <div class="changepass_box">
-      <form method="post" action="process-reset-password.php">
-        <input type="hidden" name="token" value="<?= htmlspecialchars($token) ?>">
-        <h2>Reset Password</h2>
-        <div class="inputbox3">
-          <input type="password" name="pword"required>
-          <label for="">New Password</label>
-        </div>
-        <div class="inputbox3">
-          <input type="password" name="cpword" required>
-          <label for="">Confirm Password</label>
-        </div>
-        <button type="submit" name="submit">Change Password</button>
-      </form>
-    </div>
-    <div class="error_box">
-      <?php
-      if (isset($_SESSION['errorMessage']) && !empty($_SESSION['errorMessage'])) {
-        echo '<p class="error-message">' . $_SESSION['errorMessage'] . '</p>';
-        unset($_SESSION['errorMessage']); 
-      }
-      if (isset($_SESSION['successMessage']) && !empty($_SESSION['successMessage'])) {
-        echo '<p class="success-message">' . $_SESSION['successMessage'] . '</p>';
-        unset($_SESSION['successMessage']); 
-      }
-      ?>
-    </div>
+      <div class="changepass_box">
+        <form method="post" action="process-reset-password.php">
+          <input type="hidden" name="token" value="<?= htmlspecialchars($token) ?>">
+          <h2>Reset Password</h2>
+          <div class="inputbox3">
+            <input type="password" name="pword"required>
+            <label for="">New Password</label>
+          </div>
+          <div class="inputbox3">
+            <input type="password" name="cpword" required>
+            <label for="">Confirm Password</label>
+          </div>
+          <button type="submit" name="submit">Change Password</button>
+        </form>
+      </div>
+      <div>
+        <?php
+          // Display error messages if set
+          if (isset($_SESSION['errorMessages']) && !empty($_SESSION['errorMessages'])) {
+            echo '<div class="error-message">Error(s) occurred:<ul>';
+            foreach ($_SESSION['errorMessages'] as $errorMessage) {
+              echo '<li>' . $errorMessage . '</li>';
+            }
+            echo '</ul></div>';
+            unset($_SESSION['errorMessages']); // Clear the session variable
+          }
+        ?>
+      </div>
     </div>
   </section>
-  
 </body>
 </html>

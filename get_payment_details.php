@@ -17,6 +17,7 @@ if (isset($_POST['eventId'])) {
     $data = array();
 
     while ($row = mysqli_fetch_assoc($result)) {
+        $row['balance'] = $row['total_bill'] - $row['downpayment'];
         $data[] = $row;
     }
 

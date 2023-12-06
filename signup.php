@@ -53,7 +53,7 @@ if(isset($_POST['submit'])){
     if (mysqli_num_rows($result2) > 0) {
         $errorMessages[] = "Contact number is already in use. Please choose a different one.";
     }
-    if (!preg_match("/^[a-zA-Z\s]+$/", $fname) || !preg_match("/^[a-zA-Z\s]+$/", $mname) || !preg_match("/^[a-zA-Z\s]+$/", $lname)){
+    if (!preg_match("/^[a-zA-Z\s]+$/", $fname) || !preg_match("/^[a-zA-Z\s]+$/", $lname)){
         $errorMessages[] = "Numbers and symbols are not allowed in the name field!";
     }
     else{

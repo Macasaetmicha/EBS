@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3307
--- Generation Time: Nov 14, 2023 at 03:31 PM
+-- Generation Time: Dec 06, 2023 at 01:55 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -31,7 +31,21 @@ CREATE TABLE `cardinfo` (
   `paymentID` int(255) NOT NULL,
   `cardNum` varchar(255) NOT NULL,
   `cvv` int(3) NOT NULL,
-  `expDate` varchar(10) NOT NULL
+  `expDate` varchar(10) NOT NULL,
+  `payment_purpose` enum('dp','fp') NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `cashinfo`
+--
+
+CREATE TABLE `cashinfo` (
+  `paymentID` int(255) NOT NULL,
+  `receiptNum` varchar(255) NOT NULL,
+  `receiptImg` mediumblob NOT NULL,
+  `payment_purpose` enum('dp','fp') NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -43,6 +57,7 @@ CREATE TABLE `cardinfo` (
 CREATE TABLE `eventinfo` (
   `eventID` int(255) NOT NULL,
   `userID` int(255) NOT NULL,
+  `serviceID` int(255) NOT NULL,
   `funcRoom` varchar(255) NOT NULL,
   `package` varchar(255) NOT NULL,
   `eventType` varchar(255) NOT NULL,
@@ -50,6 +65,7 @@ CREATE TABLE `eventinfo` (
   `eventDate` date NOT NULL,
   `eventTimeStart` time(6) NOT NULL,
   `eventTimeEnd` time(6) NOT NULL,
+  `overTime` decimal(5,2) DEFAULT NULL,
   `request` varchar(255) NOT NULL,
   `date_booked` datetime DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
@@ -65,8 +81,19 @@ CREATE TABLE `logcredentials` (
   `email` varchar(255) NOT NULL,
   `password` varchar(255) NOT NULL,
   `username` varchar(255) NOT NULL,
-  `date_joined` datetime NOT NULL DEFAULT current_timestamp()
+  `date_joined` datetime NOT NULL DEFAULT current_timestamp(),
+  `reset_token_hash` int(255) NOT NULL,
+  `reset_token_expires_at` datetime NOT NULL,
+  `role` enum('user','admin') NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `logcredentials`
+--
+
+INSERT INTO `logcredentials` (`logID`, `email`, `password`, `username`, `date_joined`, `reset_token_hash`, `reset_token_expires_at`, `role`) VALUES
+(1, 'micasa.cosc75g2@gmail.com', 'micasaCOSC75', 'MiCasa_Admin', '2023-11-27 15:28:35', 0, '0000-00-00 00:00:00', 'admin'),
+(4, 'macasaetmichaelamarie@gmail.com', 'MicaMica123', 'Micha', '2023-12-06 19:39:14', 4, '2023-12-06 21:22:34', 'user');
 
 -- --------------------------------------------------------
 
@@ -76,7 +103,8 @@ CREATE TABLE `logcredentials` (
 
 CREATE TABLE `onlineinfo` (
   `paymentID` int(255) NOT NULL,
-  `referenceNum` varchar(255) NOT NULL
+  `referenceNum` varchar(255) NOT NULL,
+  `payment_purpose` enum('dp','fp') NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -91,7 +119,9 @@ CREATE TABLE `paymentinfo` (
   `total_bill` decimal(10,2) NOT NULL,
   `downpayment` decimal(10,2) NOT NULL,
   `paymentType` varchar(255) NOT NULL,
-  `fullPayment` decimal(10,2) NOT NULL
+  `balance` decimal(10,2) NOT NULL,
+  `fullPaymentType` varchar(255) NOT NULL,
+  `paymentStatus` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -149,12 +179,19 @@ CREATE TABLE `user` (
   `lname` varchar(255) NOT NULL,
   `bday` date NOT NULL,
   `gender` varchar(255) NOT NULL,
-  `contNum` int(11) NOT NULL,
+  `contNum` varchar(13) NOT NULL,
   `idType` varchar(255) NOT NULL,
   `idNum` varchar(255) NOT NULL,
   `idFront` mediumblob NOT NULL,
   `idBack` mediumblob NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `user`
+--
+
+INSERT INTO `user` (`userID`, `logID`, `fname`, `mname`, `lname`, `bday`, `gender`, `contNum`, `idType`, `idNum`, `idFront`, `idBack`) VALUES
+(1, 4, 'Michaela Marie', '', 'Macasaet', '2003-06-14', 'Female', '0939-246-8411', 'passport', '123456789', 0x49442046726f6e742e706e67, 0x4944204261636b2e706e67);
 
 --
 -- Indexes for dumped tables
@@ -193,6 +230,12 @@ ALTER TABLE `paymentinfo`
   ADD KEY `eventID` (`eventID`);
 
 --
+-- Indexes for table `pricinginfo`
+--
+ALTER TABLE `pricinginfo`
+  ADD PRIMARY KEY (`serviceID`);
+
+--
 -- Indexes for table `user`
 --
 ALTER TABLE `user`
@@ -213,7 +256,7 @@ ALTER TABLE `eventinfo`
 -- AUTO_INCREMENT for table `logcredentials`
 --
 ALTER TABLE `logcredentials`
-  MODIFY `logID` int(255) NOT NULL AUTO_INCREMENT;
+  MODIFY `logID` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `paymentinfo`
@@ -225,7 +268,7 @@ ALTER TABLE `paymentinfo`
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `userID` int(255) NOT NULL AUTO_INCREMENT;
+  MODIFY `userID` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- Constraints for dumped tables
