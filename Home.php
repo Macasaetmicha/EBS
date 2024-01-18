@@ -329,7 +329,7 @@
                             </div>
                         </div>
                     </div>
-                    <a class="btn btn-primary py-3 px-5 mt-2" href="booking.html">Book Now</a>
+                    <a class="btn btn-primary py-3 px-5 mt-2" href="booking.php">Book Now</a>
                 </div>
             </div>
         </div>

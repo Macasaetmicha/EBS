@@ -110,7 +110,7 @@
                             <div class="p-5 wow fadeInUp" id="forms_container" data-wow-delay="0.2s">
                                 <h1 class="text-white mb-4">Oops!</h1>
                                 <p class="text-warning">It looks like you are not logged in. To continue with your booking please <a href="signin.php">log into your account</a>.
-                                <br><br>Don\'t have one? Thats all right, click the button below to get started.</p>'
+                                <br><br>Don't have one? Thats all right, click the button below to get started.</p>'
                                 <a href="signup.php" class="btn btn-primary py-2 px-4">Sign Up</a>'
                            
                         
@@ -641,7 +641,7 @@
                                 </div>
                                 <div class="row">
                                     <div class="col-md-6">
-                                        <button type="button" class="booking_btn btn-primary w-100 py-3" id="s1Previous" onclick="previousStep(2)">Previous</button>
+                                        <button type="button" class="booking_btn btn-primary w-100 py-3" id="s2Previous" onclick="previousStep(2)">Previous</button>
                                     </div>
                                     <div class="col-md-6">
                                         <input type="submit" class="booking_btn btn-primary w-100 py-3" name="submit" value="Book">

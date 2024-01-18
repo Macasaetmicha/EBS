@@ -19,15 +19,11 @@
   $result = $stmt->get_result();
 
   $email = $result->fetch_assoc();
+  date_default_timezone_set('Asia/Manila');
 
   if ($email === null) {
       //echo '<script>console.error("Token not found");</script>';
-      die("token not found");
-  }
-
-  if (strtotime($email["reset_token_expires_at"]) <= time()) {
-      //echo '<script>console.error("Token has expired");</script>';
-      die("token na expired");
+      die("Oops! There was an Error.");
   }
 
   //var_dump($email);
@@ -48,6 +44,18 @@
     <link href="img/calendar2-event-fill.svg" rel="icon" type="image/svg+xml">
 </head>
 <body>
+<script>
+    <?php
+      if ($email === null) {
+          echo 'alert("Oops! There was an error with the link.");';
+          echo 'window.location.href = "signin.php";'; 
+        }
+        if (strtotime($email["reset_token_expires_at"]) <= time()) {
+            echo 'alert("Link has expired. Please request a new password reset link.");';
+            echo 'window.location.href = "signin.php";'; 
+        }
+    ?>
+    </script>
   <section>
     <div class="form-box">
       <div class="changepass_box">
